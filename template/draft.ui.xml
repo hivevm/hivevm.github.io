@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE template>
+<template width="210mm" height="297mm">
+    <font name="corporate">
+        <font-metric uri="fonts/CorporateS.ttf"/>
+        <font-metric uri="fonts/CorporateS-Bold.ttf" bold="true"/>
+        <font-metric uri="fonts/CorporateS-Italic.ttf" italic="true"/>
+        <font-metric uri="fonts/CorporateS-BoldItalic.ttf" bold="true" italic="true"/>
+    </font>
+
+    <page name="cover" padding="210mm,0,70mm,2.7in" background="cover.jpg">
+        <region position="top" extent="297mm">
+            <column top="182mm" left="2.5in" right="0" bottom="60mm" background="#f4cb52">
+                <column top="0" left="0.2in" right="0.2in" bottom="0">
+                    <row color="#000000" font-size="48pt" font-weight="bold" line-height="1.4em">HiveVM</row>
+                    <row color="#000000" font-size="36pt" line-height="1.2em">Rethinking Software Development</row>
+                </column>
+            </column>
+        </region>
+    </page>
+
+    <page name="default" margin="14mm,0" padding="2mm" background="draft.png">
+        <region position="left" extent="11mm"/>
+        <region position="right" extent="11mm"/>
+        <region position="top" extent="24mm"/>
+        <region position="bottom" extent="24mm"/>
+    </page>
+
+    <page-set name="book">
+        <page-entry name="cover" match="First"/>
+        <page-entry name="default"/>
+    </page-set>
+
+    <page-set name="chapter">
+        <page-entry name="default"/>
+    </page-set>
+
+    <page-set name="standard">
+        <page-entry name="default"/>
+    </page-set>
+</template>
