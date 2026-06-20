@@ -1,7 +1,8 @@
-_site/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
-vendor/
-Gemfile.lock
+# Hugo build output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# OS / editor
 .DS_Store
+Thumbs.db

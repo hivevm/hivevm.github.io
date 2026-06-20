@@ -1,0 +1,35 @@
+<footer class="site">
+  <div class="container footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="{{ "/" | relURL }}#welcome" class="logo" aria-label="HiveVM home">
+          {{ partial "logo.html" . }}
+          <span class="name">Hive<em>VM</em></span>
+        </a>
+        <p class="blurb">
+          Development tools based on modelling — parser generators, documentation tools and
+          build automation for Java, C++ and Rust.
+        </p>
+      </div>
+
+      {{- range .Site.Data.footer.columns -}}
+      <nav aria-label="{{ .title }}">
+        <p class="ftitle">{{ .title }}</p>
+        <ul>
+          {{- range .links -}}
+          <li>
+            <a href="{{ .href | relURL }}"{{ if strings.Contains .href "://" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+          </li>
+          {{- end -}}
+        </ul>
+      </nav>
+      {{- end -}}
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">{{ now.Format "2006" }}</span> HiveVM. All rights reserved.</p>
+      <p>Design adapted from <a href="https://github.com/cbetz/pulsar-lite" target="_blank"
+          rel="noopener noreferrer">Pulsar Lite</a> (MIT).</p>
+    </div>
+  </div>
+</footer>

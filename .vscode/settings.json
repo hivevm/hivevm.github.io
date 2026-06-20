@@ -1,0 +1,6 @@
+{
+  // Enable GitHub Copilot to read AGENTS.md as agent instructions.
+  "chat.useAgentsMdFile": true,
+  "files.eol": "\n",
+  "editor.formatOnSave": true
+}

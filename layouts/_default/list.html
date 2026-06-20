@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="container page-wrap">
+  <div class="prose-shell" data-reveal>
+    <p class="eyebrow">Blog</p>
+    <h1 style="margin-top:0.75rem;font-size:clamp(2rem,4.5vw,2.75rem);font-weight:600;letter-spacing:-0.02em;line-height:1.1">
+      Notes from the toolkit
+    </h1>
+    <p style="margin-top:1rem;color:var(--fg-2);font-size:1.0625rem;line-height:1.7">
+      Articles on parser generation, documentation and build orchestration — written in
+      Markdown and rendered in the same design.
+    </p>
+  </div>
+
+  <ul class="post-list" style="margin-top:2.5rem">
+    {{- range .Pages.ByDate.Reverse -}}
+    <li>
+      <a class="post-card" href="{{ .RelPermalink }}" data-reveal>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <h2>{{ .Title }}</h2>
+        <p>{{ $d := .Description | default (.Summary | plainify) }}{{ $d | truncate 160 }}</p>
+        <span class="more">Read article <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</section>
+{{ end }}

@@ -1,0 +1,22 @@
+baseURL = "https://hivevm.org/"
+languageCode = "en-us"
+title = "HiveVM"
+enableRobotsTXT = true
+
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "Development Tools based on Modelling"
+  description = "Developer tools based on modelling — an LL(k) parser generator, a CommonMark manual generator and a Gradle workflow engine for Java, C++ and Rust."
+  github_org = "https://github.com/hivevm"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    tabWidth = 2
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

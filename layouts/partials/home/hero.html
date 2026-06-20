@@ -1,0 +1,71 @@
+<section class="hero" id="welcome">
+  <div class="glow"></div>
+  <div class="honeycomb" aria-hidden="true" style="background-image:url('{{ "/assets/hive-texture.jpg" | relURL }}')"></div>
+  <div class="hc-veil" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <a href="{{ .Params.hero_badge_href | default "https://github.com/hivevm/cc" }}" class="badge glass"
+        target="_blank" rel="noopener noreferrer">
+        <span class="dot"></span>
+        {{ .Params.hero_badge | default "LL(k) parser generation for Java, C++ & Rust" }}
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <h1 class="hero-title">
+        {{ .Params.hero_title_pre | default "Development tools based on" }}
+        <span class="text-gradient">{{ .Params.hero_title_em | default "MODELLING" }}</span>
+      </h1>
+
+      <p class="hero-sub">
+        {{ .Params.hero_sub | default "Developer tools for Gradle and VSCode, based on Java, C++ and Rust." }}
+      </p>
+
+      <div class="hero-actions">
+        <a href="{{ .Params.hero_cta1_href | default "#features" | relURL }}" class="btn btn-primary btn-lg">{{ .Params.hero_cta1 | default "Explore the tools" }}</a>
+        <a href="{{ .Params.hero_cta2_href | default "https://github.com/hivevm" }}" class="btn btn-secondary btn-lg"
+          target="_blank" rel="noopener noreferrer">{{ .Params.hero_cta2 | default "View on GitHub" }}</a>
+      </div>
+
+      <p class="hero-cmd"><span class="pr">$</span> {{ .Params.hero_cmd | default "git clone https://github.com/hivevm/cc" }}</p>
+    </div>
+
+    <!-- Code + terminal panel (bespoke visual — lives in the template) -->
+    <div class="panel-wrap" data-reveal>
+      <div class="code-panel glass">
+        <div class="pane editor">
+          <div class="pane-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="file">Calc.g</span>
+          </div>
+          <div class="pane-body">
+<pre class="code"><span class="cm">// LL(k) grammar — generates a parser + AST</span>
+<span class="kw">grammar</span> <span class="ty">Calc</span><span class="pn">;</span>
+
+<span class="fn">expr</span>   <span class="pn">:</span> term <span class="pn">((</span><span class="st">'+'</span> <span class="pn">|</span> <span class="st">'-'</span><span class="pn">)</span> term<span class="pn">)</span>* <span class="pn">;</span>
+<span class="fn">term</span>   <span class="pn">:</span> factor <span class="pn">((</span><span class="st">'*'</span> <span class="pn">|</span> <span class="st">'/'</span><span class="pn">)</span> factor<span class="pn">)</span>* <span class="pn">;</span>
+<span class="fn">factor</span> <span class="pn">:</span> <span class="ty">NUMBER</span> <span class="pn">|</span> <span class="st">'('</span> expr <span class="st">')'</span> <span class="pn">;</span>
+
+<span class="ty">NUMBER</span> <span class="pn">:</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+ (</span><span class="st">'.'</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+)?</span> <span class="pn">;</span>
+<span class="ty">WS</span>     <span class="pn">:</span> <span class="pn">[</span> \t\r\n<span class="pn">]+</span> -&gt; <span class="kw">skip</span> <span class="pn">;</span></pre>
+          </div>
+        </div>
+
+        <div class="pane terminal">
+          <div class="pane-head">
+            <span class="file" style="margin-left:0">terminal</span>
+          </div>
+          <div class="term-body">
+            <p><span class="pr">$</span> hivevm-cc generate Calc.g --target java,cpp</p>
+            <p class="muted">Parsing grammar Calc.g…</p>
+            <p><span class="ok">✓</span> <span class="txt">LL(k) analysis complete (k=2)</span></p>
+            <p><span class="ok">✓</span> <span class="txt">Parser → java/CalcParser.java</span></p>
+            <p><span class="ok">✓</span> <span class="txt">AST&nbsp;&nbsp;&nbsp;&nbsp;→ cpp/CalcNode.hpp</span></p>
+            <p style="padding-top:0.25rem"><span class="lnk">→</span> <span class="txt">2 targets built in 0.4s</span></p>
+            <p style="padding-top:0.5rem" class="muted"><span class="pulse" aria-hidden="true"></span>&nbsp;&nbsp;watching grammar for changes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

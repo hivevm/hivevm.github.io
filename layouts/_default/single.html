@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="container page-wrap">
+  <div class="prose-shell">
+    <header class="post-head" data-reveal>
+      <p class="eyebrow">Blog</p>
+      <h1>{{ .Title }}</h1>
+      <p class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{- with .Params.author }} · {{ . }}{{ end -}}
+      </p>
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:3rem 0 1.5rem" />
+    <a href="{{ "/blog/" | relURL }}" class="back-link"><span aria-hidden="true">←</span> Back to the blog</a>
+  </div>
+</article>
+{{ end }}

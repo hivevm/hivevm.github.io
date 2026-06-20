@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {{- $desc := .Description | default .Site.Params.description -}}
+  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }}{{ end }}</title>
+  <meta name="description" content="{{ $desc }}" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ $desc }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+
+  <link rel="icon" type="image/svg+xml" href="{{ "/assets/favicon.svg" | relURL }}" />
+  <link rel="icon" type="image/x-icon" href="{{ "/assets/favicon.ico" | relURL }}" />
+  <link rel="apple-touch-icon" href="{{ "/assets/apple-touch-icon.png" | relURL }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="{{ "/assets/css/hivevm.css" | relURL }}" />
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  {{ partial "nav.html" . }}
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  <script src="{{ "/assets/js/site.js" | relURL }}" defer></script>
+</body>
+
+</html>
