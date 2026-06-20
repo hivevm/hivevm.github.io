@@ -1,0 +1,89 @@
+<section class="section" id="features" style="scroll-margin-top:5rem">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Toolkit</p>
+      <h2>Everything a modelling toolchain should handle</h2>
+      <p>
+        HiveVM owns the model-and-generate layer — grammars, documentation and build
+        orchestration — so your repository stays focused on intent, not boilerplate.
+      </p>
+    </div>
+
+    <div class="bento">
+      {%- for f in site.data.features -%}
+      <article class="card {{ f.span }}" data-reveal>
+        <div class="ico" aria-hidden="true">
+          {%- case f.icon -%}
+          {%- when 'brackets' -%}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5.5 2.5 10 7 14.5M13 5.5 17.5 10 13 14.5" /></svg>
+          {%- when 'doc' -%}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 3.5h7l5 5v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z" /><path d="M11 3.5V8h4.5M6 11.5h8M6 14h5" stroke-linecap="round" /></svg>
+          {%- when 'pipeline' -%}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="4.5" r="2" /><circle cx="5.5" cy="15.5" r="2" /><circle cx="14.5" cy="10" r="2" /><path d="M5.5 6.5v7M7.5 4.5h4a1 1 0 0 1 1 1v3.5M7.5 15.5h4a1 1 0 0 0 1-1V11.5" /></svg>
+          {%- when 'layers' -%}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5 2.5 6.25 10 10l7.5-3.75L10 2.5Z" /><path d="m2.5 10.25 7.5 3.75 7.5-3.75m-15 4 7.5 3.75 7.5-3.75" /></svg>
+          {%- when 'code' -%}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5 6 10l8 6.5V3.5ZM6 10 3 8m3 2-3 2" /></svg>
+          {%- endcase -%}
+        </div>
+
+        <h3>{% if f.num %}{{ f.num }} — {% endif %}{{ f.title }}</h3>
+        <p>{{ f.body }}</p>
+
+        {%- case f.visual -%}
+        {%- when 'tree' -%}
+        <svg class="tree" viewBox="0 0 520 132" role="img" aria-label="A grammar compiling into an abstract syntax tree">
+          <defs>
+            <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#ffd614" />
+              <stop offset="100%" stop-color="#f2a408" />
+            </linearGradient>
+          </defs>
+          <g stroke="var(--line-2)" stroke-width="1.5">
+            <path d="M260 26 L150 66" fill="none" /><path d="M260 26 L370 66" fill="none" />
+            <path d="M150 66 L96 106" fill="none" /><path d="M150 66 L204 106" fill="none" />
+            <path d="M370 66 L316 106" fill="none" /><path d="M370 66 L424 106" fill="none" />
+          </g>
+          <g font-family="var(--font-mono)" font-size="11">
+            <rect x="228" y="12" width="64" height="26" rx="6" fill="var(--panel-2)" stroke="url(#edge)" />
+            <text x="260" y="29" text-anchor="middle" fill="var(--brand-bright)">expr</text>
+            <rect x="120" y="52" width="60" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line-2)" />
+            <text x="150" y="69" text-anchor="middle" fill="var(--fg-2)">term</text>
+            <rect x="340" y="52" width="60" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line-2)" />
+            <text x="370" y="69" text-anchor="middle" fill="var(--fg-2)">term</text>
+            <g fill="var(--fg-3)">
+              <rect x="68" y="92" width="56" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
+              <text x="96" y="109" text-anchor="middle">NUMBER</text>
+              <rect x="178" y="92" width="52" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
+              <text x="204" y="109" text-anchor="middle">'+'</text>
+              <rect x="288" y="92" width="56" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
+              <text x="316" y="109" text-anchor="middle">factor</text>
+              <rect x="398" y="92" width="52" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
+              <text x="424" y="109" text-anchor="middle">'*'</text>
+            </g>
+          </g>
+        </svg>
+        {%- when 'chips' -%}
+        <div class="chip-list">
+          <span class="chip"><span class="d"></span><span class="a">intro.md</span><span class="b">rendered</span></span>
+          <span class="chip"><span class="d"></span><span class="a">config.md</span><span class="b">rendered</span></span>
+          <span class="chip"><span class="d off"></span><span class="b">draft.md</span><span class="b">skipped</span></span>
+        </div>
+        {%- when 'stages' -%}
+        <div class="ttl">
+          <div class="rows">
+            <div><span class="k">build</span><span class="v">gradle assemble</span><span class="n">8.1s</span></div>
+            <div><span class="k alt">test</span><span class="v">gradle check</span><span class="n">12.4s</span></div>
+            <div><span class="k dim">package</span><span class="v">cmake install</span><span class="n">5.0s</span></div>
+          </div>
+        </div>
+        {%- endcase -%}
+
+        {%- if f.repo -%}
+        <a href="{{ f.repo }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
+        {%- endif -%}
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+<section class="section showcase">
+  <div class="container">
+    <div class="showcase-grid">
+      <div data-reveal>
+        <p class="eyebrow">Developer experience</p>
+        <h2 style="margin-top:0.75rem;font-size:clamp(1.875rem,4vw,2.25rem);font-weight:600;letter-spacing:-0.02em">
+          Definitions that read like the thing they describe
+        </h2>
+        <p style="margin-top:1rem;max-width:34rem;color:var(--fg-2)">
+          Grammars, documents and pipelines are plain declarative files. Describe the
+          intent once and let HiveVM generate the parser, the manual and the build.
+        </p>
+
+        <ul class="points">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="7.5" style="opacity:.4" /><path d="m5.75 9.25 2.25 2.25 4.25-4.75" /></svg>
+            One LL(k) grammar generates a parser and AST for both Java and C++
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="7.5" style="opacity:.4" /><path d="m5.75 9.25 2.25 2.25 4.25-4.75" /></svg>
+            Plain CommonMark files compile into a single navigable manual
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="7.5" style="opacity:.4" /><path d="m5.75 9.25 2.25 2.25 4.25-4.75" /></svg>
+            One workflow file orchestrates Gradle, CMake and Cargo together
+          </li>
+        </ul>
+      </div>
+
+      <div class="tabs glass" data-tabs data-reveal>
+        <div class="tabbar">
+          <div class="tablist" role="tablist" aria-label="Examples">
+            <button type="button" id="tab-g" role="tab" aria-selected="true" aria-controls="panel-g" class="tab">Calc.g</button>
+            <button type="button" id="tab-w" role="tab" aria-selected="false" aria-controls="panel-w" tabindex="-1" class="tab">workflow.gradle</button>
+            <button type="button" id="tab-m" role="tab" aria-selected="false" aria-controls="panel-m" tabindex="-1" class="tab">manual.md</button>
+          </div>
+          <span class="tablang">HiveVM</span>
+        </div>
+
+        <div id="panel-g" role="tabpanel" aria-labelledby="tab-g" class="tabpanel">
+<pre class="code"><span class="kw">grammar</span> <span class="ty">Calc</span><span class="pn">;</span>
+
+<span class="fn">expr</span>   <span class="pn">:</span> term <span class="pn">((</span><span class="st">'+'</span> <span class="pn">|</span> <span class="st">'-'</span><span class="pn">)</span> term<span class="pn">)</span>* <span class="pn">;</span>
+<span class="fn">term</span>   <span class="pn">:</span> factor <span class="pn">((</span><span class="st">'*'</span> <span class="pn">|</span> <span class="st">'/'</span><span class="pn">)</span> factor<span class="pn">)</span>* <span class="pn">;</span>
+<span class="fn">factor</span> <span class="pn">:</span> <span class="ty">NUMBER</span> <span class="pn">|</span> <span class="st">'('</span> expr <span class="st">')'</span> <span class="pn">;</span>
+
+<span class="ty">NUMBER</span> <span class="pn">:</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+ ;</span></pre>
+        </div>
+        <div id="panel-w" role="tabpanel" aria-labelledby="tab-w" class="tabpanel" hidden>
+<pre class="code"><span class="kw">plugins</span> <span class="pn">{</span>
+  id <span class="st">'org.hivevm.devops'</span> version <span class="st">'1.0'</span>
+<span class="pn">}</span>
+
+<span class="fn">workflow</span> <span class="pn">{</span>
+  <span class="fn">stage</span><span class="pn">(</span><span class="st">'build'</span><span class="pn">)</span>   <span class="pn">{</span> gradle <span class="st">'assemble'</span> <span class="pn">}</span>
+  <span class="fn">stage</span><span class="pn">(</span><span class="st">'test'</span><span class="pn">)</span>    <span class="pn">{</span> gradle <span class="st">'check'</span> <span class="pn">}</span>
+  <span class="fn">stage</span><span class="pn">(</span><span class="st">'package'</span><span class="pn">)</span> <span class="pn">{</span> cmake  <span class="st">'install'</span> <span class="pn">}</span>
+  <span class="fn">stage</span><span class="pn">(</span><span class="st">'publish'</span><span class="pn">)</span> <span class="pn">{</span> onBranch <span class="st">'main'</span> <span class="pn">}</span>
+<span class="pn">}</span></pre>
+        </div>
+        <div id="panel-m" role="tabpanel" aria-labelledby="tab-m" class="tabpanel" hidden>
+<pre class="code"><span class="kw"># User Manual</span>
+
+Built from a collection of <span class="ty">**CommonMark**</span> files.
+
+<span class="pn">-</span> <span class="st">[Getting started]</span><span class="pn">(</span>./start.md<span class="pn">)</span>
+<span class="pn">-</span> <span class="st">[Configuration]</span><span class="pn">(</span>./config.md<span class="pn">)</span>
+<span class="pn">-</span> <span class="st">[Grammar reference]</span><span class="pn">(</span>./grammar.md<span class="pn">)</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

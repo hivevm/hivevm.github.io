@@ -1,0 +1,55 @@
+# Text + links live here. The per-card visual (tree / chips / stages) is
+# selected by `visual` and rendered in _includes/features.html.
+- id: parser
+  num: "01"
+  title: Parser Generator
+  body: >-
+    LL(k) parser generator for context-free grammars. Generates a parser and a
+    full AST (Abstract Syntax Tree) for <code>Java</code> &amp; <code>C++</code>
+    from a single grammar definition.
+  repo: https://github.com/hivevm/cc
+  span: span-sm-2 lg-4
+  icon: brackets
+  visual: tree
+
+- id: manual
+  num: "02"
+  title: Manual Generator
+  body: >-
+    Manual generator for collections of Markdown documents. Supports the
+    <code>CommonMark</code> syntax to turn a folder of files into one coherent
+    manual.
+  repo: https://github.com/hivevm/doc
+  span: lg-2
+  icon: doc
+  visual: chips
+
+- id: workflow
+  num: "03"
+  title: Gradle Workflow
+  body: >-
+    A Gradle-based CD/CI pipeline engine. Define a single workflow that
+    orchestrates heterogeneous build systems — Gradle, CMake and Cargo side by
+    side.
+  repo: https://github.com/hivevm/gradleDevOps
+  span: lg-2
+  icon: pipeline
+  visual: stages
+
+- id: targets
+  title: Multiple targets, one model
+  body: >-
+    The same grammar emits idiomatic <code>Java</code> and <code>C++</code> —
+    keep one source of truth and let HiveVM project it onto each language.
+  span: lg-3
+  icon: layers
+  visual: none
+
+- id: vscode
+  title: VSCode server launchers
+  body: >-
+    Server launchers wire your generated tooling straight into VSCode, so
+    language features light up as soon as the model changes.
+  span: lg-3
+  icon: code
+  visual: none

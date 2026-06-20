@@ -1,43 +1,69 @@
-# HiveVM — Website (Pulsar-Lite-Stil, Gelb)
+# HiveVM — Jekyll site
 
-Statische Single-Page-Site für `hivevm.github.io`. Kein Build-Schritt nötig —
-einfach committen und GitHub Pages liefert sie aus.
+The HiveVM website as a **Jekyll** project: a data-driven landing page plus a
+Markdown-authored blog, both in the same dark/yellow design. Builds natively on
+GitHub Pages — **no plugins, no GitHub Actions required.**
 
-## Inhalt
-
-```
-index.html                     Komplette Seite (CSS + JS inline)
-assets/favicon.svg             Skalierbares Favicon (moderne Browser)
-assets/favicon.ico             Favicon-Fallback (16/32/48/64)
-assets/apple-touch-icon.png    iOS-Homescreen-Icon (180×180)
-```
-
-Schriftarten (Inter, JetBrains Mono) werden von Google Fonts geladen.
-
-## Einbauen ins Repo `hivevm/hivevm.github.io`
-
-1. `index.html` im Repo-Root durch diese Datei ersetzen.
-2. Die drei Dateien aus `assets/` in den vorhandenen `assets/`-Ordner kopieren
-   (die alte `favicon.ico` wird durch die neue, scharfe ersetzt).
-3. **`CNAME` (hivevm.org) und alle übrigen Inhalte unangetastet lassen.**
-4. Commit + Push → Pages aktualisiert sich automatisch.
-
-Die alten, nicht mehr benötigten Dateien (`assets/css/bootstrap.min.css`,
-`owl-carousel.*`, `jquery-2.1.0.min.js`, `hivevm.css`, `flex-slider.css` usw.)
-kannst du später aufräumen — die neue Seite verwendet sie nicht.
-
-## Farben anpassen
-
-Alle Akzentfarben hängen an vier Variablen ganz oben im `<style>`:
+## Structure
 
 ```
---brand:        #f2b408;
---brand-bright: #ffd614;
---accent:       #f2a408;
---accent-bright:#ffcc33;
+.
+├── _config.yml              Site settings, blog permalinks
+├── index.md                 Landing page — hero text lives in its front matter
+├── blog/index.html          Blog index (lists _posts)
+├── _posts/                  Blog articles in Markdown (Rouge-highlighted code)
+├── _layouts/
+│   ├── default.html         Shell: <head>, nav, footer, scripts
+│   ├── home.html            Assembles the landing sections
+│   ├── post.html            Blog post (prose)
+│   └── page.html            Generic Markdown page (prose)
+├── _includes/
+│   ├── nav.html  footer.html  logo.html
+│   └── hero.html  stack.html  features.html
+│       showcase.html  workflow.html  repos.html  cta.html
+├── _data/
+│   ├── nav.yml              Navigation links
+│   ├── features.yml         The toolkit cards (text + which visual to show)
+│   ├── repos.yml            The open-source repo cards
+│   └── footer.yml           Footer columns
+└── assets/
+    ├── css/hivevm.css       Whole design + prose + syntax theme
+    ├── js/site.js           Mobile menu, tabs, scroll-reveal
+    └── favicon.svg · favicon.ico · apple-touch-icon.png
 ```
 
-Eine Stelle ändern — Buttons, Logo, Verläufe und Hervorhebungen ziehen nach.
+## Where the content lives (edit these)
+
+| You want to change…              | Edit…                          |
+|----------------------------------|--------------------------------|
+| Hero headline / sub / buttons    | `index.md` front matter        |
+| The three tool cards             | `_data/features.yml`           |
+| The open-source repo cards       | `_data/repos.yml`              |
+| Navigation / footer links        | `_data/nav.yml`, `_data/footer.yml` |
+| A blog article                   | add a file to `_posts/`        |
+| Colours / design                 | the four `--brand*` vars atop `assets/css/hivevm.css` |
+
+The bespoke graphics (code panel, AST diagram, pipeline) are design, so they live
+in the `_includes/*` templates — not in the content files.
+
+## Run locally
+
+```bash
+bundle install
+bundle exec jekyll serve
+# → http://127.0.0.1:4000
+```
+
+## Deploy to GitHub Pages
+
+1. Put these files at the **root** of `hivevm/hivevm.github.io`.
+2. Keep your existing **`CNAME`** (hivevm.org) — Jekyll copies it through as-is.
+3. Settings → Pages → Build from `main` (root). Native Jekyll build does the rest.
+
+> Replacing the old single-file `index.html`? Delete it — the landing page is now
+> generated from `index.md` + `_layouts/home.html`. The old `assets/css/*` and JS
+> (bootstrap, owl-carousel, jQuery, hivevm.css …) are no longer used.
 
 ---
-Design adaptiert von Pulsar Lite (MIT). Inhalte & Gelb-Branding: HiveVM.
+Design adapted from [Pulsar Lite](https://github.com/cbetz/pulsar-lite) (MIT).
+Content & yellow branding: HiveVM.

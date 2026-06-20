@@ -1,0 +1,23 @@
+- name: cc
+  org: hivevm/
+  body: LL(k) parser generator for context-free grammars. Generates parser and AST for Java &amp; C++.
+  lang: Java
+  lang_color: "#b07219"
+  license: BSD-3-Clause
+  url: https://github.com/hivevm/cc
+
+- name: doc
+  org: hivevm/
+  body: Manual generator for collections of Markdown documents. Supports the CommonMark syntax.
+  lang: Java
+  lang_color: "#b07219"
+  license: BSD-3-Clause
+  url: https://github.com/hivevm/doc
+
+- name: gradleDevOps
+  org: hivevm/
+  body: A Gradle-based CD/CI pipeline engine. Define a workflow for heterogeneous build systems.
+  lang: Java
+  lang_color: "#b07219"
+  license: Open source
+  url: https://github.com/hivevm/gradleDevOps

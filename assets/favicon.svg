@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.5 -1.5 27 27">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="24" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffd614"/>
-      <stop offset="1" stop-color="#f2a408"/>
+    <linearGradient id="hb" x1="0" y1="0" x2="0" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd614"/><stop offset="1" stop-color="#f2b408"/>
+    </linearGradient>
+    <linearGradient id="hd" x1="0" y1="0" x2="0" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2b408"/><stop offset="1" stop-color="#f2a408"/>
     </linearGradient>
   </defs>
-  <g fill="url(#g)">
-    <circle cx="8.5" cy="4" r="3.2"/>
-    <circle cx="17.4" cy="4.6" r="4.6"/>
-    <circle cx="3.9" cy="11" r="2.3"/>
-    <circle cx="11" cy="12" r="4.4"/>
-    <circle cx="10.4" cy="19.6" r="3"/>
-    <circle cx="19.5" cy="19" r="3.6"/>
-  </g>
+  <polygon points="11.51,4 10,6.61 7,6.61 5.49,4 7,1.39 10,1.39" fill="url(#hb)" stroke="url(#hb)" stroke-width="0.6" stroke-linejoin="round"/>
+  <polygon points="21.72,4.6 19.56,8.34 15.24,8.34 13.08,4.6 15.24,0.86 19.56,0.86" fill="url(#hd)" stroke="url(#hd)" stroke-width="0.6" stroke-linejoin="round"/>
+  <polygon points="6.06,11 4.98,12.87 2.82,12.87 1.74,11 2.82,9.13 4.98,9.13" fill="url(#hb)" stroke="url(#hb)" stroke-width="0.6" stroke-linejoin="round"/>
+  <polygon points="15.14,12 13.07,15.58 8.93,15.58 6.86,12 8.93,8.42 13.07,8.42" fill="url(#hb)" stroke="url(#hb)" stroke-width="0.6" stroke-linejoin="round"/>
+  <polygon points="13.22,19.6 11.81,22.04 8.99,22.04 7.58,19.6 8.99,17.16 11.81,17.16" fill="url(#hd)" stroke="url(#hd)" stroke-width="0.6" stroke-linejoin="round"/>
+  <polygon points="22.88,19 21.19,21.93 17.81,21.93 16.12,19 17.81,16.07 21.19,16.07" fill="url(#hd)" stroke="url(#hd)" stroke-width="0.6" stroke-linejoin="round"/>
 </svg>

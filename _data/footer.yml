@@ -1,0 +1,17 @@
+columns:
+  - title: Tools
+    links:
+      - label: Parser Generator
+        href: https://github.com/hivevm/cc
+      - label: Manual Generator
+        href: https://github.com/hivevm/doc
+      - label: Gradle Workflow
+        href: https://github.com/hivevm/gradleDevOps
+  - title: Resources
+    links:
+      - label: GitHub organization
+        href: https://github.com/hivevm
+      - label: Blog
+        href: /blog/
+      - label: hivevm.org
+        href: https://hivevm.org/
