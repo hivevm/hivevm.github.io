@@ -98,6 +98,12 @@ check_relative_links() {
   local md rel linkexpr target path_part dir
   while IFS= read -r md; do
     rel="${md#"$ROOT"/}"
+    # Superseded ADRs are immutable historical record (see AGENTS.md and docs/adr/README.md):
+    # they intentionally reference files from a past state that may since have been removed.
+    # Their links are frozen with the decision, so they are not checked for live resolution.
+    if [[ "$md" == "$ADR_DIR"/* ]] && grep -m1 -F '**Status:**' "$md" | grep -q '⚪'; then
+      continue
+    fi
     while IFS= read -r linkexpr; do
       # linkexpr is the whole [text](target); extract the target.
       target="$(printf '%s' "$linkexpr" | sed -E 's/^\[[^]]*\]\(([^)]+)\)$/\1/')"
