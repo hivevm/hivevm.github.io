@@ -1,14 +1,11 @@
 {
   "name": "DevContainer",
-
   "image": "mcr.microsoft.com/devcontainers/base:debian",
+
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 
   "remoteUser": "vscode",
-  "containerEnv": {
-    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
-  },
   "mounts": [
     "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
   ],
@@ -20,29 +17,13 @@
   // credential writes inside the container).
   "initializeCommand": "mkdir -p ${localEnv:HOME}/.claude",
 
-  // DevContainer Features layered on top of the base image.
-  "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker": {
-      "moby": false,
-      "podman": false
-    }
-  },
-
   "customizations": {
     // VS Code extensions installed inside the container
     "vscode": {
       "extensions": [
         "anthropic.claude-code",
-        "mistralai.mistral-vibe-code"
+        "ms-vscode-remote.remote-containers"
       ]
     }
-  },
-
-  "forwardPorts": [],
-
-  "hostRequirements": {
-    "cpus": 2,
-    "memory": "8gb",
-    "storage": "32gb"
   }
 }

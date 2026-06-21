@@ -65,6 +65,9 @@ index — live in [`docs/adr/README.md`](docs/adr/README.md).
 
 ## 4. Project rules
 
-- Leave all git write operations (`add`, `commit`, `push`, …) to the user. Do not run them.
+- **Git writes need explicit human approval, every time.** The agent may run git write operations
+  (`add`, `commit`, `push`) and use the GitHub CLI (`gh`) to perform them, but must obtain the human's
+  explicit go-ahead immediately before each commit or push. Never commit or push autonomously, and treat
+  each approval as single-use — it does not carry over to the next commit or push.
 - Build, test, and run commands live in the **Build, Test & Run** section of
   [`README.md`](README.md) — the single source for both humans and agents.
