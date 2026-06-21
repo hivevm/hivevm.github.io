@@ -25,7 +25,10 @@
     "ghcr.io/devcontainers/features/docker-outside-of-docker": {
       "moby": false,
       "podman": false
-    }
+    },
+    // GitHub CLI (`gh`) — used by the coding agent for GitHub operations and as the git
+    // credential helper. Git writes still require explicit human approval (see AGENTS.md).
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
   "customizations": {
