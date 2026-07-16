@@ -23,12 +23,7 @@
           <span class="lang"><span class="ld" style="background:{{ .lang_color }}"></span>{{ .lang }}</span>
           <span class="lic">{{ .license }}</span>
         </div>
-        <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center">
-          {{- with .template_url -}}
-          <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer" style="color:var(--brand-bright);font-weight:600">Use this template <span aria-hidden="true">→</span></a>
-          {{- end -}}
-          <a href="{{ .url }}" class="gh" target="_blank" rel="noopener noreferrer">Open repository <span aria-hidden="true">→</span></a>
-        </div>
+        <a href="{{ .url }}" class="gh" target="_blank" rel="noopener noreferrer" style="margin-top:1rem">Open repository <span aria-hidden="true">→</span></a>
       </article>
       {{- end -}}
     </div>
