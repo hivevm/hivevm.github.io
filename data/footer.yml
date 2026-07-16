@@ -5,8 +5,8 @@ columns:
         href: https://github.com/hivevm/cc
       - label: Manual Generator
         href: https://github.com/hivevm/doc
-      - label: Gradle Workflow
-        href: https://github.com/hivevm/gradleDevOps
+      - label: Agent Template (NUC)
+        href: https://github.com/hivevm/nuc
   - title: Resources
     links:
       - label: GitHub organization

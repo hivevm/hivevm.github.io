@@ -14,10 +14,10 @@
   license: BSD-3-Clause
   url: https://github.com/hivevm/doc
 
-- name: gradleDevOps
+- name: nuc
   org: hivevm/
-  body: A Gradle-based CD/CI pipeline engine. Define a workflow for heterogeneous build systems.
-  lang: Java
-  lang_color: "#b07219"
-  license: Open source
-  url: https://github.com/hivevm/gradleDevOps
+  body: A starting point for building software with coding agents inside a ready-to-use Dev Container. Specification &amp; ADR driven.
+  lang: Shell
+  lang_color: "#89e051"
+  license: MIT
+  url: https://github.com/hivevm/nuc

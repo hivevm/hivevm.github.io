@@ -24,17 +24,18 @@
   icon: doc
   visual: chips
 
-- id: workflow
+- id: nuc
   num: "03"
-  title: Gradle Workflow
+  title: Agent Template (NUC)
   body: >-
-    A Gradle-based CD/CI pipeline engine. Define a single workflow that
-    orchestrates heterogeneous build systems — Gradle, CMake and Cargo side by
-    side.
-  repo: https://github.com/hivevm/gradleDevOps
+    A starting point for building software with coding agents inside a
+    ready-to-use Dev Container. Work is driven by a written specification and
+    <code>ADRs</code>, with <code>AGENTS.md</code> as the single source of truth
+    for every agent.
+  repo: https://github.com/hivevm/nuc
   span: lg-2
   icon: pipeline
-  visual: stages
+  visual: none
 
 - id: targets
   title: Multiple targets, one model

@@ -2,40 +2,49 @@
   <div class="container">
     <div class="showcase-grid">
       <div data-reveal>
-        <p class="eyebrow">Build orchestration</p>
+        <p class="eyebrow">Agentic development</p>
         <h2 style="margin-top:0.75rem;font-size:clamp(1.875rem,4vw,2.25rem);font-weight:600;letter-spacing:-0.02em">
-          One workflow across heterogeneous build systems
+          A nucleus every project grows from
         </h2>
         <p style="margin-top:1rem;max-width:34rem;color:var(--fg-2)">
-          The Gradle DevOps engine defines a single pipeline for projects that mix Java,
-          C++ and Rust — running each stage on the right build tool and streaming
-          structured logs as it goes.
+          NUC is a starting point for building software with coding agents inside a
+          ready-to-use Dev Container. Work is driven by a written specification and
+          Architecture Decision Records — with <code>AGENTS.md</code> as the single
+          source of truth every agent reads.
+        </p>
+
+        <p style="margin-top:1.25rem;max-width:34rem;padding-left:0.9rem;border-left:2px solid var(--brand);color:var(--fg-2)">
+          <strong style="color:var(--brand-bright)">Why “NUC”?</strong> In beekeeping, a
+          <em>nucleus colony</em> — a NUC — is the small starter colony a full hive grows
+          from. Same idea here: a compact, ready-made nucleus that a complete project
+          grows out of.
         </p>
       </div>
 
       <div class="pipe-card" data-reveal>
         <div class="pipe-head">
           <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span style="margin-left:0.5rem">gradle :workflow:run</span>
+          <span style="margin-left:0.5rem">agent :nuc:run</span>
           <span class="status"><span class="pulse" aria-hidden="true"></span> running</span>
         </div>
 
         <div class="waterfall">
-          <div class="wrow"><span class="stg">build</span><span class="track"><span class="bar" style="left:0;width:32%"></span></span><span class="dur">8.1s</span></div>
-          <div class="wrow"><span class="tool">gradle assemble</span><span></span><span></span></div>
-          <div class="wrow"><span class="stg">test</span><span class="track"><span class="bar" style="left:32%;width:46%"></span></span><span class="dur">12.4s</span></div>
-          <div class="wrow"><span class="tool">gradle check</span><span></span><span></span></div>
-          <div class="wrow"><span class="stg">package</span><span class="track"><span class="bar" style="left:78%;width:14%"></span></span><span class="dur">5.0s</span></div>
-          <div class="wrow"><span class="tool">cmake install · cargo build</span><span></span><span></span></div>
-          <div class="wrow"><span class="stg">publish</span><span class="track"><span class="bar" style="left:92%;width:8%"></span></span><span class="dur">2.2s</span></div>
+          <div class="wrow"><span class="stg">spec</span><span class="track"><span class="bar" style="left:0;width:22%"></span></span><span class="dur">read</span></div>
+          <div class="wrow"><span class="tool">docs/SPECIFICATION.md</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">decide</span><span class="track"><span class="bar" style="left:22%;width:30%"></span></span><span class="dur">ADR</span></div>
+          <div class="wrow"><span class="tool">docs/adr/ · proposed → accepted</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">build</span><span class="track"><span class="bar" style="left:52%;width:34%"></span></span><span class="dur">agent</span></div>
+          <div class="wrow"><span class="tool">Claude Code · Mistral Vibe · Copilot</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">review</span><span class="track"><span class="bar" style="left:86%;width:14%"></span></span><span class="dur">human</span></div>
+          <div class="wrow"><span class="tool">small, reviewable changes</span><span></span><span></span></div>
         </div>
 
         <div class="logstream">
-          <div><span class="lv">INFO</span>&nbsp; workflow.start branch=main</div>
-          <div><span class="lv">INFO</span>&nbsp; build.ok gradle :core:assemble</div>
-          <div><span class="lw">WARN</span>&nbsp; test.flaky retry attempt=2</div>
-          <div><span class="lv">INFO</span>&nbsp; package.ok cmake + cargo</div>
-          <div><span class="lv">INFO</span>&nbsp; workflow.end status=success 27.7s</div>
+          <div><span class="lv">INFO</span>&nbsp; devcontainer.up image=ready</div>
+          <div><span class="lv">INFO</span>&nbsp; agent.read AGENTS.md + SPECIFICATION.md</div>
+          <div><span class="lw">WARN</span>&nbsp; adr.required architecture-relevant change</div>
+          <div><span class="lv">INFO</span>&nbsp; adr.proposed 0007-... awaiting review</div>
+          <div><span class="lv">INFO</span>&nbsp; commit.ok Implements ADR-0007</div>
         </div>
       </div>
     </div>

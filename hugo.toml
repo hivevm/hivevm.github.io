@@ -7,7 +7,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   tagline = "Development Tools based on Modelling"
-  description = "Developer tools based on modelling — an LL(k) parser generator, a CommonMark manual generator and a Gradle workflow engine for Java, C++ and Rust."
+  description = "Developer tools based on modelling — an LL(k) parser generator, a CommonMark manual generator and an agent-ready project template for Java, C++ and Rust."
   github_org = "https://github.com/hivevm"
 
 [markup]

@@ -67,14 +67,6 @@
           <span class="chip"><span class="d"></span><span class="a">config.md</span><span class="b">rendered</span></span>
           <span class="chip"><span class="d off"></span><span class="b">draft.md</span><span class="b">skipped</span></span>
         </div>
-        {{- else if eq .visual "stages" -}}
-        <div class="ttl">
-          <div class="rows">
-            <div><span class="k">build</span><span class="v">gradle assemble</span><span class="n">8.1s</span></div>
-            <div><span class="k alt">test</span><span class="v">gradle check</span><span class="n">12.4s</span></div>
-            <div><span class="k dim">package</span><span class="v">cmake install</span><span class="n">5.0s</span></div>
-          </div>
-        </div>
         {{- end -}}
 
         {{- with .repo -}}
