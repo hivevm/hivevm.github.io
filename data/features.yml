@@ -1,5 +1,5 @@
 # Text + links live here. The per-card visual (tree / chips / stages) is
-# selected by `visual` and rendered in _includes/features.html.
+# selected by `visual` and rendered in layouts/partials/home/features.html.
 - id: parser
   num: "01"
   title: Parser Generator (Waggle)
@@ -40,7 +40,7 @@
 - id: targets
   title: Multiple targets, one model
   body: >-
-    The same grammar emits idiomatic <code>Java</code> and <code>C++</code> —
+    The same grammar emits idiomatic <code>Java</code>, <code>C++</code> and <code>Rust</code> —
     keep one source of truth and let HiveVM project it onto each language.
   span: lg-3
   icon: layers

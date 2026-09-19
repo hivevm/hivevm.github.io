@@ -1,6 +1,6 @@
 # HiveVM — Project Website
 
-[![Docs & ADR checks](https://github.com/mbrigl/template/actions/workflows/docs-check.yml/badge.svg)](https://github.com/mbrigl/template/actions/workflows/docs-check.yml)
+[![Docs & ADR checks](https://github.com/hivevm/hivevm.github.io/actions/workflows/docs-check.yml/badge.svg)](https://github.com/hivevm/hivevm.github.io/actions/workflows/docs-check.yml)
 
 The public website for **[HiveVM](https://hivevm.org)**, served at [hivevm.org](https://hivevm.org).
 It is a static [Hugo](https://gohugo.io/) site — a dark "glow" design (adapted from

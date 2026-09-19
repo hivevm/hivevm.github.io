@@ -12,7 +12,7 @@ as the subject the website presents.
 
 ## Problem
 
-HiveVM's tools (an LL(k) parser generator, a manual generator and a Gradle workflow engine) are spread
+HiveVM's tools (an LL(k) parser generator, a manual generator and an agent template) are spread
 across several repositories. A developer evaluating them has no single, credible place that explains
 what HiveVM is, what each tool does, how the tools relate, and where to start. Project news and
 explanatory writing have no home either. Without one coherent entry point, the toolkit is hard to
@@ -26,9 +26,9 @@ visitors to the right tool or article.
 ## Vision
 
 [hivevm.org](https://hivevm.org) is the canonical front door to HiveVM. A visitor immediately grasps
-the core idea — *model once, run anywhere*: describe an application's logic once as a model, independent of
-technology and platform, and let the platform change while the model stays — sees the three tools and
-how they fit together, and reaches any repository or article in a click. The site loads instantly, works
+the core idea — *model once, run anywhere*: describe an application's logic once as a model,
+independent of technology and platform, and let the platform change while the model stays — sees the
+three tools and how they fit together, and reaches any repository or article in a click. The site loads instantly, works
 without JavaScript for its core content, reads well on any device, and is cheap to maintain: contributors
 change **content** (YAML and Markdown), not page plumbing. New tools and posts slot in without
 redesigning anything.
@@ -52,17 +52,18 @@ documentation, and ADRs.
 
 - **HiveVM** — tools and projects for *model-driven software development*: an application — its
   application and business logic — is described once as a model and runs independent of technology and
-  platform (site tagline: *Model once, run anywhere*). Also the name of the model-driven application platform in Rust and of
-  the GitHub organization that hosts the tools. The website's subject.
+  platform (site tagline: *Model once, run anywhere*). Also the name of the model-driven application
+  platform in Rust and of the GitHub organization that hosts the tools. The website's subject.
 - **Modelling** — HiveVM's organizing principle: describe a model once (a grammar, a document set, a
   specification) and derive what follows from it. Spelled *modelling* (British).
 - **Tool** — one member of the HiveVM family, each in its own repository:
   - **Parser Generator — Waggle** (`waggle`, formerly `cc`) — an LL(k) parser generator that emits a
-    parser and full AST for Java & C++ from a single grammar file (extension `.waggle`). Named after the
-    bees' *waggle dance*, a grammar the other bees parse.
+    parser and full AST for Java, C++ & Rust from a single grammar file (extension `.waggle`). Named
+    after the bees' *waggle dance*, a grammar the other bees parse.
   - **Manual Generator** (`doc`) — turns a folder of CommonMark Markdown into one coherent manual.
-  - **Gradle Workflow** (`gradleDevOps`) — a Gradle-based CD/CI engine orchestrating Gradle, CMake and
-    Cargo side by side.
+  - **Agent Template — NUC** (`nuc`) — a starting point for building software with coding agents inside
+    a ready-to-use Dev Container, driven by a written specification and ADRs. Named after the beekeeping
+    *nucleus colony*, the small starter colony a full hive grows from.
 - **Site** — this Hugo project as a whole (everything published to hivevm.org).
 - **Layout** — a page template in [`layouts/`](../layouts/) (e.g. `_default/baseof`, `_default/single`,
   `_default/list`, `index`).
@@ -101,7 +102,7 @@ used as acceptance criteria.
 What this project explicitly does not try to do — to keep scope clear.
 
 - **Not the tools.** This repository hosts no tool source code, releases, or API documentation for
-  `waggle`, `doc`, or `gradleDevOps`; those live in their own repositories.
+  `waggle`, `doc`, or `nuc`; those live in their own repositories.
 - **No server-side features.** No backend, database, authentication, comments, search index, or
   dynamic personalization — the site is fully static.
 - **No front-end framework or Node build step.** No React/Vue/Svelte, no bundler, no CSS framework;

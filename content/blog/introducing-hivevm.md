@@ -1,24 +1,26 @@
 ---
-title: "Introducing HiveVM: tools built on modelling"
+title: "Introducing HiveVM: model once, run anywhere"
 date: 2026-02-10
 author: HiveVM
 description: >-
-  Why we build developer tools around explicit models — grammars, documents and
-  workflows — instead of hand-written boilerplate.
+  Why we describe applications as models — so the application and business logic
+  stay while technology and platform change.
 ---
 
-HiveVM is a small family of developer tools with one idea in common: describe the
-**model** once, then generate everything that follows from it. A grammar becomes a
-parser. A folder of Markdown becomes a manual. A workflow definition becomes a build
-pipeline.
+HiveVM is built around one idea: describe an application **once** as a model — its
+application and business logic — and run it **anywhere**, independent of technology and
+platform. The platform may change; the model stays. The HiveVM tools and projects apply
+the same idea at every level: a grammar becomes a parser, a folder of Markdown becomes a
+manual, a specification becomes a project.
 
 This post is a short tour of the toolkit and the thinking behind it.
 
 ## One source of truth
 
-Most toolchains drift because the same knowledge is written down in several places —
-once in the parser, once in the docs, once in the CI config. Each copy ages at its own
-pace. Modelling collapses those copies into a single declarative source.
+Most software drifts because the same knowledge is written down in several places — once
+in the code for each platform, once in the docs, once in the build. Each copy ages at its
+own pace, and every platform change means rewriting logic that has not changed at all.
+Modelling collapses those copies into a single declarative source.
 
 > Describe the intent once and let the tooling project it onto each target.
 
@@ -26,10 +28,11 @@ pace. Modelling collapses those copies into a single declarative source.
 
 The toolkit is intentionally small:
 
-- **Parser Generator (Waggle)** — an LL(k) generator that emits a parser and a full AST for Java
-  and C++ from one grammar.
+- **Parser Generator (Waggle)** — an LL(k) generator that emits a parser and a full AST for
+  Java, C++ and Rust from one grammar.
 - **Manual Generator** — turns a collection of CommonMark files into one coherent manual.
-- **Gradle Workflow** — a single pipeline definition across heterogeneous build systems.
+- **Agent Template (NUC)** — a starting point for building software with coding agents
+  inside a ready-to-use Dev Container, driven by a written specification and ADRs.
 
 Each lives in its own public repository, so you can adopt one without the others.
 

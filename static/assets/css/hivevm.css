@@ -1010,6 +1010,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 4rem;
       }
+
+      /* Mirrored variant: visual left, text right. Only the visual order changes — the text stays
+         first in the markup, so it still leads on mobile and for screen readers. */
+      .showcase-grid.flip > :first-child {
+        order: 2;
+      }
     }
 
     .showcase ul.points {
