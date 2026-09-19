@@ -54,8 +54,9 @@ documentation, and ADRs.
 - **Modelling** — HiveVM's organizing principle: describe a model once (a grammar, a document set, a
   workflow) and generate what follows from it. Spelled *modelling* (British), per the site tagline.
 - **Tool** — one member of the HiveVM family, each in its own repository:
-  - **Parser Generator** (`cc`) — an LL(k) parser generator that emits a parser and full AST for
-    Java & C++ from a single grammar.
+  - **Parser Generator — Waggle** (`waggle`, formerly `cc`) — an LL(k) parser generator that emits a
+    parser and full AST for Java & C++ from a single grammar file (extension `.waggle`). Named after the
+    bees' *waggle dance*, a grammar the other bees parse.
   - **Manual Generator** (`doc`) — turns a folder of CommonMark Markdown into one coherent manual.
   - **Gradle Workflow** (`gradleDevOps`) — a Gradle-based CD/CI engine orchestrating Gradle, CMake and
     Cargo side by side.
@@ -97,7 +98,7 @@ used as acceptance criteria.
 What this project explicitly does not try to do — to keep scope clear.
 
 - **Not the tools.** This repository hosts no tool source code, releases, or API documentation for
-  `cc`, `doc`, or `gradleDevOps`; those live in their own repositories.
+  `waggle`, `doc`, or `gradleDevOps`; those live in their own repositories.
 - **No server-side features.** No backend, database, authentication, comments, search index, or
   dynamic personalization — the site is fully static.
 - **No front-end framework or Node build step.** No React/Vue/Svelte, no bundler, no CSS framework;

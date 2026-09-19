@@ -2,12 +2,14 @@
 # selected by `visual` and rendered in _includes/features.html.
 - id: parser
   num: "01"
-  title: Parser Generator
+  title: Parser Generator (Waggle)
   body: >-
     LL(k) parser generator for context-free grammars. Generates a parser and a
     full AST (Abstract Syntax Tree) for <code>Java</code> &amp; <code>C++</code>
-    from a single grammar definition.
-  repo: https://github.com/hivevm/cc
+    from a single <code>.waggle</code> grammar. Named after the bees'
+    <em>waggle dance</em>, a grammar that encodes direction and distance to a
+    food source, and that the other bees in the hive parse.
+  repo: https://github.com/hivevm/waggle
   span: span-sm-2 lg-4
   icon: brackets
   visual: tree

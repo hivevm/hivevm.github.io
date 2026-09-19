@@ -1,10 +1,10 @@
-- name: cc
+- name: waggle
   org: hivevm/
-  body: LL(k) parser generator for context-free grammars. Generates parser and AST for Java &amp; C++.
+  body: LL(k) parser generator for context-free grammars. Generates parser and AST for Java &amp; C++ from <code>.waggle</code> grammars.
   lang: Java
   lang_color: "#b07219"
   license: BSD-3-Clause
-  url: https://github.com/hivevm/cc
+  url: https://github.com/hivevm/waggle
 
 - name: doc
   org: hivevm/

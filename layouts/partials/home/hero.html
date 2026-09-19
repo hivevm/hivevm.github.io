@@ -5,7 +5,7 @@
 
   <div class="container hero-inner">
     <div class="hero-text">
-      <a href="{{ .Params.hero_badge_href | default "https://github.com/hivevm/cc" }}" class="badge glass"
+      <a href="{{ .Params.hero_badge_href | default "https://github.com/hivevm/waggle" }}" class="badge glass"
         target="_blank" rel="noopener noreferrer">
         <span class="dot"></span>
         {{ .Params.hero_badge | default "LL(k) parser generation for Java, C++ & Rust" }}
@@ -27,7 +27,7 @@
           target="_blank" rel="noopener noreferrer">{{ .Params.hero_cta2 | default "View on GitHub" }}</a>
       </div>
 
-      <p class="hero-cmd"><span class="pr">$</span> {{ .Params.hero_cmd | default "git clone https://github.com/hivevm/cc" }}</p>
+      <p class="hero-cmd"><span class="pr">$</span> {{ .Params.hero_cmd | default "git clone https://github.com/hivevm/waggle" }}</p>
     </div>
 
     <!-- Code + terminal panel (bespoke visual — lives in the template) -->
@@ -36,7 +36,7 @@
         <div class="pane editor">
           <div class="pane-head">
             <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="file">Calc.g</span>
+            <span class="file">Calc.waggle</span>
           </div>
           <div class="pane-body">
 <pre class="code"><span class="cm">// LL(k) grammar — generates a parser + AST</span>
@@ -56,8 +56,8 @@
             <span class="file" style="margin-left:0">terminal</span>
           </div>
           <div class="term-body">
-            <p><span class="pr">$</span> hivevm-cc generate Calc.g --target java,cpp</p>
-            <p class="muted">Parsing grammar Calc.g…</p>
+            <p><span class="pr">$</span> waggle generate Calc.waggle --target java,cpp</p>
+            <p class="muted">Parsing grammar Calc.waggle…</p>
             <p><span class="ok">✓</span> <span class="txt">LL(k) analysis complete (k=2)</span></p>
             <p><span class="ok">✓</span> <span class="txt">Parser → java/CalcParser.java</span></p>
             <p><span class="ok">✓</span> <span class="txt">AST&nbsp;&nbsp;&nbsp;&nbsp;→ cpp/CalcNode.hpp</span></p>

@@ -7,7 +7,7 @@ description: >-
   parser stay predictable without backtracking.
 ---
 
-The parser generator is an **LL(k)** generator. That label is doing a lot of work, so
+Waggle, the HiveVM parser generator, is an **LL(k)** generator. That label is doing a lot of work, so
 this post unpacks it without the formal machinery.
 
 ## Reading the name
@@ -57,7 +57,7 @@ is exactly what makes generated parsers pleasant to embed in editors and build t
 Point the generator at your own grammar and read the code it produces:
 
 ```bash
-hivevm-cc generate MyGrammar.g --target java
+waggle generate MyGrammar.waggle --target java
 ```
 
-The source lives in [hivevm/cc](https://github.com/hivevm/cc).
+The source lives in [hivevm/waggle](https://github.com/hivevm/waggle).

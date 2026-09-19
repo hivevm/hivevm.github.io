@@ -26,7 +26,7 @@ pace. Modelling collapses those copies into a single declarative source.
 
 The toolkit is intentionally small:
 
-- **Parser Generator** — an LL(k) generator that emits a parser and a full AST for Java
+- **Parser Generator (Waggle)** — an LL(k) generator that emits a parser and a full AST for Java
   and C++ from one grammar.
 - **Manual Generator** — turns a collection of CommonMark files into one coherent manual.
 - **Gradle Workflow** — a single pipeline definition across heterogeneous build systems.
@@ -35,7 +35,8 @@ Each lives in its own public repository, so you can adopt one without the others
 
 ## A grammar, end to end
 
-A grammar is just a declarative file. Here is a tiny expression language:
+A grammar is just a declarative `.waggle` file. Here is a tiny expression language,
+`Calc.waggle`:
 
 ```
 grammar Calc;
@@ -47,17 +48,24 @@ factor : NUMBER | '(' expr ')' ;
 NUMBER : [0-9]+ ('.' [0-9]+)? ;
 ```
 
-Running the generator produces a parser plus AST nodes for every target you ask for:
+Running Waggle produces a parser plus AST nodes for every target you ask for:
 
 ```bash
-hivevm-cc generate Calc.g --target java,cpp
+waggle generate Calc.waggle --target java,cpp
 ```
 
 That is the whole loop — edit the model, regenerate, ship. No boilerplate to keep in
 sync by hand.
 
+### Why "Waggle"?
+
+The *waggle dance* is the language of bees: a kind of grammar in which a forager encodes
+the direction and distance of a food source, and the other bees in the hive *parse* the
+dance to find it. That is what a parser generator is about, too: a grammar describes a
+language, and the generated parser reads it.
+
 ## Where to go next
 
-Browse the [repositories on GitHub](https://github.com/hivevm) or start with the
-[parser generator](https://github.com/hivevm/cc). The next post digs into how LL(k)
+Browse the [repositories on GitHub](https://github.com/hivevm) or start with
+[Waggle](https://github.com/hivevm/waggle), the parser generator. The next post digs into how LL(k)
 analysis actually decides what to generate.

@@ -1,8 +1,8 @@
 columns:
   - title: Tools
     links:
-      - label: Parser Generator
-        href: https://github.com/hivevm/cc
+      - label: Parser Generator (Waggle)
+        href: https://github.com/hivevm/waggle
       - label: Manual Generator
         href: https://github.com/hivevm/doc
       - label: Agent Template (NUC)
