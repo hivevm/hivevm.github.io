@@ -26,7 +26,8 @@ visitors to the right tool or article.
 ## Vision
 
 [hivevm.org](https://hivevm.org) is the canonical front door to HiveVM. A visitor immediately grasps
-the core idea — *describe the model once, generate everything that follows* — sees the three tools and
+the core idea — *model once, run anywhere*: describe an application's logic once as a model, independent of
+technology and platform, and let the platform change while the model stays — sees the three tools and
 how they fit together, and reaches any repository or article in a click. The site loads instantly, works
 without JavaScript for its core content, reads well on any device, and is cheap to maintain: contributors
 change **content** (YAML and Markdown), not page plumbing. New tools and posts slot in without
@@ -49,10 +50,12 @@ first-class source.
 Define the key terms of the domain. Use these exact words consistently in code, comments,
 documentation, and ADRs.
 
-- **HiveVM** — the family of *Development Tools based on Modelling*; also the GitHub organization that
-  hosts the tools. The website's subject.
+- **HiveVM** — tools and projects for *model-driven software development*: an application — its
+  application and business logic — is described once as a model and runs independent of technology and
+  platform (site tagline: *Model once, run anywhere*). Also the name of the model-driven application platform in Rust and of
+  the GitHub organization that hosts the tools. The website's subject.
 - **Modelling** — HiveVM's organizing principle: describe a model once (a grammar, a document set, a
-  workflow) and generate what follows from it. Spelled *modelling* (British), per the site tagline.
+  specification) and derive what follows from it. Spelled *modelling* (British).
 - **Tool** — one member of the HiveVM family, each in its own repository:
   - **Parser Generator — Waggle** (`waggle`, formerly `cc`) — an LL(k) parser generator that emits a
     parser and full AST for Java & C++ from a single grammar file (extension `.waggle`). Named after the

@@ -1,0 +1,58 @@
+<section class="section" id="waggle" style="scroll-margin-top:5rem;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="showcase-grid">
+      <div data-reveal>
+        <p class="eyebrow">Parser generation</p>
+        <h2 style="margin-top:0.75rem;font-size:clamp(1.875rem,4vw,2.25rem);font-weight:600;letter-spacing:-0.02em">
+          One grammar the whole hive can read
+        </h2>
+        <p style="margin-top:1rem;max-width:34rem;color:var(--fg-2)">
+          Waggle is an LL(k) parser generator for context-free grammars. From a single
+          <code>.waggle</code> grammar it generates a recursive-descent parser and a full AST for
+          <code>Java</code>, <code>C++</code> and <code>Rust</code> — and the generated parsers carry
+          no Waggle runtime dependency.
+        </p>
+        <p style="margin-top:1rem;max-width:34rem;color:var(--fg-2)">
+          Waggle started as a fork of JavaCC&nbsp;7.0.13 and keeps its proven model: LL(k) recursive
+          descent, a token manager with lexical states, and syntactic and semantic lookahead. What
+          changed is the surface — a simplified, EBNF-like syntax, and tree building written right in
+          the grammar with <code>#Node</code> annotations, so there is no separate JJTree step.
+        </p>
+
+        <p style="margin-top:1.25rem;max-width:34rem;padding-left:0.9rem;border-left:2px solid var(--brand);color:var(--fg-2)">
+          <strong style="color:var(--brand-bright)">Why “Waggle”?</strong> Honeybees talk in the
+          <em>waggle dance</em>: a forager encodes the direction and distance of a food source in a
+          figure-eight run, and the other bees in the hive <em>parse</em> the dance to find it. A
+          grammar that others read — which is exactly what a parser generator is about.
+        </p>
+      </div>
+
+      <div class="pipe-card" data-reveal>
+        <div class="pipe-head">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span style="margin-left:0.5rem">waggle Calc.waggle</span>
+          <span class="status"><span class="pulse" aria-hidden="true"></span> generating</span>
+        </div>
+
+        <div class="waterfall">
+          <div class="wrow"><span class="stg">lex</span><span class="track"><span class="bar" style="left:0;width:20%"></span></span><span class="dur">tokens</span></div>
+          <div class="wrow"><span class="tool">TOKEN · SKIP · lexical states</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">parse</span><span class="track"><span class="bar" style="left:20%;width:35%"></span></span><span class="dur">LL(k)</span></div>
+          <div class="wrow"><span class="tool">LL(1) by default · LL(k) where needed</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">tree</span><span class="track"><span class="bar" style="left:55%;width:25%"></span></span><span class="dur">AST</span></div>
+          <div class="wrow"><span class="tool">#Node annotations · same grammar</span><span></span><span></span></div>
+          <div class="wrow"><span class="stg">emit</span><span class="track"><span class="bar" style="left:80%;width:20%"></span></span><span class="dur">targets</span></div>
+          <div class="wrow"><span class="tool">Java · C++ · Rust</span><span></span><span></span></div>
+        </div>
+
+        <div class="logstream">
+          <div><span class="lv">INFO</span>&nbsp; grammar.read Calc.waggle</div>
+          <div><span class="lv">INFO</span>&nbsp; lexer.ok 6 tokens · 1 lexical state</div>
+          <div><span class="lw">WARN</span>&nbsp; choice.conflict Statement · resolved with k=2</div>
+          <div><span class="lv">INFO</span>&nbsp; tree.ok 5 node classes + visitor</div>
+          <div><span class="lv">INFO</span>&nbsp; emit.ok java · cpp · rust</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

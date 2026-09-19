@@ -6,8 +6,8 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  tagline = "Model-Driven Application Platform"
-  description = "A cross-platform, model-driven application platform in Rust — describe your application as a model and HiveVM runs it, with tools to model parsers, manuals and projects for Java, C++ and Rust."
+  tagline = "Model once, run anywhere"
+  description = "Model your application once and run it anywhere — tools and projects that describe application and business logic as models, independent of technology and platform."
   github_org = "https://github.com/hivevm"
   # "Get started" routes visitors into NUC's template flow — a new project from the template.
   start_url = "https://github.com/hivevm/nuc/generate"

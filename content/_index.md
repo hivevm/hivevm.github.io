@@ -1,19 +1,18 @@
 ---
-title: "HiveVM — Model-Driven Application Platform"
+title: "HiveVM — Model once, run anywhere"
 description: >-
-  A cross-platform, model-driven application platform in Rust: describe your
-  application as a model and HiveVM runs it — plus the tools to model parsers,
-  manuals and projects for Java, C++ and Rust.
+  Model your application once and run it anywhere — tools and projects that
+  describe application and business logic as models, independent of technology
+  and platform.
 
-hero_badge: "Model-driven application platform in Rust"
+hero_badge: "Model-driven software development"
 hero_badge_href: "https://github.com/hivevm"
-hero_title_pre: "Development tools based on"
-hero_title_em: "MODELLING"
+# Markdown: *emphasised* words render highlighted (gradient, upper case).
+hero_title: "Model *once*, run *anywhere*"
 hero_sub: >-
-  A cross-platform, model-driven application platform in Rust — describe your
-  application as a model and HiveVM runs it. The toolkit adds an LL(k) parser
-  generator, server launchers for VSCode and NUC, a ready-to-use template for
-  building software with coding agents.
+  Describe your application and business logic once as a model — independent of
+  technology and platform. The platform may change; the model stays. HiveVM
+  provides the tools and projects to run it wherever it needs to go.
 hero_cta1: "Explore the tools"
 hero_cta1_href: "#features"
 hero_cta2: "View on GitHub"

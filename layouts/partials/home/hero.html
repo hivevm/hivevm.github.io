@@ -8,17 +8,16 @@
       <a href="{{ .Params.hero_badge_href | default "https://github.com/hivevm/waggle" }}" class="badge glass"
         target="_blank" rel="noopener noreferrer">
         <span class="dot"></span>
-        {{ .Params.hero_badge | default "LL(k) parser generation for Java, C++ & Rust" }}
+        {{ .Params.hero_badge | default "Model-driven software development" }}
         <span class="arrow" aria-hidden="true">→</span>
       </a>
 
       <h1 class="hero-title">
-        {{ .Params.hero_title_pre | default "Development tools based on" }}
-        <span class="text-gradient">{{ .Params.hero_title_em | default "MODELLING" }}</span>
+        {{ .Params.hero_title | default "Model *once*, run *anywhere*" | markdownify }}
       </h1>
 
       <p class="hero-sub">
-        {{ .Params.hero_sub | default "Developer tools and an agent-ready template for VSCode, based on Java, C++ and Rust." }}
+        {{ .Params.hero_sub | default "Describe your application once as a model — independent of technology and platform." }}
       </p>
 
       <div class="hero-actions">

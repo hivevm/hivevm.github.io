@@ -150,7 +150,8 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
-    .text-gradient {
+    .text-gradient,
+    h1.hero-title em {
       background: linear-gradient(100deg, var(--brand-bright) 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -545,8 +546,10 @@
       text-wrap: balance;
     }
 
+    /* Emphasised words in the hero title (Markdown *…*) are the highlighted ones. */
     h1.hero-title em {
       font-style: normal;
+      text-transform: uppercase;
     }
 
     .hero-sub {

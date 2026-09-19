@@ -1,4 +1,4 @@
 ---
 title: "Blog — HiveVM"
-description: "Notes on modelling-based developer tools, parser generation and build automation."
+description: "Notes on model-driven software development, parser generation and the tools behind it."
 ---
