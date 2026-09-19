@@ -36,17 +36,16 @@ design decisions are recorded as [ADRs](docs/adr/).
   [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   extension — or any DevContainer-compatible IDE
 - Docker / Podman (rootless) available on the host
-- To preview the site locally: **Hugo (extended)**, v0.128+ (the base Dev Container image ships no
-  language toolchain — see [Build, Test & Run](#build-test--run))
+- To preview the site locally: **Hugo (extended)** — preinstalled in the Dev Container (see
+  [Build, Test & Run](#build-test--run))
 
 ## Getting Started
 
 1. Open the repository in VS Code and choose **Reopen in Container** — the Dev Container and
    preconfigured agent extensions build automatically.
 2. Authenticate your coding agent inside the container (for Claude Code: `claude login`).
-3. Install Hugo (extended) in the container if you want to preview the site (see below).
-4. Run `hugo server` and open the local preview at <http://localhost:1313/>.
-5. Edit content (mostly in [`data/`](data/) and [`content/`](content/)) and start working with the agent.
+3. Run `hugo server` and open the local preview at <http://localhost:1313/>.
+4. Edit content (mostly in [`data/`](data/) and [`content/`](content/)) and start working with the agent.
 
 ## Build, Test & Run
 
@@ -56,9 +55,10 @@ workflow [`.github/workflows/hugo.yml`](.github/workflows/hugo.yml); the Hugo ve
 ([`static/assets/css/hivevm.css`](static/assets/css/hivevm.css)) and the JavaScript is dependency-free
 ([`static/assets/js/site.js`](static/assets/js/site.js)).
 
-The Dev Container base image ships no Hugo toolchain, so install **Hugo (extended)** first (e.g. add the
-[`hugo` Dev Container Feature](https://github.com/devcontainers/features/tree/main/src/hugo) or follow the
-[Hugo installation guide](https://gohugo.io/installation/)).
+The Dev Container installs **Hugo (extended)** through the
+[`hugo` Dev Container Feature](https://github.com/devcontainers/features/tree/main/src/hugo), pinned to
+the same version as the workflow — bump both together. It also forwards port `1313` to the host. Outside
+the Dev Container, follow the [Hugo installation guide](https://gohugo.io/installation/).
 
 - **Serve (local preview):** `hugo server` — serves at <http://localhost:1313/> with live reload.
 - **Build:** `hugo --gc --minify` — output goes to `public/` (git-ignored).
@@ -128,7 +128,7 @@ scripts/check-docs.sh     # ADR-index & relative-link consistency checks (run in
 The environment is defined entirely in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json):
 it starts from a prebuilt base image and layers Dev Container Features and VS Code extensions on top —
 no Dockerfile or Compose file required (see [ADR-0002](docs/adr/0002-dev-container-runtime.md)).
-Customise the environment by adding Features (e.g. the `hugo` Feature for local previews),
+It already includes the `hugo` Feature for local previews. Customise the environment by adding Features,
 switching the base image, or adding extensions.
 
 ## Coding Agents

@@ -17,6 +17,24 @@
   // credential writes inside the container).
   "initializeCommand": "mkdir -p ${localEnv:HOME}/.claude",
 
+  // Hugo (extended) for local previews (ADR-0005). Keep the version in sync with HUGO_VERSION in
+  // .github/workflows/hugo.yml so the preview matches the deployed build.
+  "features": {
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "0.140.2",
+      "extended": true
+    }
+  },
+
+  // Forward the `hugo server` preview port to the host.
+  "forwardPorts": [1313],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo preview",
+      "onAutoForward": "notify"
+    }
+  },
+
   "customizations": {
     // VS Code extensions installed inside the container
     "vscode": {
