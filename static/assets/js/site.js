@@ -45,6 +45,30 @@
       });
     }
 
+    // Theme toggle: light / dark / system as icon buttons in the nav, stored as "hivevm-theme"
+    // (see baseof.html for why not Hextra's key); dark when nothing is stored. hvSetTheme comes
+    // from baseof.html.
+    const storedTheme = () => {
+      let theme = null;
+      try { theme = localStorage.getItem('hivevm-theme'); } catch (e) { /* storage blocked */ }
+      return ['light', 'dark', 'system'].includes(theme) ? theme : 'dark';
+    };
+    for (const root of document.querySelectorAll('[data-theme-toggle]')) {
+      const buttons = [...root.querySelectorAll('button[data-item]')];
+      const show = (theme) => buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.item === theme)));
+      show(storedTheme());
+      buttons.forEach((b) => b.addEventListener('click', () => {
+        try { localStorage.setItem('hivevm-theme', b.dataset.item); } catch (e) { /* not persisted */ }
+        hvSetTheme(b.dataset.item);
+        show(b.dataset.item);
+      }));
+    }
+
+    // Follow the system setting while "system" is chosen.
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (storedTheme() === 'system') hvSetTheme('system');
+    });
+
     // Scroll reveal
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

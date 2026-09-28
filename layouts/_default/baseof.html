@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,28 @@
   <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }}{{ end }}</title>
   <meta name="description" content="{{ $desc }}" />
   <meta name="theme-color" content="#0a0a0f" />
+
+  {{- /* Light / dark theme: "light", "dark" or "system" from localStorage ("hivevm-theme"), dark
+         when nothing is stored. Not Hextra's "color-theme" key: the manuals site writes "system"
+         there on every visit, which would override the dark default on a shared origin. Runs before
+         the stylesheet so the page never flashes the wrong theme; site.js wires the nav toggle to
+         hvSetTheme. */}}
+  <script>
+    function hvSetTheme(theme) {
+      var root = document.documentElement;
+      if (theme !== "light" && theme !== "dark") {
+        theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      root.classList.remove("light", "dark");
+      root.classList.add(theme);
+      document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0a0a0f" : "#ffffff";
+    }
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("hivevm-theme"); } catch (e) { /* storage blocked */ }
+      hvSetTheme(stored || "dark");
+    })();
+  </script>
   <link rel="canonical" href="{{ .Permalink }}" />
 
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }}{{ end }}" />
