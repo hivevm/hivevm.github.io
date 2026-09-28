@@ -1,5 +1,5 @@
 baseURL = "https://hivevm.org/"
-languageCode = "en-us"
+locale = "en-us"
 title = "HiveVM"
 enableRobotsTXT = true
 

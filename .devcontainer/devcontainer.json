@@ -21,7 +21,7 @@
   // .github/workflows/hugo.yml so the preview matches the deployed build.
   "features": {
     "ghcr.io/devcontainers/features/hugo:1": {
-      "version": "0.140.2",
+      "version": "0.167.0",
       "extended": true
     }
   },

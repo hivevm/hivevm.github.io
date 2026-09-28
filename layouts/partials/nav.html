@@ -7,7 +7,7 @@
           <span class="name">Hive<em>VM</em></span>
         </a>
         <ul class="nav-links">
-          {{- range .Site.Data.nav -}}
+          {{- range hugo.Data.nav -}}
           <li><a href="{{ .href | relURL }}">{{ .label }}</a></li>
           {{- end -}}
         </ul>
@@ -39,7 +39,7 @@
   <div id="mobile-menu" class="mobile-menu" data-menu-panel>
     <div class="container" style="padding-block:0.75rem">
       <ul>
-        {{- range .Site.Data.nav -}}
+        {{- range hugo.Data.nav -}}
         <li><a href="{{ .href | relURL }}">{{ .label }}</a></li>
         {{- end -}}
         <li class="divider"><a href="{{ .Site.Params.github_org }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
