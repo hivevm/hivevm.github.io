@@ -3,10 +3,12 @@ columns:
     links:
       - label: Parser Generator (Waggle)
         href: https://github.com/hivevm/waggle
-      - label: Manual Generator
-        href: https://github.com/hivevm/doc
+      - label: Documentation Generator (Nectar)
+        href: https://github.com/hivevm/nectar
       - label: Agent Template (NUC)
         href: https://github.com/hivevm/nuc
+      - label: Git Client (Ocelli)
+        href: https://github.com/hivevm/ocelli
   - title: Resources
     links:
       - label: GitHub organization

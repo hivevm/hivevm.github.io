@@ -12,8 +12,8 @@ as the subject the website presents.
 
 ## Problem
 
-HiveVM's tools (an LL(k) parser generator, a manual generator and an agent template) are spread
-across several repositories. A developer evaluating them has no single, credible place that explains
+HiveVM's tools (an LL(k) parser generator, a documentation generator, an agent template and a Git
+client) are spread across several repositories. A developer evaluating them has no single, credible place that explains
 what HiveVM is, what each tool does, how the tools relate, and where to start. Project news and
 explanatory writing have no home either. Without one coherent entry point, the toolkit is hard to
 discover, understand, and trust.
@@ -28,7 +28,7 @@ visitors to the right tool or article.
 [hivevm.org](https://hivevm.org) is the canonical front door to HiveVM. A visitor immediately grasps
 the core idea — *model once, run anywhere*: describe an application's logic once as a model,
 independent of technology and platform, and let the platform change while the model stays — sees the
-three tools and how they fit together, and reaches any repository or article in a click. The site loads instantly, works
+tools and how they fit together, and reaches any repository or article in a click. The site loads instantly, works
 without JavaScript for its core content, reads well on any device, and is cheap to maintain: contributors
 change **content** (YAML and Markdown), not page plumbing. New tools and posts slot in without
 redesigning anything.
@@ -60,10 +60,14 @@ documentation, and ADRs.
   - **Parser Generator — Waggle** (`waggle`, formerly `cc`) — an LL(k) parser generator that emits a
     parser and full AST for Java, C++ & Rust from a single grammar file (extension `.waggle`). Named
     after the bees' *waggle dance*, a grammar the other bees parse.
-  - **Manual Generator** (`doc`) — turns a folder of CommonMark Markdown into one coherent manual.
+  - **Documentation Generator — Nectar** (`nectar`) — a documentation generator in Rust that publishes
+    one Markdown source as a website and a PDF from the same engine.
   - **Agent Template — NUC** (`nuc`) — a starting point for building software with coding agents inside
     a ready-to-use Dev Container, driven by a written specification and ADRs. Named after the beekeeping
     *nucleus colony*, the small starter colony a full hive grows from.
+  - **Git Client — Ocelli** (`ocelli`) — views and edits Git repositories through a readable commit
+    graph, on the desktop and in the terminal. Named after the three simple eyes on top of a bee's head,
+    with which it reads light and the horizon at a glance.
 - **Site** — this Hugo project as a whole (everything published to hivevm.org).
 - **Layout** — a page template in [`layouts/`](../layouts/) (e.g. `_default/baseof`, `_default/single`,
   `_default/list`, `index`).
@@ -83,7 +87,7 @@ documentation, and ADRs.
 What must be true for this project to be considered successful? Write criteria that can be
 used as acceptance criteria.
 
-1. **One coherent entry point.** The home page states what HiveVM is, presents all three tools, and
+1. **One coherent entry point.** The home page states what HiveVM is, presents every tool, and
    links each to its repository and to the GitHub organization.
 2. **Content-only edits.** Adding or changing a tool card, repository entry, nav item, or footer link is
    done by editing a [`data/`](../data/) YAML file or front matter — no layout/markup changes
@@ -103,7 +107,7 @@ used as acceptance criteria.
 What this project explicitly does not try to do — to keep scope clear.
 
 - **Not the tools.** This repository hosts no tool source code, releases, or API documentation for
-  `waggle`, `doc`, or `nuc`; those live in their own repositories.
+  `waggle`, `nectar`, `nuc`, or `ocelli`; those live in their own repositories.
 - **No server-side features.** No backend, database, authentication, comments, search index, or
   dynamic personalization — the site is fully static.
 - **No front-end framework or Node build step.** No React/Vue/Svelte, no bundler, no CSS framework;

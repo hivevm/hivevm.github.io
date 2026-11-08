@@ -30,7 +30,7 @@ The toolkit is intentionally small:
 
 - **Parser Generator (Waggle)** — an LL(k) generator that emits a parser and a full AST for
   Java, C++ and Rust from one grammar.
-- **Manual Generator** — turns a collection of CommonMark files into one coherent manual.
+- **Documentation Generator (Nectar)** — turns one Markdown source into a website and a PDF.
 - **Agent Template (NUC)** — a starting point for building software with coding agents
   inside a ready-to-use Dev Container, driven by a written specification and ADRs.
 

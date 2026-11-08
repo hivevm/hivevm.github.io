@@ -12,14 +12,14 @@
   icon: brackets
   visual: tree
 
-- id: manual
+- id: nectar
   num: "02"
-  title: Manual Generator
+  title: Documentation Generator (Nectar)
   body: >-
-    Manual generator for collections of Markdown documents. Supports the
-    <code>CommonMark</code> syntax to turn a folder of files into one coherent
-    manual.
-  repo: https://github.com/hivevm/doc
+    Documentation generator in <code>Rust</code>. Write your docs once in
+    <code>Markdown</code> and publish them as a website and a PDF from the same
+    engine.
+  repo: https://github.com/hivevm/nectar
   span: lg-2
   icon: doc
   visual: chips
@@ -37,20 +37,23 @@
   icon: pipeline
   visual: none
 
+- id: ocelli
+  num: "04"
+  title: Git Client (Ocelli)
+  body: >-
+    View and edit Git repositories through a readable commit graph, on the
+    desktop and in the terminal: each branch keeps its own lane, and merges
+    stay easy to follow.
+  repo: https://github.com/hivevm/ocelli
+  span: lg-4
+  icon: eye
+  visual: none
+
 - id: targets
   title: Multiple targets, one model
   body: >-
     The same grammar emits idiomatic <code>Java</code>, <code>C++</code> and <code>Rust</code> —
     keep one source of truth and let HiveVM project it onto each language.
-  span: lg-3
+  span: lg-6
   icon: layers
-  visual: none
-
-- id: vscode
-  title: VSCode server launchers
-  body: >-
-    Server launchers wire your generated tooling straight into VSCode, so
-    language features light up as soon as the model changes.
-  span: lg-3
-  icon: code
   visual: none

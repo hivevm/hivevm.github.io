@@ -6,13 +6,13 @@
   license: BSD-3-Clause
   url: https://github.com/hivevm/waggle
 
-- name: doc
+- name: nectar
   org: hivevm/
-  body: Manual generator for collections of Markdown documents. Supports the CommonMark syntax.
-  lang: Java
-  lang_color: "#b07219"
+  body: Documentation generator in Rust. One Markdown source, published as a website and a PDF.
+  lang: Rust
+  lang_color: "#dea584"
   license: BSD-3-Clause
-  url: https://github.com/hivevm/doc
+  url: https://github.com/hivevm/nectar
 
 - name: nuc
   org: hivevm/
@@ -21,3 +21,11 @@
   lang_color: "#89e051"
   license: MIT
   url: https://github.com/hivevm/nuc
+
+- name: ocelli
+  org: hivevm/
+  body: View and edit Git repositories through a readable commit graph, on the desktop and in the terminal.
+  lang: Rust
+  lang_color: "#dea584"
+  license: MIT
+  url: https://github.com/hivevm/ocelli

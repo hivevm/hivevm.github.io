@@ -966,6 +966,10 @@
       .lg-4 {
         grid-column: span 4;
       }
+
+      .lg-6 {
+        grid-column: span 6;
+      }
     }
 
     /* mini tree visual */
@@ -1259,7 +1263,13 @@
 
     @media (min-width: 768px) {
       .repos {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .repos {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
