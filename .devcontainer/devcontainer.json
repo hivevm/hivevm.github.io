@@ -1,9 +1,6 @@
 {
-  "name": "DevContainer",
+  "name": "HiveVM Website",
   "image": "mcr.microsoft.com/devcontainers/base:debian",
-
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 
   "remoteUser": "vscode",
   "mounts": [
@@ -15,16 +12,17 @@
     "type=tmpfs,target=/tmp,tmpfs-mode=1777"
   ],
 
-  "shutdownAction": "stopContainer",
-
   // Runs on the host before the container is created. Ensures the bind-mount source for the agent
   // config exists, so Docker does not auto-create it as a root-owned directory (which breaks
   // credential writes inside the container).
   "initializeCommand": "mkdir -p ${localEnv:HOME}/.claude",
 
-  // Hugo (extended) for local previews (ADR-0005). Keep the version in sync with HUGO_VERSION in
-  // .github/workflows/hugo.yml so the preview matches the deployed build.
   "features": {
+    // GitHub CLI (`gh`) for GitHub operations. Every git write through it needs the human's
+    // go-ahead (AGENTS.md, section 4).
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    // Hugo (extended) for local previews (ADR-0005). Keep the version in sync with HUGO_VERSION in
+    // .github/workflows/hugo.yml so the preview matches the deployed build.
     "ghcr.io/devcontainers/features/hugo:1": {
       "version": "0.167.0",
       "extended": true
@@ -35,8 +33,7 @@
   "forwardPorts": [1313],
   "portsAttributes": {
     "1313": {
-      "label": "Hugo preview",
-      "onAutoForward": "notify"
+      "label": "Hugo preview"
     }
   },
 
@@ -44,8 +41,7 @@
     // VS Code extensions installed inside the container
     "vscode": {
       "extensions": [
-        "anthropic.claude-code",
-        "ms-vscode-remote.remote-containers"
+        "anthropic.claude-code"
       ]
     }
   }

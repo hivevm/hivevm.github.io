@@ -128,14 +128,15 @@ scripts/check-docs.sh     # ADR-index & relative-link consistency checks (run in
 The environment is defined entirely in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json):
 it starts from a prebuilt base image and layers Dev Container Features and VS Code extensions on top —
 no Dockerfile or Compose file required (see [ADR-0002](docs/adr/0002-dev-container-runtime.md)).
-It already includes the `hugo` Feature for local previews. Customise the environment by adding Features,
-switching the base image, or adding extensions.
+It already includes the `hugo` Feature for local previews and the `github-cli` Feature for GitHub
+operations (run `gh auth login` inside the container to use it). Customise the environment by adding
+Features, switching the base image, or adding extensions.
 
 ## Coding Agents
 
-This Dev Container preinstalls the **Claude Code** and **Mistral Vibe** VS Code extensions (see
+This Dev Container preinstalls the **Claude Code** VS Code extension (see
 [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json)); other agents (OpenAI Codex,
-Cursor, OpenCode, GitHub Copilot) work too once you add them. Authenticate your agent inside the
+Cursor, Mistral Vibe, OpenCode, GitHub Copilot) work too once you add them. Authenticate your agent inside the
 container (for Claude Code: `claude login`).
 
 The rules every agent follows live in [`AGENTS.md`](AGENTS.md); how each agent is wired to read them
