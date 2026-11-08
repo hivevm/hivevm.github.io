@@ -7,7 +7,12 @@
 
   "remoteUser": "vscode",
   "mounts": [
-    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind",
+    // Podman 5.8 builds reset /tmp to 0755 when a Feature is installed: a RUN --mount below /tmp that
+    // also writes to /tmp commits the directory with the wrong mode. VS Code then cannot create
+    // /tmp/.X11-unix as the remote user and connecting fails. Features and Dockerfiles cannot repair
+    // this at build time, so restore the world-writable sticky /tmp at run time.
+    "type=tmpfs,target=/tmp,tmpfs-mode=1777"
   ],
 
   "shutdownAction": "stopContainer",
