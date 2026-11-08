@@ -17,6 +17,10 @@
   // credential writes inside the container).
   "initializeCommand": "mkdir -p ${localEnv:HOME}/.claude",
 
+  // Logs gh in with the credential that git gets from the host. The forwarded credential helper only
+  // works once VS Code is attached. Without a login on the host, gh simply stays logged out.
+  "postAttachCommand": "printf 'protocol=https\\nhost=github.com\\n\\n' | GIT_TERMINAL_PROMPT=0 git credential fill | sed -n 's/^password=//p' | gh auth login --with-token || true",
+
   "features": {
     // GitHub CLI (`gh`) for GitHub operations. Every git write through it needs the human's
     // go-ahead (AGENTS.md, section 4).

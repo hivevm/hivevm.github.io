@@ -129,8 +129,13 @@ The environment is defined entirely in [`.devcontainer/devcontainer.json`](.devc
 it starts from a prebuilt base image and layers Dev Container Features and VS Code extensions on top —
 no Dockerfile or Compose file required (see [ADR-0002](docs/adr/0002-dev-container-runtime.md)).
 It already includes the `hugo` Feature for local previews and the `github-cli` Feature for GitHub
-operations (run `gh auth login` inside the container to use it). Customise the environment by adding
-Features, switching the base image, or adding extensions.
+operations. Customise the environment by adding Features, switching the base image, or adding extensions.
+
+Git identity and GitHub authentication come from the host. VS Code copies your `.gitconfig` into the
+container and forwards git's credential requests to the host, and the container logs `gh` in with the
+same credential when VS Code attaches. To set this up, run `gh auth login` and `gh auth setup-git` once
+on the host. The container stores the token in plain text in `~/.config/gh/hosts.yml`, so every process
+inside it, coding agents included, can use it.
 
 ## Coding Agents
 
