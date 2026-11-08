@@ -78,7 +78,15 @@ Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 - **Repository showcase:** [`data/repos.yml`](data/repos.yml)
 - **Navigation & footer:** [`data/nav.yml`](data/nav.yml), [`data/footer.yml`](data/footer.yml)
 - **Home page hero:** front matter (`hero_*`) in [`content/_index.md`](content/_index.md)
-- **Blog posts:** add a Markdown file to [`content/blog/`](content/blog/) named `title.md`
+- **Blog posts:** add a Markdown file to [`content/blog/`](content/blog/) named `title.md`; `image` in
+  its front matter overrides the default preview image for shared links (`og_image` in
+  [`hugo.toml`](hugo.toml))
+
+Visitors' browsers must not contact third parties, so nothing the pages load may come from another
+host. This includes fonts: Inter and JetBrains Mono are self-hosted in
+[`static/assets/fonts/`](static/assets/fonts/), next to their SIL OFL licences. They are the Latin
+variable subsets of the npm packages `@fontsource-variable/inter` and
+`@fontsource-variable/jetbrains-mono`, version 5.3.0.
 
 For example, to add a blog post:
 

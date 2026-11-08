@@ -1,4 +1,26 @@
 /* ─────────────────────────────────────────────────────────────
+   Self-hosted fonts (variable, Latin subset, SIL OFL 1.1), so that no visitor
+   request reaches a third party. Licences live next to the files.
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ─────────────────────────────────────────────────────────────
        HiveVM design tokens — "dark glow" (adapted from Pulsar Lite)
        Near-black base, glassy panels, YELLOW accents.
        ───────────────────────────────────────────────────────────── */
@@ -1497,23 +1519,37 @@
       color: var(--fg);
     }
 
-    /* Scroll reveal */
-    [data-reveal] {
+    /* Scroll reveal: content is only hidden once JavaScript is known to run (.js, set in baseof.html).
+       If site.js then fails to load or run, it never sets .reveal-ready and the failsafe animation
+       shows the content anyway. */
+    .js [data-reveal] {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
     }
 
-    [data-reveal].in {
+    .js:not(.reveal-ready) [data-reveal] {
+      animation: reveal-failsafe 0.6s var(--ease) 2s forwards;
+    }
+
+    .js [data-reveal].in {
       opacity: 1;
       transform: none;
     }
 
+    @keyframes reveal-failsafe {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      [data-reveal] {
+      .js [data-reveal] {
         opacity: 1;
         transform: none;
         transition: none;
+        animation: none;
       }
     }
 
@@ -1543,6 +1579,63 @@
   letter-spacing: -0.02em;
   line-height: 1.1;
   text-wrap: balance;
+}
+
+.page-lead {
+  margin-top: 1rem;
+  color: var(--fg-2);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.post-end {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 3rem 0 1.5rem;
+}
+
+/* Previous / next post */
+.post-nav {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .post-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.post-nav a {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--panel);
+  padding: 1rem 1.25rem;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.4;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.post-nav a:hover {
+  border-color: var(--line-2);
+  background: var(--panel-2);
+}
+
+.post-nav .label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--fg-3);
+}
+
+.post-nav .next {
+  grid-column: -2;
+  text-align: right;
 }
 
 .post-meta {
@@ -1613,6 +1706,31 @@
   text-decoration-color: var(--brand-bright-text);
 }
 
+/* Heading permalink: shown on hover and keyboard focus, always faintly on touch screens */
+.prose a.heading-anchor {
+  margin-left: 0.4em;
+  color: var(--fg-3);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.prose :is(h2, h3, h4):hover a.heading-anchor,
+.prose a.heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.prose a.heading-anchor:hover {
+  color: var(--brand-text);
+}
+
+@media (hover: none) {
+  .prose a.heading-anchor {
+    opacity: 0.6;
+  }
+}
+
 .prose strong {
   color: var(--fg);
   font-weight: 600;
@@ -1650,6 +1768,11 @@
   border: 1px solid var(--line);
 }
 
+/* Wide tables scroll inside their own box instead of widening the page */
+.table-wrap {
+  overflow-x: auto;
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;
@@ -1682,7 +1805,7 @@
 /* Post list (blog index) */
 .post-list {
   max-width: 44rem;
-  margin-inline: auto;
+  margin: 2.5rem auto 0;
   list-style: none;
   padding: 0;
   display: flex;
@@ -1735,8 +1858,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Rouge syntax highlighting — dark, harmonised with the theme
-   (Jekyll wraps fenced code in div.highlight > pre.highlight > code)
+   Chroma syntax highlighting — dark, harmonised with the theme
+   (Hugo wraps fenced code in div.highlight > pre.chroma > code)
    ───────────────────────────────────────────────────────────── */
 .prose .highlight,
 figure.highlight {

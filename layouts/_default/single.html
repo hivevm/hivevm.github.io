@@ -2,20 +2,40 @@
 <article class="container page-wrap">
   <div class="prose-shell">
     <header class="post-head" data-reveal>
-      <p class="eyebrow">Blog</p>
+      {{- /* Pages outside a section (a legal page, for example) have no section label, date or
+             navigation; everything below follows from the page's own section. */}}
+      {{- with .Section }}
+      <p class="eyebrow">{{ $.CurrentSection.Title }}</p>
+      {{- end }}
       <h1>{{ .Title }}</h1>
+      {{- if not .Date.IsZero }}
       <p class="post-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
         {{- with .Params.author }} · {{ . }}{{ end -}}
       </p>
+      {{- end }}
     </header>
 
     <div class="prose">
       {{ .Content }}
     </div>
 
-    <hr style="border:0;border-top:1px solid var(--line);margin:3rem 0 1.5rem" />
-    <a href="{{ "/blog/" | relURL }}" class="back-link"><span aria-hidden="true">←</span> Back to the blog</a>
+    {{- if .Section }}
+    <hr class="post-end" />
+    {{- if or .NextInSection .PrevInSection }}
+    {{- /* Hugo's Next points up the list, Prev down it. Labelled by date: posts can share one, so
+           "newer" and "older" would not always be true. */}}
+    <nav class="post-nav" aria-label="More in {{ .CurrentSection.Title }}">
+      {{- with .NextInSection }}
+      <a class="prev" href="{{ .RelPermalink }}"><span class="label"><span aria-hidden="true">←</span> {{ .Date.Format "January 2, 2006" }}</span>{{ .Title }}</a>
+      {{- end }}
+      {{- with .PrevInSection }}
+      <a class="next" href="{{ .RelPermalink }}"><span class="label">{{ .Date.Format "January 2, 2006" }} <span aria-hidden="true">→</span></span>{{ .Title }}</a>
+      {{- end }}
+    </nav>
+    {{- end }}
+    <a href="{{ .CurrentSection.RelPermalink }}" class="back-link"><span aria-hidden="true">←</span> Back to {{ .CurrentSection.Title }}</a>
+    {{- end }}
   </div>
 </article>
 {{ end }}

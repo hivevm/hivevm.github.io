@@ -1,4 +1,19 @@
-// Current year
+// Scroll reveal. Runs first, so that an error further down cannot leave content hidden; .reveal-ready
+    // turns off the CSS failsafe that shows the content when this script does not run.
+    document.documentElement.classList.add('reveal-ready');
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        }
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('in'));
+    }
+
+    // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Mobile menu
@@ -68,16 +83,3 @@
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       if (storedTheme() === 'system') hvSetTheme('system');
     });
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('[data-reveal]');
-    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const io = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
-        }
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-      reveals.forEach((el) => io.observe(el));
-    } else {
-      reveals.forEach((el) => el.classList.add('in'));
-    }

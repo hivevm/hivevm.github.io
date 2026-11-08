@@ -19,5 +19,7 @@ columns:
         href: https://github.com/hivevm
       - label: Blog
         href: /blog/
+      - label: RSS feed
+        href: /blog/index.xml
       - label: hivevm.org
         href: https://hivevm.org/

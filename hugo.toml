@@ -11,6 +11,8 @@ disableKinds = ["taxonomy", "term"]
   github_org = "https://github.com/hivevm"
   # "Get started" routes visitors into NUC's template flow — a new project from the template.
   start_url = "https://github.com/hivevm/nuc/generate"
+  # Preview image for shared links; a page can override it with "image" in its front matter.
+  og_image = "/assets/hive-texture.jpg"
 
 [markup]
   [markup.goldmark.renderer]
@@ -19,6 +21,3 @@ disableKinds = ["taxonomy", "term"]
     noClasses = false
     tabWidth = 2
     guessSyntax = false
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 3
