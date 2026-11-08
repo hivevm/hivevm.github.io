@@ -29,3 +29,19 @@
   lang_color: "#dea584"
   license: MIT
   url: https://github.com/hivevm/ocelli
+
+- name: comb
+  org: hivevm/
+  body: Node-editor framework for the browser, built to stay responsive with tens of thousands of nodes.
+  lang: Rust
+  lang_color: "#dea584"
+  license: MIT
+  url: https://github.com/hivevm/comb
+
+- name: forager
+  org: hivevm/
+  body: MapServer-compatible render core in Rust. Renders mapfiles in the browser and on the server.
+  lang: Rust
+  lang_color: "#dea584"
+  license: MIT OR Apache-2.0
+  url: https://github.com/hivevm/forager

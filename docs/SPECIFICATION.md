@@ -12,9 +12,9 @@ as the subject the website presents.
 
 ## Problem
 
-HiveVM's tools (an LL(k) parser generator, a documentation generator, an agent template and a Git
-client) are spread across several repositories. A developer evaluating them has no single, credible place that explains
-what HiveVM is, what each tool does, how the tools relate, and where to start. Project news and
+HiveVM's tools (an LL(k) parser generator, a documentation generator, an agent template, a Git
+client, a node editor and a map renderer) are spread across several repositories. A developer
+evaluating them has no single, credible place that explains what HiveVM is, what each tool does, how the tools relate, and where to start. Project news and
 explanatory writing have no home either. Without one coherent entry point, the toolkit is hard to
 discover, understand, and trust.
 
@@ -68,6 +68,10 @@ documentation, and ADRs.
   - **Git Client — Ocelli** (`ocelli`) — views and edits Git repositories through a readable commit
     graph, on the desktop and in the terminal. Named after the three simple eyes on top of a bee's head,
     with which it reads light and the horizon at a glance.
+  - **Node Editor — Comb** (`comb`) — a node-editor framework for the browser, built to stay responsive
+    with tens of thousands of nodes.
+  - **Map Renderer — Forager** (`forager`) — renders UMN MapServer mapfiles with MapServer's styling
+    semantics, in the browser as WebAssembly and on the server as a Rust library.
 - **Site** — this Hugo project as a whole (everything published to hivevm.org).
 - **Layout** — a page template in [`layouts/`](../layouts/) (e.g. `_default/baseof`, `_default/single`,
   `_default/list`, `index`).
@@ -107,7 +111,7 @@ used as acceptance criteria.
 What this project explicitly does not try to do — to keep scope clear.
 
 - **Not the tools.** This repository hosts no tool source code, releases, or API documentation for
-  `waggle`, `nectar`, `nuc`, or `ocelli`; those live in their own repositories.
+  `waggle`, `nectar`, `nuc`, `ocelli`, `comb`, or `forager`; those live in their own repositories.
 - **No server-side features.** No backend, database, authentication, comments, search index, or
   dynamic personalization — the site is fully static.
 - **No front-end framework or Node build step.** No React/Vue/Svelte, no bundler, no CSS framework;

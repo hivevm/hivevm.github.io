@@ -49,6 +49,31 @@
   icon: eye
   visual: none
 
+- id: comb
+  num: "05"
+  title: Node Editor (Comb)
+  body: >-
+    Node-editor framework for the browser, built to stay responsive with tens of
+    thousands of nodes. Draws on a <code>WebGL2</code> canvas, computes geometry
+    in <code>Rust</code> compiled to WebAssembly and leaves every form to your
+    application.
+  repo: https://github.com/hivevm/comb
+  span: lg-3
+  icon: nodes
+  visual: none
+
+- id: forager
+  num: "06"
+  title: Map Renderer (Forager)
+  body: >-
+    Renders maps with the styling semantics of UMN MapServer. Reads
+    <code>mapfiles</code> and rasterizes them itself, in the browser as
+    WebAssembly and on the server as a <code>Rust</code> library.
+  repo: https://github.com/hivevm/forager
+  span: lg-3
+  icon: map
+  visual: none
+
 - id: targets
   title: Multiple targets, one model
   body: >-
