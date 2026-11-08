@@ -23,3 +23,5 @@ columns:
         href: /blog/index.xml
       - label: hivevm.org
         href: https://hivevm.org/
+      - label: Privacy policy
+        href: /privacy/

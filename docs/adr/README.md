@@ -29,4 +29,5 @@ in the repository root). ADRs derive from the specification in [`docs/SPECIFICAT
 | [0004](0004-data-driven-component-architecture.md) | Data-driven, component-based content with hand-authored CSS and dependency-free JS | ⚪ superseded by [0006](0006-data-driven-hugo-content.md) |
 | [0005](0005-hugo-github-pages-site.md) | Static website with Hugo on GitHub Pages, built by GitHub Actions | 🟢 accepted |
 | [0006](0006-data-driven-hugo-content.md) | Data-driven, partial-based content in Hugo with hand-authored CSS and dependency-free JS | 🟢 accepted |
+| [0007](0007-no-third-party-requests.md) | No third-party requests from the pages, on GitHub Pages | 🟢 accepted |
 
