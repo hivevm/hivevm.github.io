@@ -9,19 +9,11 @@ columns:
         href: https://github.com/hivevm/nuc
       - label: Git Client (Ocelli)
         href: https://github.com/hivevm/ocelli
-      - label: Node Editor (Comb)
-        href: https://github.com/hivevm/comb
-      - label: Map Renderer (Forager)
-        href: https://github.com/hivevm/forager
   - title: Resources
     links:
-      - label: GitHub organization
-        href: https://github.com/hivevm
       - label: Blog
         href: /blog/
       - label: RSS feed
         href: /blog/index.xml
-      - label: hivevm.org
-        href: https://hivevm.org/
       - label: Privacy policy
         href: /privacy/

@@ -812,10 +812,10 @@
       margin: 2.5rem 0 0;
       padding: 0;
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-items: center;
+      justify-content: space-evenly;
       gap: 2.25rem 2.5rem;
       color: var(--fg-3);
       font-weight: 600;
@@ -843,18 +843,6 @@
       font-weight: 500;
       font-size: 0.95rem;
       letter-spacing: 0;
-    }
-
-    @media (min-width: 640px) {
-      .stack ul {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .stack ul {
-        grid-template-columns: repeat(6, 1fr);
-      }
     }
 
     /* ── Section heads ──────────────────────────────────────────── */
