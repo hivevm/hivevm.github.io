@@ -8,7 +8,8 @@ description: >-
 hero_badge: "Model-driven software development"
 hero_badge_href: "https://github.com/hivevm"
 # Markdown: *emphasised* words render highlighted (gradient, upper case).
-hero_title: "Model *once*, run *anywhere*"
+# &nbsp; keeps "run anywhere" together when the title wraps.
+hero_title: "Model *once*, run&nbsp;*anywhere*"
 hero_sub: >-
   Describe your application and business logic once as a model — independent of
   technology and platform. The platform may change; the model stays. HiveVM

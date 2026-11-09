@@ -1,4 +1,4 @@
-<section class="section" id="features" style="scroll-margin-top:5rem">
+<section class="section" id="features">
   <div class="container">
     <div class="section-head" data-reveal>
       <p class="eyebrow">Toolkit</p>
@@ -13,25 +13,9 @@
     <div class="bento">
       {{- range hugo.Data.features -}}
       <article class="card {{ .span }}" data-reveal>
-        <div class="ico" aria-hidden="true">
-          {{- if eq .icon "brackets" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5.5 2.5 10 7 14.5M13 5.5 17.5 10 13 14.5" /></svg>
-          {{- else if eq .icon "doc" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 3.5h7l5 5v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z" /><path d="M11 3.5V8h4.5M6 11.5h8M6 14h5" stroke-linecap="round" /></svg>
-          {{- else if eq .icon "pipeline" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="4.5" r="2" /><circle cx="5.5" cy="15.5" r="2" /><circle cx="14.5" cy="10" r="2" /><path d="M5.5 6.5v7M7.5 4.5h4a1 1 0 0 1 1 1v3.5M7.5 15.5h4a1 1 0 0 0 1-1V11.5" /></svg>
-          {{- else if eq .icon "layers" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5 2.5 6.25 10 10l7.5-3.75L10 2.5Z" /><path d="m2.5 10.25 7.5 3.75 7.5-3.75m-15 4 7.5 3.75 7.5-3.75" /></svg>
-          {{- else if eq .icon "eye" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.75 10S4.75 4.5 10 4.5 18.25 10 18.25 10 15.25 15.5 10 15.5 1.75 10 1.75 10Z" /><circle cx="10" cy="10" r="2.5" /></svg>
-          {{- else if eq .icon "nodes" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="6.5" height="4.5" rx="1" /><rect x="11" y="12.5" width="6.5" height="4.5" rx="1" /><path d="M9 5.25h2.5a2 2 0 0 1 2 2v5.25" /></svg>
-          {{- else if eq .icon "map" -}}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.5 2.5 5.5v11l5-2 5 2 5-2v-11l-5 2-5-2Z" /><path d="M7.5 3.5v11M12.5 5.5v11" /></svg>
-          {{- end -}}
-        </div>
 
-        <h3>{{ with .num }}{{ . }} — {{ end }}{{ .title }}</h3>
+        {{- with .num }}<p class="eyebrow">{{ . }}</p>{{ end }}
+        <h3>{{ .title }}</h3>
         <p>{{ .body | safeHTML }}</p>
 
         {{- if eq .visual "tree" -}}

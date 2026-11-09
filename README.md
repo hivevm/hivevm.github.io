@@ -83,9 +83,10 @@ Most content is **data-driven** — edit YAML and Markdown rather than HTML:
   [`hugo.toml`](hugo.toml))
 
 Visitors' browsers must not contact third parties, so nothing the pages load may come from another
-host. This includes fonts: Inter and JetBrains Mono are self-hosted in
-[`static/assets/fonts/`](static/assets/fonts/), next to their SIL OFL licences. They are the Latin
-variable subsets of the npm packages `@fontsource-variable/inter` and
+host. This includes fonts: Big Shoulders Display, IBM Plex Sans, Inter and JetBrains Mono are
+self-hosted in [`static/assets/fonts/`](static/assets/fonts/), next to their SIL OFL licences. They are the Latin
+variable subsets of the npm packages `@fontsource-variable/big-shoulders-display`,
+`@fontsource-variable/ibm-plex-sans`, `@fontsource-variable/inter` and
 `@fontsource-variable/jetbrains-mono`, version 5.3.0.
 
 For example, to add a blog post:
@@ -165,4 +166,5 @@ of opening a public issue.
 ## License
 
 Released under the MIT License — see [`LICENSE`](LICENSE).
-Design adapted from [Pulsar Lite](https://github.com/cbetz/pulsar-lite) (MIT).
+Design adapted from [Pulsar Lite](https://github.com/cbetz/pulsar-lite) (MIT), see
+[`LICENSE-PulsarLite.txt`](static/assets/css/LICENSE-PulsarLite.txt).

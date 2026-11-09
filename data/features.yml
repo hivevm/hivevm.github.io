@@ -9,7 +9,6 @@
     &amp; <code>Rust</code> from a single <code>.waggle</code> grammar.
   repo: https://github.com/hivevm/waggle
   span: span-sm-2 lg-4
-  icon: brackets
   visual: tree
 
 - id: nectar
@@ -21,7 +20,6 @@
     engine.
   repo: https://github.com/hivevm/nectar
   span: lg-2
-  icon: doc
   visual: chips
 
 - id: nuc
@@ -34,7 +32,6 @@
     for every agent.
   repo: https://github.com/hivevm/nuc
   span: lg-2
-  icon: pipeline
   visual: none
 
 - id: ocelli
@@ -46,7 +43,6 @@
     stay easy to follow.
   repo: https://github.com/hivevm/ocelli
   span: lg-4
-  icon: eye
   visual: none
 
 - id: comb
@@ -59,7 +55,6 @@
     application.
   repo: https://github.com/hivevm/comb
   span: lg-3
-  icon: nodes
   visual: none
 
 - id: forager
@@ -71,7 +66,6 @@
     WebAssembly and on the server as a <code>Rust</code> library.
   repo: https://github.com/hivevm/forager
   span: lg-3
-  icon: map
   visual: none
 
 - id: targets
@@ -80,5 +74,4 @@
     The same grammar emits idiomatic <code>Java</code>, <code>C++</code> and <code>Rust</code> —
     keep one source of truth and let HiveVM project it onto each language.
   span: lg-6
-  icon: layers
   visual: none

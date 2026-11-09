@@ -82,7 +82,7 @@ documentation, and ADRs.
 - **Post** — a blog entry in [`content/blog/`](../content/blog/), authored in Markdown with the date in
   front matter; the URL becomes `/blog/<filename>/`.
 - **Design tokens** — the CSS custom properties in
-  [`static/assets/css/hivevm.css`](../static/assets/css/hivevm.css) ("dark glow" theme with a light
+  [`static/assets/css/hivevm.css`](../static/assets/css/hivevm.css) (flat, typography-first near-black and yellow theme with a light
   variant; the nav toggle offers light, dark or system, dark by default) that define the site's surfaces,
   colours and type.
 
