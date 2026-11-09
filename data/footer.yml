@@ -11,9 +11,7 @@ columns:
         href: https://github.com/hivevm/ocelli
   - title: Resources
     links:
-      - label: Blog
-        href: /blog/
-      - label: RSS feed
-        href: /blog/index.xml
+      - label: Projects
+        href: /tools/
       - label: Privacy policy
         href: /privacy/

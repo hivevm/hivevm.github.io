@@ -17,10 +17,6 @@
       {{- end }}
     </header>
 
-    <div class="prose">
-      {{ .Content }}
-    </div>
-
     {{- /* "screenshots" in front matter: files under static/, served from this site (ADR-0007). */}}
     {{- range .Params.screenshots }}
     <figure class="tool-shot">
@@ -28,6 +24,10 @@
       <figcaption>{{ .caption }}</figcaption>
     </figure>
     {{- end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
 
     <hr class="post-end" />
     {{- /* Hugo's Next points up the list, Prev down it. */}}

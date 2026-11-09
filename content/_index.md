@@ -1,4 +1,6 @@
 ---
+# Where the blog post or index used to be; old links redirect here.
+aliases: ["/blog/introducing-hivevm/"]
 title: "HiveVM — Model once, run anywhere"
 description: >-
   Model your application once and run it anywhere: tools that describe

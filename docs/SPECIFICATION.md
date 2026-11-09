@@ -14,25 +14,24 @@ as the subject the website presents.
 
 HiveVM's tools (an LL(k) parser generator, a documentation generator, an agent template, a Git
 client, a node editor and a map renderer) are spread across several repositories. A developer
-evaluating them has no single, credible place that explains what HiveVM is, what each tool does, how the tools relate, and where to start. Project news and
-explanatory writing have no home either. Without one coherent entry point, the toolkit is hard to
+evaluating them has no single, credible place that explains what HiveVM is, what each tool does, how the tools relate, and where to start. Without one coherent entry point, the toolkit is hard to
 discover, understand, and trust.
 
 ## Mission
 
 Give HiveVM one fast, accessible, trustworthy home on the web that explains the toolkit and routes
-visitors to the right tool or article.
+visitors to the right tool.
 
 ## Vision
 
 [hivevm.org](https://hivevm.org) is the canonical front door to HiveVM. A visitor immediately grasps
 the core idea — *model once, run anywhere*: describe an application's logic once as a model,
 independent of technology and platform, and let the platform change while the model stays — sees the
-tools and how they fit together, and reaches any repository or article in a click. The site also presents
+tools and how they fit together, and reaches any tool or repository in a click. The site also presents
 where HiveVM is heading: **agentic development** around the model. It always marks this as a goal and
 never presents it as a finished, integrated product. The site loads instantly, works
 without JavaScript for its core content, reads well on any device, and is cheap to maintain: contributors
-change **content** (YAML and Markdown), not page plumbing. New tools and posts slot in without
+change **content** (YAML and Markdown), not page plumbing. New tools slot in without
 redesigning anything.
 
 ## Strategy
@@ -44,7 +43,7 @@ sections render from [`data/`](../data/) YAML and reusable [`layouts/partials/`]
 partials, so editing content never means touching layout (see
 [ADR-0006](adr/0006-data-driven-hugo-content.md)). Author the styling by hand (one CSS file) and keep
 interactivity in dependency-free JavaScript, so there is no front-end framework or Node build step to
-maintain. Write the blog in CommonMark Markdown, mirroring how HiveVM's own tooling treats Markdown as a
+maintain. Write the tool pages in CommonMark Markdown, mirroring how HiveVM's own tooling treats Markdown as a
 first-class source.
 
 ## Core Concepts & Vocabulary
@@ -85,11 +84,10 @@ documentation, and ADRs.
   `footer`, `logo`, and the `home/*` sections) composed into a page.
 - **Data file** — a YAML file in [`data/`](../data/) holding the *content* a section renders
   (features, loop, compare, repos, nav, footer); editing it changes the page without touching markup.
-- **Post** — a blog entry in [`content/blog/`](../content/blog/), authored in Markdown with the date in
-  front matter; the URL becomes `/blog/<filename>/`.
-- **Tool page** — a short description of one tool in [`content/tools/`](../content/tools/), authored in
-  Markdown with its order in front matter (`weight`); the URL becomes `/tools/<repository name>/`. Its
-  depth ends at an overview: documentation stays in the tool's own repository.
+- **Tool page** — the description of one tool in [`content/tools/`](../content/tools/), authored in
+  Markdown with its order in front matter (`weight`); the URL becomes `/tools/<repository name>/`. It
+  explains what the tool is for and how it works; documentation stays in the tool's own repository.
+  The tool pages replace the former blog, whose URLs redirect to them.
 - **Design tokens** — the CSS custom properties in
   [`static/assets/css/hivevm.css`](../static/assets/css/hivevm.css) (flat, typography-first near-black and yellow theme with a light
   variant; the nav toggle offers light, dark or system, dark by default) that define the site's surfaces,
@@ -104,12 +102,11 @@ used as acceptance criteria.
    links each to its repository and to the GitHub organization.
 2. **Content-only edits.** Adding or changing a tool card, repository entry, nav item, or footer link is
    done by editing a [`data/`](../data/) YAML file or front matter — no layout/markup changes
-   required. Adding a blog post is a single Markdown file in [`content/blog/`](../content/blog/), and so
-   is adding a tool page in [`content/tools/`](../content/tools/).
+   required. Adding a tool page is a single Markdown file in [`content/tools/`](../content/tools/).
 3. **Automated build & deploy.** A committed GitHub Actions workflow builds the site with Hugo and
    deploys it to GitHub Pages from `main`, at the domain in [`static/CNAME`](../static/CNAME), with no
    external CI service, manual build step, or Node toolchain required to deploy.
-4. **Resilient core.** All primary content (tools, repositories, blog) is readable with JavaScript
+4. **Resilient core.** All primary content (tools, tool pages, repositories) is readable with JavaScript
    disabled; JavaScript only enhances (mobile menu, tabs, reveal-on-scroll).
 5. **Accessible & responsive.** Keyboard-navigable with a skip link, meaningful landmarks/labels, and a
    layout that works from mobile to desktop.

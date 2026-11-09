@@ -16,7 +16,7 @@
     <li>
       <a class="post-card" href="{{ .RelPermalink }}" data-reveal>
         <span class="eyebrow">{{ .Params.kind }}</span>
-        <h2>{{ .Title }}</h2>
+        <h2>{{ .Title }}{{ with .Params.tagline }}: {{ . }}{{ end }}</h2>
         <p>{{ .Description }}</p>
         <span class="more">Read more <span aria-hidden="true">→</span></span>
       </a>

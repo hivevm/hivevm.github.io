@@ -3,10 +3,10 @@
 [![Docs & ADR checks](https://github.com/hivevm/hivevm.github.io/actions/workflows/docs-check.yml/badge.svg)](https://github.com/hivevm/hivevm.github.io/actions/workflows/docs-check.yml)
 
 The public website for **[HiveVM](https://hivevm.org)**, served at [hivevm.org](https://hivevm.org).
-It is a static [Hugo](https://gohugo.io/) site — a dark "glow" design (adapted from
-[Pulsar Lite](https://github.com/cbetz/pulsar-lite)) with HiveVM's yellow branding — built by a
+It is a static [Hugo](https://gohugo.io/) site — a flat, typography-first design (partly
+adapted from [Pulsar Lite](https://github.com/cbetz/pulsar-lite)) with HiveVM's yellow branding — built by a
 **GitHub Actions** workflow and deployed to **GitHub Pages**. It presents the HiveVM project to
-visitors and hosts the project blog.
+visitors with a page for each tool.
 
 This repository is also an **agentic, specification-oriented** project: the work is driven by a
 written **specification** ([`docs/SPECIFICATION.md`](docs/SPECIFICATION.md)) and
@@ -22,7 +22,7 @@ the [hivevm GitHub organization](https://github.com/hivevm). Its job is narrow a
 
 - Give HiveVM one coherent entry point that explains what the project is and routes visitors to the
   right repository.
-- Host the project blog, authored in Markdown.
+- Describe each tool on its own page, authored in Markdown.
 - Deploy itself: a push to `main` triggers the GitHub Actions workflow that builds with Hugo and
   publishes to GitHub Pages — no servers or external CI service to maintain.
 
@@ -83,9 +83,8 @@ Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 - **Tool pages:** add a Markdown file named after the repository to [`content/tools/`](content/tools/);
   `weight` sets its place in the list, `screenshots` adds images from `static/`, and language, licence and
   link come from `data/repos.yml`
-- **Blog posts:** add a Markdown file to [`content/blog/`](content/blog/) named `title.md`; `image` in
-  its front matter overrides the default preview image for shared links (`og_image` in
-  [`hugo.toml`](hugo.toml))
+- **Preview image:** `image` in a page's front matter overrides the default preview image for shared
+  links (`og_image` in [`hugo.toml`](hugo.toml))
 
 Visitors' browsers must not contact third parties, so nothing the pages load may come from another
 host. This includes fonts: Big Shoulders Display, IBM Plex Sans, Inter and JetBrains Mono are
@@ -94,20 +93,22 @@ variable subsets of the npm packages `@fontsource-variable/big-shoulders-display
 `@fontsource-variable/ibm-plex-sans`, `@fontsource-variable/inter` and
 `@fontsource-variable/jetbrains-mono`, version 5.3.0.
 
-For example, to add a blog post:
+For example, to add a tool page for a repository named `mytool` in `data/repos.yml`, create
+`content/tools/mytool.md`:
 
 ```markdown
 ---
-title: "My post title"
-date: 2026-06-20
-author: HiveVM
-description: One-line summary used for SEO and the blog index card.
+title: "MyTool"
+kind: "Code generator"
+weight: 70
+tagline: "a short headline for the toolkit list"
+description: Two-line summary for the toolkit list, the page lead and SEO.
 ---
 
 Your CommonMark content here.
 ```
 
-It appears automatically on [`/blog/`](content/blog/) and at `/blog/my-post-title/`. The rationale behind
+It appears automatically on `/tools/` and at `/tools/mytool/`. The rationale behind
 the data-driven, partial-based structure is recorded in
 [ADR-0006](docs/adr/0006-data-driven-hugo-content.md).
 
@@ -119,9 +120,10 @@ AGENTS.md                 # single source of truth for coding agents
 hugo.toml                 # Hugo site configuration (title, params, markup)
 content/
   _index.md               # home page — hero text lives in the front matter
-  blog/                   # blog posts (Markdown) + blog index (_index.md)
+  tools/                  # one page per tool (Markdown) + the toolkit list (_index.md)
 layouts/
-  _default/               # page skeletons: baseof, single (post), list (blog index)
+  _default/               # page skeletons: baseof, single (privacy policy)
+  tools/                  # the toolkit list and the tool page
   index.html              # home page — assembles the home partials
   partials/               # reusable HTML partials (nav, footer, logo, home/*)
 data/                     # data-driven content (features, loop, compare, repos, nav, footer)
