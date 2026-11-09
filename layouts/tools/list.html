@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="container page-wrap">
+  <div class="prose-shell">
+    <header class="post-head" data-reveal>
+      <p class="eyebrow">{{ .Title }}</p>
+      <h1>{{ .Params.heading | default .Title }}</h1>
+      {{- with .Description }}
+      <p class="page-lead">{{ . }}</p>
+      {{- end }}
+    </header>
+  </div>
+
+  <ul class="post-list">
+    {{- /* Ordered by "weight" in each page's front matter. */}}
+    {{- range .Pages -}}
+    <li>
+      <a class="post-card" href="{{ .RelPermalink }}" data-reveal>
+        <span class="eyebrow">{{ .Params.kind }}</span>
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Description }}</p>
+        <span class="more">Read more <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</section>
+{{ end }}

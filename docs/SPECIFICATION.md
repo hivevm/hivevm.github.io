@@ -87,6 +87,9 @@ documentation, and ADRs.
   (features, loop, compare, repos, nav, footer); editing it changes the page without touching markup.
 - **Post** — a blog entry in [`content/blog/`](../content/blog/), authored in Markdown with the date in
   front matter; the URL becomes `/blog/<filename>/`.
+- **Tool page** — a short description of one tool in [`content/tools/`](../content/tools/), authored in
+  Markdown with its order in front matter (`weight`); the URL becomes `/tools/<repository name>/`. Its
+  depth ends at an overview: documentation stays in the tool's own repository.
 - **Design tokens** — the CSS custom properties in
   [`static/assets/css/hivevm.css`](../static/assets/css/hivevm.css) (flat, typography-first near-black and yellow theme with a light
   variant; the nav toggle offers light, dark or system, dark by default) that define the site's surfaces,
@@ -101,7 +104,8 @@ used as acceptance criteria.
    links each to its repository and to the GitHub organization.
 2. **Content-only edits.** Adding or changing a tool card, repository entry, nav item, or footer link is
    done by editing a [`data/`](../data/) YAML file or front matter — no layout/markup changes
-   required. Adding a blog post is a single Markdown file in [`content/blog/`](../content/blog/).
+   required. Adding a blog post is a single Markdown file in [`content/blog/`](../content/blog/), and so
+   is adding a tool page in [`content/tools/`](../content/tools/).
 3. **Automated build & deploy.** A committed GitHub Actions workflow builds the site with Hugo and
    deploys it to GitHub Pages from `main`, at the domain in [`static/CNAME`](../static/CNAME), with no
    external CI service, manual build step, or Node toolchain required to deploy.

@@ -61,8 +61,15 @@
         </div>
         {{- end -}}
 
-        {{- with .repo -}}
-        <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
+        {{- if or .page .repo -}}
+        <div class="card-links">
+          {{- with .page -}}
+          <a href="{{ . | relURL }}" class="gh">Read more <span aria-hidden="true">→</span></a>
+          {{- end -}}
+          {{- with .repo -}}
+          <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
+          {{- end -}}
+        </div>
         {{- end -}}
       </article>
       {{- end -}}

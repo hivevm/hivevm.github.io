@@ -12,6 +12,7 @@
         full AST (Abstract Syntax Tree) for <code>Java</code>, <code>C++</code>
         &amp; <code>Rust</code> from a single <code>.waggle</code> grammar.
       repo: https://github.com/hivevm/waggle
+      page: /tools/waggle/
       span: span-sm-2 lg-4
       visual: tree
 
@@ -22,6 +23,7 @@
         <code>Markdown</code> and publish them as a website and a PDF from the same
         engine.
       repo: https://github.com/hivevm/nectar
+      page: /tools/nectar/
       span: lg-2
       visual: chips
 
@@ -32,6 +34,7 @@
         <code>mapfiles</code> and rasterizes them itself, in the browser as
         WebAssembly and on the server as a <code>Rust</code> library.
       repo: https://github.com/hivevm/forager
+      page: /tools/forager/
       span: lg-3
       visual: none
 
@@ -54,6 +57,7 @@
         <code>ADRs</code>, with <code>AGENTS.md</code> as the single source of truth
         for every agent.
       repo: https://github.com/hivevm/nuc
+      page: /tools/nuc/
       visual: none
 
 - role: Review
@@ -66,6 +70,7 @@
         desktop and in the terminal: each branch keeps its own lane, and merges
         stay easy to follow.
       repo: https://github.com/hivevm/ocelli
+      page: /tools/ocelli/
       visual: none
 
 - role: Build on
@@ -79,4 +84,5 @@
         in <code>Rust</code> compiled to WebAssembly and leaves every form to your
         application.
       repo: https://github.com/hivevm/comb
+      page: /tools/comb/
       visual: none

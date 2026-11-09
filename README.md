@@ -80,6 +80,9 @@ Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 - **Repository showcase:** [`data/repos.yml`](data/repos.yml)
 - **Navigation & footer:** [`data/nav.yml`](data/nav.yml), [`data/footer.yml`](data/footer.yml)
 - **Home page hero:** front matter (`hero_*`) in [`content/_index.md`](content/_index.md)
+- **Tool pages:** add a Markdown file named after the repository to [`content/tools/`](content/tools/);
+  `weight` sets its place in the list, `screenshots` adds images from `static/`, and language, licence and
+  link come from `data/repos.yml`
 - **Blog posts:** add a Markdown file to [`content/blog/`](content/blog/) named `title.md`; `image` in
   its front matter overrides the default preview image for shared links (`og_image` in
   [`hugo.toml`](hugo.toml))

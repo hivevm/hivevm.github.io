@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article class="container page-wrap">
+  <div class="prose-shell">
+    <header class="post-head" data-reveal>
+      <p class="eyebrow">{{ .CurrentSection.Title }} · {{ .Params.kind }}</p>
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="page-lead">{{ . }}</p>
+      {{- end }}
+      {{- /* Language, licence and link come from the tool's entry in data/repos.yml, matched by the
+             file name, so they are kept in one place. */}}
+      {{- range first 1 (where hugo.Data.repos "name" .File.ContentBaseName) }}
+      <div class="tool-meta">
+        <a href="{{ .url }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <span>{{ .lang }} · {{ .license }}</span>
+      </div>
+      {{- end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{- /* "screenshots" in front matter: files under static/, served from this site (ADR-0007). */}}
+    {{- range .Params.screenshots }}
+    <figure class="tool-shot">
+      <a href="{{ .src | relURL }}"><img src="{{ .src | relURL }}" alt="{{ .alt }}" width="{{ .width }}" height="{{ .height }}" loading="lazy" /></a>
+      <figcaption>{{ .caption }}</figcaption>
+    </figure>
+    {{- end }}
+
+    <hr class="post-end" />
+    {{- /* Hugo's Next points up the list, Prev down it. */}}
+    <nav class="post-nav" aria-label="More in {{ .CurrentSection.Title }}">
+      {{- with .NextInSection }}
+      <a class="prev" href="{{ .RelPermalink }}"><span class="label"><span aria-hidden="true">←</span> {{ .Params.kind }}</span>{{ .Title }}</a>
+      {{- end }}
+      {{- with .PrevInSection }}
+      <a class="next" href="{{ .RelPermalink }}"><span class="label">{{ .Params.kind }} <span aria-hidden="true">→</span></span>{{ .Title }}</a>
+      {{- end }}
+    </nav>
+    <a href="{{ .CurrentSection.RelPermalink }}" class="back-link"><span aria-hidden="true">←</span> Back to {{ .CurrentSection.Title }}</a>
+  </div>
+</article>
+{{ end }}
