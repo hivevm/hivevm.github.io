@@ -765,6 +765,12 @@ h1.hero-title em {
   color: var(--fg-3);
 }
 
+.pipe-card .panel-note {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--line-2);
+}
+
 .pane {
   min-width: 0;
 }
@@ -1438,6 +1444,7 @@ ul.points li {
 }
 
 /* Yellow like the "VM" in the logo */
+#about-name h2 em,
 .name-part h3 em {
   font-style: normal;
   color: var(--brand-text);

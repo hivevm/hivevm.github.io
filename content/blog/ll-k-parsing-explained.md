@@ -26,9 +26,9 @@ ambiguous; with two, the ambiguity disappears.
 Consider two rules that both start with an identifier:
 
 ```
-statement : assignment | call ;
-assignment: ID '=' expr ;
-call      : ID '(' args ')' ;
+Statement  = Assignment() | Call() ;
+Assignment = <ID> <ASSIGN> Expr() ;
+Call       = <ID> <LPAREN> Args() <RPAREN> ;
 ```
 
 With a single token (`k = 1`) the parser only sees `ID` and cannot tell which rule
@@ -44,7 +44,12 @@ if (la(2).type == ASSIGN) {
 }
 ```
 
-No backtracking, no guessing — just a fixed amount of lookahead.
+No backtracking, no guessing — just a fixed amount of lookahead. Waggle generates `LL(1)` by
+default, so you ask for the extra token only at the choice that needs it:
+
+```
+Statement = LOOKAHEAD(2) Assignment() | Call() ;
+```
 
 ## Why it stays fast
 
@@ -54,10 +59,11 @@ is exactly what makes generated parsers pleasant to embed in editors and build t
 
 ## Try it
 
-Point the generator at your own grammar and read the code it produces:
+Apply the `org.hivevm.waggle` Gradle plugin, point a `task` at your own grammar and read the code
+it produces:
 
 ```bash
-waggle generate MyGrammar.waggle --target java
+./gradlew generateParser
 ```
 
 The source lives in [hivevm/waggle](https://github.com/hivevm/waggle).

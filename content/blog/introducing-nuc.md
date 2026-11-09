@@ -61,23 +61,10 @@ interfaces intact just get done — the rule of thumb is whether a change locks 
 ## Growing a project from it
 
 Create a repository from the template on GitHub, open it in VS Code and choose
-**Reopen in Container**. Then initialize it — ask your coding agent to bootstrap, or run the
-script yourself:
-
-```bash
-bash scripts/init-template.sh --modules git-conventions,release
-```
-
-The script keeps the policy modules you choose, prunes the rest, sets the license and
-copyright holder, and then deletes itself. The optional modules are:
-
-- **`git-conventions`** — branch naming, Conventional Commit subjects and squash merges,
-  checked in CI.
-- **`supply-chain`** — GitHub Actions pinned to major version tags, secrets rules and
-  Dependabot updates.
-- **`release`** — SemVer and a keep-a-changelog `CHANGELOG.md`, with a human-only release
-  process.
-- **`conformance`** — for projects derived from an external specification or project.
+**Reopen in Container**. Then work through `TEMPLATE-SETUP.md`, or ask your coding agent to run the
+`setup-project` skill, which walks you through the steps one question at a time. A small project
+takes a short path through the setup, and a complex one takes every step in full. Closing the setup
+with `scripts/test-template-setup.sh --close` removes what exists only for it.
 
 From there, write your specification, record the first decisions as ADRs, add the
 language toolchain your project needs — the base image ships none — and start working

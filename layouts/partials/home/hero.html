@@ -36,15 +36,20 @@
             <span class="file">Calc.waggle</span>
           </div>
           <div class="pane-body">
-<pre class="code"><span class="cm">// LL(k) grammar — generates a parser + AST</span>
+<pre class="code"><span class="cm">// LL(k) grammar: one file, one generated parser</span>
 <span class="kw">grammar</span> <span class="ty">Calc</span><span class="pn">;</span>
 
-<span class="fn">expr</span>   <span class="pn">:</span> term <span class="pn">((</span><span class="st">'+'</span> <span class="pn">|</span> <span class="st">'-'</span><span class="pn">)</span> term<span class="pn">)</span>* <span class="pn">;</span>
-<span class="fn">term</span>   <span class="pn">:</span> factor <span class="pn">((</span><span class="st">'*'</span> <span class="pn">|</span> <span class="st">'/'</span> <span class="pn">|</span> <span class="st">'%'</span><span class="pn">)</span> factor<span class="pn">)</span>* <span class="pn">;</span>
-<span class="fn">factor</span> <span class="pn">:</span> <span class="ty">NUMBER</span> <span class="pn">|</span> <span class="st">'('</span> expr <span class="st">')'</span> <span class="pn">;</span>
+<span class="fn">Input</span>  <span class="pn">=</span> Expr() <span class="ty">&lt;EOF&gt;</span> <span class="pn">;</span>
+<span class="fn">Expr</span>   <span class="pn">=</span> Term() <span class="pn">( (</span> <span class="ty">&lt;PLUS&gt;</span> <span class="pn">|</span> <span class="ty">&lt;MINUS&gt;</span> <span class="pn">)</span> Term() <span class="pn">)*</span> <span class="pn">;</span>
+<span class="fn">Term</span>   <span class="pn">=</span> Factor() <span class="pn">( (</span> <span class="ty">&lt;TIMES&gt;</span> <span class="pn">|</span> <span class="ty">&lt;DIVIDE&gt;</span> <span class="pn">|</span> <span class="ty">&lt;MOD&gt;</span> <span class="pn">)</span> Factor() <span class="pn">)*</span> <span class="pn">;</span>
+<span class="fn">Factor</span> <span class="pn">=</span> <span class="ty">&lt;NUMBER&gt;</span> <span class="pn">|</span> <span class="ty">&lt;LPAREN&gt;</span> Expr() <span class="ty">&lt;RPAREN&gt;</span> <span class="pn">;</span>
 
-<span class="ty">NUMBER</span> <span class="pn">:</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+ (</span><span class="st">'.'</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+)?</span> <span class="pn">;</span>
-<span class="ty">WS</span>     <span class="pn">:</span> <span class="pn">[</span> \t\r\n<span class="pn">]+</span> -&gt; <span class="kw">skip</span> <span class="pn">;</span></pre>
+<span class="kw">SKIP</span>  <span class="pn">=</span> <span class="st">" "</span> <span class="pn">|</span> <span class="st">"\t"</span> <span class="pn">|</span> <span class="st">"\n"</span> <span class="pn">|</span> <span class="st">"\r"</span> <span class="pn">;</span>
+<span class="kw">TOKEN</span> <span class="pn">=</span>
+  <span class="pn">&lt;</span> PLUS<span class="pn">:</span> <span class="st">"+"</span> <span class="pn">&gt; | &lt;</span> MINUS<span class="pn">:</span> <span class="st">"-"</span> <span class="pn">&gt;</span>
+<span class="pn">| &lt;</span> TIMES<span class="pn">:</span> <span class="st">"*"</span> <span class="pn">&gt; | &lt;</span> DIVIDE<span class="pn">:</span> <span class="st">"/"</span> <span class="pn">&gt; | &lt;</span> MOD<span class="pn">:</span> <span class="st">"%"</span> <span class="pn">&gt;</span>
+<span class="pn">| &lt;</span> LPAREN<span class="pn">:</span> <span class="st">"("</span> <span class="pn">&gt; | &lt;</span> RPAREN<span class="pn">:</span> <span class="st">")"</span> <span class="pn">&gt;</span>
+<span class="pn">| &lt;</span> NUMBER<span class="pn">:</span> <span class="pn">([</span><span class="st">"0"</span><span class="pn">-</span><span class="st">"9"</span><span class="pn">])+ &gt; ;</span></pre>
           </div>
         </div>
 
@@ -54,12 +59,10 @@
           </div>
           <div class="term-body">
             <p class="muted"># agent: add a modulo operator to Calc</p>
-            <p><span class="ok">✓</span> <span class="txt">Calc.waggle: term accepts '%'</span></p>
-            <p><span class="pr">$</span> waggle generate Calc.waggle --target java,cpp</p>
-            <p><span class="ok">✓</span> <span class="txt">LL(k) analysis complete (k=2)</span></p>
-            <p><span class="ok">✓</span> <span class="txt">Parser → java/CalcParser.java</span></p>
-            <p><span class="ok">✓</span> <span class="txt">AST&nbsp;&nbsp;&nbsp;&nbsp;→ cpp/CalcNode.hpp</span></p>
-            <p><span class="lnk">→</span> <span class="txt">2 targets built in 0.4s</span></p>
+            <p><span class="ok">✓</span> <span class="txt">Calc.waggle: Term accepts &lt;MOD&gt;</span></p>
+            <p><span class="pr">$</span> ./gradlew generateParser</p>
+            <p><span class="ok">✓</span> <span class="txt">target java → src/main/generated</span></p>
+            <p><span class="lnk">→</span> <span class="txt">Parser, Lexer, ParserConstants</span></p>
             <p class="muted"><span class="pulse" aria-hidden="true"></span>&nbsp;&nbsp;waiting for your review</p>
           </div>
         </div>

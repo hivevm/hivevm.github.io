@@ -44,17 +44,32 @@ A grammar is just a declarative `.waggle` file. Here is a tiny expression langua
 ```
 grammar Calc;
 
-expr   : term (('+' | '-') term)* ;
-term   : factor (('*' | '/') factor)* ;
-factor : NUMBER | '(' expr ')' ;
+Input  = Expr() <EOF> ;
+Expr   = Term() ( ( <PLUS> | <MINUS> ) Term() )* ;
+Term   = Factor() ( ( <TIMES> | <DIVIDE> ) Factor() )* ;
+Factor = <NUMBER> | <LPAREN> Expr() <RPAREN> ;
 
-NUMBER : [0-9]+ ('.' [0-9]+)? ;
+SKIP  = " " | "\t" | "\n" | "\r" ;
+TOKEN =
+  < PLUS: "+" > | < MINUS: "-" >
+| < TIMES: "*" > | < DIVIDE: "/" >
+| < LPAREN: "(" > | < RPAREN: ")" >
+| < NUMBER: (["0"-"9"])+ > ;
 ```
 
-Running Waggle produces a parser plus AST nodes for every target you ask for:
+Waggle runs as a Gradle plugin. Point a `task` at the grammar, choose the target language, and
+`./gradlew generateParser` produces the parser:
 
-```bash
-waggle generate Calc.waggle --target java,cpp
+```groovy
+parserProject {
+  target = 'java'                 // java | cpp | rust
+  output = 'src/main/generated'
+
+  task {
+    name = 'calc'
+    file = 'src/main/resources/Calc.waggle'
+  }
+}
 ```
 
 That is the whole loop — edit the model, regenerate, ship. No boilerplate to keep in
