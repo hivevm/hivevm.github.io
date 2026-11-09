@@ -20,7 +20,13 @@
           <span class="lang"><span class="ld" style="background:{{ .lang_color }}"></span>{{ .lang }}</span>
           <span class="lic">{{ .license }}</span>
         </div>
-        <a href="{{ .url }}" class="gh" target="_blank" rel="noopener noreferrer">Open repository <span aria-hidden="true">→</span></a>
+        <div class="card-links">
+          {{- /* The tool page is the content file named after the repository. */}}
+          {{- with site.GetPage (printf "/tools/%s" .name) }}
+          <a href="{{ .RelPermalink }}" class="gh">Read more <span aria-hidden="true">→</span></a>
+          {{- end }}
+          <a href="{{ .url }}" class="gh" target="_blank" rel="noopener noreferrer">Open repository <span aria-hidden="true">→</span></a>
+        </div>
       </article>
       {{- end -}}
     </div>

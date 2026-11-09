@@ -1058,8 +1058,9 @@ main > section + section {
 .card-links {
   margin-top: 1rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
 /* mini tree visual */
@@ -1424,10 +1425,6 @@ ul.points li {
 
 .repo .lic {
   margin-left: auto;
-}
-
-.repo .gh {
-  margin-top: 1rem;
 }
 
 /* ── About the name ─────────────────────────────────────────── */
