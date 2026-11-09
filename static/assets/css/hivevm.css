@@ -1434,6 +1434,12 @@ ul.points li {
   padding-top: 1.5rem;
 }
 
+/* Yellow like the "VM" in the logo */
+.name-part h3 em {
+  font-style: normal;
+  color: var(--brand-text);
+}
+
 .name-part p {
   margin-top: 0.75rem;
   color: var(--fg-2);
