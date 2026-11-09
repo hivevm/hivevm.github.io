@@ -40,7 +40,7 @@
 <span class="kw">grammar</span> <span class="ty">Calc</span><span class="pn">;</span>
 
 <span class="fn">expr</span>   <span class="pn">:</span> term <span class="pn">((</span><span class="st">'+'</span> <span class="pn">|</span> <span class="st">'-'</span><span class="pn">)</span> term<span class="pn">)</span>* <span class="pn">;</span>
-<span class="fn">term</span>   <span class="pn">:</span> factor <span class="pn">((</span><span class="st">'*'</span> <span class="pn">|</span> <span class="st">'/'</span><span class="pn">)</span> factor<span class="pn">)</span>* <span class="pn">;</span>
+<span class="fn">term</span>   <span class="pn">:</span> factor <span class="pn">((</span><span class="st">'*'</span> <span class="pn">|</span> <span class="st">'/'</span> <span class="pn">|</span> <span class="st">'%'</span><span class="pn">)</span> factor<span class="pn">)</span>* <span class="pn">;</span>
 <span class="fn">factor</span> <span class="pn">:</span> <span class="ty">NUMBER</span> <span class="pn">|</span> <span class="st">'('</span> expr <span class="st">')'</span> <span class="pn">;</span>
 
 <span class="ty">NUMBER</span> <span class="pn">:</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+ (</span><span class="st">'.'</span> <span class="pn">[</span><span class="nm">0</span>-<span class="nm">9</span><span class="pn">]+)?</span> <span class="pn">;</span>
@@ -53,16 +53,18 @@
             <span class="file">terminal</span>
           </div>
           <div class="term-body">
+            <p class="muted"># agent: add a modulo operator to Calc</p>
+            <p><span class="ok">✓</span> <span class="txt">Calc.waggle: term accepts '%'</span></p>
             <p><span class="pr">$</span> waggle generate Calc.waggle --target java,cpp</p>
-            <p class="muted">Parsing grammar Calc.waggle…</p>
             <p><span class="ok">✓</span> <span class="txt">LL(k) analysis complete (k=2)</span></p>
             <p><span class="ok">✓</span> <span class="txt">Parser → java/CalcParser.java</span></p>
             <p><span class="ok">✓</span> <span class="txt">AST&nbsp;&nbsp;&nbsp;&nbsp;→ cpp/CalcNode.hpp</span></p>
             <p><span class="lnk">→</span> <span class="txt">2 targets built in 0.4s</span></p>
-            <p class="muted"><span class="pulse" aria-hidden="true"></span>&nbsp;&nbsp;watching grammar for changes</p>
+            <p class="muted"><span class="pulse" aria-hidden="true"></span>&nbsp;&nbsp;waiting for your review</p>
           </div>
         </div>
       </div>
+      <p class="panel-note">Illustration of the goal, not a shipped integration.</p>
     </div>
   </div>
 </section>

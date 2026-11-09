@@ -1,0 +1,21 @@
+# Differences in kind between a prompt, a specification and a model. Keep these as principles:
+# they are not measurements, and a specification is not the opposite of a model (NUC uses one).
+- label: Where the intent lives
+  prompt: In one chat session
+  spec: In a document in the repository
+  model: In a declarative file in the repository
+
+- label: Who can read it
+  prompt: The agent, while the session lasts
+  spec: Humans and agents
+  model: Humans, agents and tools
+
+- label: What produces the result
+  prompt: An agent, anew each time
+  spec: An agent, following the document
+  model: A generator, with agents building the rest
+
+- label: What catches a mistake
+  prompt: You, when reading the output
+  spec: You, in review and tests
+  model: A tool can reject an invalid model before review and tests

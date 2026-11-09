@@ -1,19 +1,20 @@
 ---
 title: "HiveVM — Model once, run anywhere"
 description: >-
-  Model your application once and run it anywhere — tools and projects that
-  describe application and business logic as models, independent of technology
-  and platform.
+  Model your application once and run it anywhere: tools that describe
+  application and business logic as models, independent of platform, heading
+  toward agentic development.
 
-hero_badge: "Model-driven software development"
+hero_badge: "Model-driven. Going agentic."
 hero_badge_href: "https://github.com/hivevm"
 # Markdown: *emphasised* words render highlighted (gradient, upper case).
 # &nbsp; keeps "run anywhere" together when the title wraps.
 hero_title: "Model *once*, run&nbsp;*anywhere*"
 hero_sub: >-
   Describe your application and business logic once as a model — independent of
-  technology and platform. The platform may change; the model stays. HiveVM
-  provides the tools and projects to run it wherever it needs to go.
+  technology and platform. Our goal: coding agents help write and evolve the
+  model, generators derive what follows, and you decide what ships. The platform
+  may change; the model stays.
 hero_cta1: "Explore the tools"
 hero_cta1_href: "#features"
 hero_cta2: "View on GitHub"

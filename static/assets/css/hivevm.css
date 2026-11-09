@@ -758,6 +758,13 @@ h1.hero-title em {
   }
 }
 
+.panel-note {
+  margin-top: 0.75rem;
+  font-family: var(--font-data);
+  font-size: var(--fs-small);
+  color: var(--fg-3);
+}
+
 .pane {
   min-width: 0;
 }
@@ -899,9 +906,79 @@ main > section + section {
   color: var(--fg-2);
 }
 
-/* ── Features ───────────────────────────────────────────────── */
-.bento {
+/* ── Direction: the steps of the agentic development goal ──── */
+.loop {
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 3rem var(--gap);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .loop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .loop {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.loop-step {
+  border-top: 1px solid var(--line-2);
+  padding-top: 1.5rem;
+}
+
+.loop-step h3 {
+  margin-top: 0.5rem;
+}
+
+.loop-step p:not(.eyebrow) {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: var(--fg-2);
+}
+
+.loop-step p.today {
+  font-family: var(--font-data);
+  font-size: var(--fs-small);
+  color: var(--fg-3);
+}
+
+.today strong {
+  font-weight: 600;
+  color: var(--fg-2);
+}
+
+/* ── Features: tools grouped by role ────────────────────────── */
+.tool-groups {
   margin-top: 3rem;
+  display: grid;
+  gap: 4rem var(--gap);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .tool-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tool-group.wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.tool-intro {
+  margin-top: 0.25rem;
+  color: var(--fg-2);
+}
+
+.bento {
+  margin-top: 1.5rem;
   display: grid;
   gap: 3rem var(--gap);
   grid-template-columns: minmax(0, 1fr);
@@ -939,6 +1016,11 @@ main > section + section {
   }
 }
 
+/* A group that shares a row holds its tools in one column. */
+.tool-group:not(.wide) .bento {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -951,15 +1033,16 @@ main > section + section {
   border-top-color: var(--brand-text);
 }
 
-.card h3 {
-  margin-top: 0.75rem;
+.card h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--fg);
 }
 
-.card .eyebrow + h3 {
-  margin-top: 0.5rem;
-}
-
-.card > p:not(.eyebrow) {
+.card > p {
   margin-top: 0.75rem;
   max-width: var(--measure);
   font-size: 1rem;
@@ -1204,6 +1287,57 @@ ul.points li {
 
 .logstream .lw {
   color: var(--brand-bright-text);
+}
+
+/* ── Why a model: comparison table ──────────────────────────── */
+.compare-wrap {
+  margin-top: 3rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+}
+
+.compare {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  font-family: var(--font-data);
+  font-size: 1rem;
+}
+
+.compare th,
+.compare td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--line-2);
+  text-align: left;
+  vertical-align: top;
+}
+
+.compare tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.compare thead th {
+  padding-block: 0.75rem;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.compare tbody th {
+  width: 22%;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.compare td {
+  color: var(--fg-2);
+}
+
+.compare .is-model {
+  background: var(--panel-2);
+  color: var(--fg);
 }
 
 /* ── Repos / open source ────────────────────────────────────── */

@@ -7,7 +7,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   tagline = "Model once, run anywhere"
-  description = "Model your application once and run it anywhere — tools and projects that describe application and business logic as models, independent of technology and platform."
+  description = "Model your application once and run it anywhere: tools that describe application and business logic as models, independent of platform, heading toward agentic development."
   github_org = "https://github.com/hivevm"
   # "Get started" routes visitors into NUC's template flow — a new project from the template.
   start_url = "https://github.com/hivevm/nuc/generate"

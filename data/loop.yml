@@ -1,0 +1,31 @@
+# The steps of the agentic development goal, in order. `today` says what exists already;
+# the workflow as a whole is a goal, so keep the wording honest (see docs/SPECIFICATION.md).
+- num: "01"
+  who: Human
+  title: Intent
+  body: Set the goal and the rules the work has to follow.
+  today: NUC keeps them in a specification and ADRs.
+
+- num: "02"
+  who: Agent + human
+  title: Model
+  body: Write the model and evolve it as the application grows.
+  today: Waggle grammars, Nectar Markdown and Forager mapfiles are plain text files.
+
+- num: "03"
+  who: Generator
+  title: Derive
+  body: Produce the result from the model instead of writing it by hand.
+  today: Waggle, Nectar and Forager each do this for their own model.
+
+- num: "04"
+  who: Agent
+  title: Build
+  body: Build what the model does not cover around what was derived.
+  today: NUC gives coding agents a ready-to-use Dev Container.
+
+- num: "05"
+  who: Human
+  title: Review
+  body: Check the result and decide what ships.
+  today: NUC leaves accepting ADRs to humans; Ocelli shows the commit graph.

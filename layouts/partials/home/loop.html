@@ -1,0 +1,23 @@
+<section class="section" id="direction">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Where we are heading</p>
+      <h2>The model decides. The agents do the work.</h2>
+      <p>
+        This is our goal for agentic development, not a finished product: today the tools stand on
+        their own and do not yet form one integrated workflow. Each step shows what already exists.
+      </p>
+    </div>
+
+    <ol class="loop">
+      {{- range hugo.Data.loop -}}
+      <li class="loop-step" data-reveal>
+        <p class="eyebrow">{{ .num }} · {{ .who }}</p>
+        <h3>{{ .title }}</h3>
+        <p>{{ .body }}</p>
+        <p class="today"><strong>Today:</strong> {{ .today }}</p>
+      </li>
+      {{- end -}}
+    </ol>
+  </div>
+</section>

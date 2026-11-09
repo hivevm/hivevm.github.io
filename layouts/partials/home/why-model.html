@@ -1,0 +1,36 @@
+<section class="section" id="why-model">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Why a model</p>
+      <h2 id="why-model-title">A prompt asks. A specification explains. A model can be checked.</h2>
+      <p>
+        All three have their place, and they work together: NUC starts a project from a written
+        specification, and a model is where part of that intent becomes something a tool can check
+        and build from. This compares them in principle; it is not a measurement.
+      </p>
+    </div>
+
+    <div class="table-wrap compare-wrap" role="region" aria-labelledby="why-model-title" tabindex="0" data-reveal>
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Aspect</span></th>
+            <th scope="col">Prompt</th>
+            <th scope="col">Specification</th>
+            <th scope="col" class="is-model">Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range hugo.Data.compare -}}
+          <tr>
+            <th scope="row">{{ .label }}</th>
+            <td>{{ .prompt }}</td>
+            <td>{{ .spec }}</td>
+            <td class="is-model">{{ .model }}</td>
+          </tr>
+          {{- end -}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

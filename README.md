@@ -75,6 +75,8 @@ the Dev Container, follow the [Hugo installation guide](https://gohugo.io/instal
 Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 
 - **Tool cards / feature grid:** [`data/features.yml`](data/features.yml)
+- **Agentic development steps:** [`data/loop.yml`](data/loop.yml)
+- **Prompt, specification and model comparison:** [`data/compare.yml`](data/compare.yml)
 - **Repository showcase:** [`data/repos.yml`](data/repos.yml)
 - **Navigation & footer:** [`data/nav.yml`](data/nav.yml), [`data/footer.yml`](data/footer.yml)
 - **Home page hero:** front matter (`hero_*`) in [`content/_index.md`](content/_index.md)
@@ -119,7 +121,7 @@ layouts/
   _default/               # page skeletons: baseof, single (post), list (blog index)
   index.html              # home page — assembles the home partials
   partials/               # reusable HTML partials (nav, footer, logo, home/*)
-data/                     # data-driven content (features, repos, nav, footer)
+data/                     # data-driven content (features, loop, compare, repos, nav, footer)
 static/
   assets/                 # hand-authored CSS, dependency-free JS, images, favicons
   CNAME                   # custom domain for GitHub Pages (hivevm.org)

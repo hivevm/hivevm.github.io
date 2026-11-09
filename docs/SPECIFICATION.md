@@ -28,7 +28,9 @@ visitors to the right tool or article.
 [hivevm.org](https://hivevm.org) is the canonical front door to HiveVM. A visitor immediately grasps
 the core idea — *model once, run anywhere*: describe an application's logic once as a model,
 independent of technology and platform, and let the platform change while the model stays — sees the
-tools and how they fit together, and reaches any repository or article in a click. The site loads instantly, works
+tools and how they fit together, and reaches any repository or article in a click. The site also presents
+where HiveVM is heading: **agentic development** around the model. It always marks this as a goal and
+never presents it as a finished, integrated product. The site loads instantly, works
 without JavaScript for its core content, reads well on any device, and is cheap to maintain: contributors
 change **content** (YAML and Markdown), not page plumbing. New tools and posts slot in without
 redesigning anything.
@@ -56,6 +58,10 @@ documentation, and ADRs.
   platform in Rust and of the GitHub organization that hosts the tools. The website's subject.
 - **Modelling** — HiveVM's organizing principle: describe a model once (a grammar, a document set, a
   specification) and derive what follows from it. Spelled *modelling* (British).
+- **Agentic development** — HiveVM's direction for working with models, not yet an integrated workflow:
+  the model decides what gets built and the agents do the work on it. Humans set the intent, coding
+  agents help write and evolve the model, generators derive what follows, agents build the rest and
+  humans review what ships. The model stays the organizing principle.
 - **Tool** — one member of the HiveVM family, each in its own repository:
   - **Parser Generator — Waggle** (`waggle`, formerly `cc`) — an LL(k) parser generator that emits a
     parser and full AST for Java, C++ & Rust from a single grammar file (extension `.waggle`). Named
@@ -78,7 +84,7 @@ documentation, and ADRs.
 - **Partial** — a reusable HTML template in [`layouts/partials/`](../layouts/partials/) (e.g. `nav`,
   `footer`, `logo`, and the `home/*` sections) composed into a page.
 - **Data file** — a YAML file in [`data/`](../data/) holding the *content* a section renders
-  (features, repos, nav, footer); editing it changes the page without touching markup.
+  (features, loop, compare, repos, nav, footer); editing it changes the page without touching markup.
 - **Post** — a blog entry in [`content/blog/`](../content/blog/), authored in Markdown with the date in
   front matter; the URL becomes `/blog/<filename>/`.
 - **Design tokens** — the CSS custom properties in

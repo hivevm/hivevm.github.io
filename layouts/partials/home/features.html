@@ -4,18 +4,21 @@
       <p class="eyebrow">Toolkit</p>
       <h2>From model to solution</h2>
       <p>
-        Each tool turns a model into something concrete — a grammar into a parser, Markdown
-        into a website and a PDF, a specification into a project — so your repository stays
-        focused on intent, not on one architecture, technology or deployment.
+        The tools are grouped by the job they do around the model, so your repository stays
+        focused on intent, not on one architecture, technology or deployment. Each one stands on
+        its own: adopt one without the others.
       </p>
     </div>
 
-    <div class="bento">
+    <div class="tool-groups">
       {{- range hugo.Data.features -}}
+      <div class="tool-group{{ if .wide }} wide{{ end }}">
+      <h3 class="eyebrow">{{ .role }}</h3>
+      <p class="tool-intro">{{ .intro }}</p>
+      <div class="bento">
+      {{- range .tools -}}
       <article class="card {{ .span }}" data-reveal>
-
-        {{- with .num }}<p class="eyebrow">{{ . }}</p>{{ end }}
-        <h3>{{ .title }}</h3>
+        <h4>{{ .title }}</h4>
         <p>{{ .body | safeHTML }}</p>
 
         {{- if eq .visual "tree" -}}
@@ -62,6 +65,9 @@
         <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
         {{- end -}}
       </article>
+      {{- end -}}
+      </div>
+      </div>
       {{- end -}}
     </div>
   </div>
