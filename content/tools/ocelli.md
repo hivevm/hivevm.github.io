@@ -1,9 +1,20 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/introducing-ocelli/"]
 title: "Ocelli"
 kind: "Git client"
-weight: 40
+role: review
+weight: 50
+tagline: "see the whole Git history at a glance"
+description: >-
+  A Git client that shows a repository as a readable commit graph, on the desktop, in the browser and in the terminal, and works on it from there.
+lang: Rust
+lang_color: "#dea584"
+license: MIT
+# release | build-from-source | template. No GitHub release, checked 2026-11-10.
+status: build-from-source
+repo: https://github.com/hivevm/ocelli
 screenshots:
   - src: /assets/tools/ocelli/desktop.png
     width: 2880
@@ -15,9 +26,6 @@ screenshots:
     height: 1388
     alt: "Ocelli in the terminal, showing the same layout drawn with box-drawing characters"
     caption: "The terminal application: the same layout, drawn with box-drawing characters."
-tagline: "see the whole Git history at a glance"
-description: >-
-  A commit graph you can actually read, on the desktop, in the browser and in the terminal, and a free, lightweight way to work on a repository from it.
 ---
 
 Git history is a directed acyclic graph, but the usual tools flatten it into a list or draw it as

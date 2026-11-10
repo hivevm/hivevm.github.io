@@ -1,12 +1,21 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/ll-k-parsing-explained/"]
 title: "Waggle"
 kind: "Parser generator"
+role: derive
 weight: 10
 tagline: "one grammar, a parser for Java, C++ and Rust"
 description: >-
-  An LL(k) parser generator that turns a single grammar into a recursive-descent parser and a full AST, with lookahead only where the grammar needs it and no runtime dependency.
+  An LL(k) parser generator that turns a single grammar into a recursive-descent parser and a full AST for Java, C++ and Rust, with no runtime dependency.
+lang: Java
+lang_color: "#b07219"
+license: BSD-3-Clause
+# release | build-from-source | template. No GitHub release; the plugin is released on the Gradle
+# Plugin Portal (org.hivevm.waggle), checked 2026-11-10.
+status: release
+repo: https://github.com/hivevm/waggle
 ---
 
 A parser generator reads a grammar and turns it into a program that recognizes it. Waggle generates

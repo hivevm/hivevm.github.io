@@ -12,6 +12,27 @@
         </p>
       </div>
 
+      {{- /* The tools by role, from the tool pages' front matter (ADR-0008). */}}
+      {{- $tools := partial "tools.html" . }}
+      <nav aria-label="Tools">
+        <p class="ftitle">Tools</p>
+        <div class="footer-roles">
+          {{- range hugo.Data.roles }}
+          {{- $inRole := where $tools "Params.role" .key }}
+          {{- if $inRole }}
+          <div>
+            <p class="frole">{{ .label }}</p>
+            <ul>
+              {{- range $inRole }}
+              <li><a href="{{ .RelPermalink }}">{{ .Params.kind }} ({{ .Title }})</a></li>
+              {{- end }}
+            </ul>
+          </div>
+          {{- end }}
+          {{- end }}
+        </div>
+      </nav>
+
       {{- range hugo.Data.footer.columns -}}
       <nav aria-label="{{ .title }}">
         <p class="ftitle">{{ .title }}</p>

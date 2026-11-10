@@ -30,4 +30,5 @@ in the repository root). ADRs derive from the specification in [`docs/SPECIFICAT
 | [0005](0005-hugo-github-pages-site.md) | Static website with Hugo on GitHub Pages, built by GitHub Actions | 🟢 accepted |
 | [0006](0006-data-driven-hugo-content.md) | Data-driven, partial-based content in Hugo with hand-authored CSS and dependency-free JS | 🟢 accepted |
 | [0007](0007-no-third-party-requests.md) | No third-party requests from the pages, on GitHub Pages | 🟢 accepted |
+| [0008](0008-tool-front-matter-single-source.md) | Each tool's data lives in the front matter of its tool page | 🟡 proposed |
 

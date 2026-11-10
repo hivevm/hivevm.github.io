@@ -10,72 +10,25 @@
       </p>
     </div>
 
+    {{- /* Every fact on a card comes from the tool page's front matter (ADR-0008); the roles and
+           their order come from data/roles.yml. A role with several tools takes a row of its own,
+           the others share one, so every card gets the same width. */}}
+    {{- $tools := partial "tools.html" . }}
     <div class="tool-groups">
-      {{- range hugo.Data.features -}}
-      <div class="tool-group{{ if .wide }} wide{{ end }}">
-      <h3 class="eyebrow">{{ .role }}</h3>
-      <p class="tool-intro">{{ .intro }}</p>
-      <div class="bento">
-      {{- range .tools -}}
-      <article class="card {{ .span }}" data-reveal>
-        <h4>{{ .title }}</h4>
-        <p>{{ .body | safeHTML }}</p>
-
-        {{- if eq .visual "tree" -}}
-        <svg class="tree" viewBox="0 0 520 132" role="img" aria-label="A grammar compiling into an abstract syntax tree">
-          <defs>
-            <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#ffd614" />
-              <stop offset="100%" stop-color="#f2a408" />
-            </linearGradient>
-          </defs>
-          <g stroke="var(--line-2)" stroke-width="1.5">
-            <path d="M260 26 L150 66" fill="none" /><path d="M260 26 L370 66" fill="none" />
-            <path d="M150 66 L96 106" fill="none" /><path d="M150 66 L204 106" fill="none" />
-            <path d="M370 66 L316 106" fill="none" /><path d="M370 66 L424 106" fill="none" />
-          </g>
-          <g font-family="var(--font-mono)" font-size="11">
-            <rect x="228" y="12" width="64" height="26" rx="6" fill="var(--panel-2)" stroke="url(#edge)" />
-            <text x="260" y="29" text-anchor="middle" fill="var(--brand-bright-text)">expr</text>
-            <rect x="120" y="52" width="60" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line-2)" />
-            <text x="150" y="69" text-anchor="middle" fill="var(--fg-2)">term</text>
-            <rect x="340" y="52" width="60" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line-2)" />
-            <text x="370" y="69" text-anchor="middle" fill="var(--fg-2)">term</text>
-            <g fill="var(--fg-3)">
-              <rect x="68" y="92" width="56" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
-              <text x="96" y="109" text-anchor="middle">NUMBER</text>
-              <rect x="178" y="92" width="52" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
-              <text x="204" y="109" text-anchor="middle">'+'</text>
-              <rect x="288" y="92" width="56" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
-              <text x="316" y="109" text-anchor="middle">factor</text>
-              <rect x="398" y="92" width="52" height="26" rx="6" fill="var(--panel-2)" stroke="var(--line)" />
-              <text x="424" y="109" text-anchor="middle">'*'</text>
-            </g>
-          </g>
-        </svg>
-        {{- else if eq .visual "chips" -}}
-        <div class="chip-list">
-          <span class="chip"><span class="d"></span><span class="a">intro.md</span><span class="b">rendered</span></span>
-          <span class="chip"><span class="d"></span><span class="a">config.md</span><span class="b">rendered</span></span>
-          <span class="chip"><span class="d off"></span><span class="b">draft.md</span><span class="b">skipped</span></span>
+      {{- range hugo.Data.roles }}
+      {{- $inRole := where $tools "Params.role" .key }}
+      {{- if $inRole }}
+      <div class="tool-group{{ if gt (len $inRole) 1 }} wide{{ end }}">
+        <h3 class="eyebrow">{{ .label }}</h3>
+        <p class="tool-intro">{{ .intro }}</p>
+        <div class="bento">
+          {{- range $inRole }}
+          {{ partial "tool-card.html" . }}
+          {{- end }}
         </div>
-        {{- end -}}
-
-        {{- if or .page .repo -}}
-        <div class="card-links">
-          {{- with .page -}}
-          <a href="{{ . | relURL }}" class="gh">Read more <span aria-hidden="true">→</span></a>
-          {{- end -}}
-          {{- with .repo -}}
-          <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
-          {{- end -}}
-        </div>
-        {{- end -}}
-      </article>
-      {{- end -}}
       </div>
-      </div>
-      {{- end -}}
+      {{- end }}
+      {{- end }}
     </div>
   </div>
 </section>

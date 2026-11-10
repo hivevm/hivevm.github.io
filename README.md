@@ -74,15 +74,14 @@ the Dev Container, follow the [Hugo installation guide](https://gohugo.io/instal
 
 Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 
-- **Tool cards / feature grid:** [`data/features.yml`](data/features.yml)
+- **Tools:** the front matter of each tool page in [`content/tools/`](content/tools/) (see below); the
+  roles they are grouped by are in [`data/roles.yml`](data/roles.yml)
 - **Agentic development steps:** [`data/loop.yml`](data/loop.yml)
 - **Prompt, specification and model comparison:** [`data/compare.yml`](data/compare.yml)
-- **Repository showcase:** [`data/repos.yml`](data/repos.yml)
 - **Navigation & footer:** [`data/nav.yml`](data/nav.yml), [`data/footer.yml`](data/footer.yml)
 - **Home page hero:** front matter (`hero_*`) in [`content/_index.md`](content/_index.md)
 - **Tool pages:** add a Markdown file named after the repository to [`content/tools/`](content/tools/);
-  `weight` sets its place in the list, `screenshots` adds images from `static/`, and language, licence and
-  link come from `data/repos.yml`
+  its front matter holds every fact about the tool, and `screenshots` adds images from `static/`
 - **Preview image:** `image` in a page's front matter overrides the default preview image for shared
   links (`og_image` in [`hugo.toml`](hugo.toml))
 
@@ -93,24 +92,29 @@ variable subsets of the npm packages `@fontsource-variable/big-shoulders-display
 `@fontsource-variable/ibm-plex-sans`, `@fontsource-variable/inter` and
 `@fontsource-variable/jetbrains-mono`, version 5.3.0.
 
-For example, to add a tool page for a repository named `mytool` in `data/repos.yml`, create
-`content/tools/mytool.md`:
+For example, to add a tool from a repository named `mytool`, create `content/tools/mytool.md`:
 
 ```markdown
 ---
-title: "MyTool"
-kind: "Code generator"
-weight: 70
-tagline: "a short headline for the toolkit list"
-description: Two-line summary for the toolkit list, the page lead and SEO.
+title: "MyTool"                  # codename
+kind: "Code generator"           # function
+role: derive                     # derive | govern | review | build-on (data/roles.yml)
+weight: 70                       # order on the home page, /tools/ and in the footer
+tagline: "a short headline for the /tools/ list"
+description: One lead sentence for the card, the /tools/ list, the page lead and SEO.
+lang: Rust
+lang_color: "#dea584"
+license: MIT
+status: build-from-source        # release | build-from-source | template, as on GitHub
+repo: https://github.com/hivevm/mytool
 ---
 
 Your CommonMark content here.
 ```
 
-It appears automatically on `/tools/` and at `/tools/mytool/`. The rationale behind
-the data-driven, partial-based structure is recorded in
-[ADR-0006](docs/adr/0006-data-driven-hugo-content.md).
+It appears automatically in the toolkit and the footer, on `/tools/` and at `/tools/mytool/`. The
+rationale is recorded in [ADR-0006](docs/adr/0006-data-driven-hugo-content.md) and
+[ADR-0008](docs/adr/0008-tool-front-matter-single-source.md).
 
 ## Project Layout
 

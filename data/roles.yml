@@ -1,0 +1,14 @@
+# The jobs the tools do around the model, in order. A tool names its role with `role` in the front
+# matter of its tool page (ADR-0008); the tools themselves are not listed here.
+- key: derive
+  label: Derive
+  intro: Produce the result from a model instead of writing it by hand.
+- key: govern
+  label: Govern
+  intro: Keep agents to written rules and decisions.
+- key: review
+  label: Review
+  intro: See what changed and how it fits together.
+- key: build-on
+  label: Build on
+  intro: Libraries for your own applications.

@@ -83,9 +83,13 @@ documentation, and ADRs.
 - **Partial** — a reusable HTML template in [`layouts/partials/`](../layouts/partials/) (e.g. `nav`,
   `footer`, `logo`, and the `home/*` sections) composed into a page.
 - **Data file** — a YAML file in [`data/`](../data/) holding the *content* a section renders
-  (features, loop, compare, repos, nav, footer); editing it changes the page without touching markup.
+  (loop, compare, roles, nav, footer); editing it changes the page without touching markup. The
+  facts about a tool are not data files: they live in its tool page (see
+  [ADR-0008](adr/0008-tool-front-matter-single-source.md)).
 - **Tool page** — the description of one tool in [`content/tools/`](../content/tools/), authored in
-  Markdown with its order in front matter (`weight`); the URL becomes `/tools/<repository name>/`. It
+  Markdown. Its front matter is the single source for the tool's facts (codename, function, role, lead
+  sentence, language, licence, status, repository and order) that the home page, `/tools/` and the
+  footer show; the URL becomes `/tools/<repository name>/`. It
   explains what the tool is for and how it works; documentation stays in the tool's own repository.
   The tool pages replace the former blog, whose URLs redirect to them.
 - **Design tokens** — the CSS custom properties in

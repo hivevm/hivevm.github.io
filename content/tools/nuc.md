@@ -1,12 +1,21 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/introducing-nuc/"]
 title: "NUC"
 kind: "Agent template"
-weight: 30
+role: govern
+weight: 40
 tagline: "a nucleus for building software with coding agents"
 description: >-
-  A small, specification- and ADR-driven repository template in which coding agents work without losing the reasoning behind the code.
+  A repository template for building software with coding agents inside a ready-to-use Dev Container, driven by a written specification and ADRs.
+lang: Shell
+lang_color: "#89e051"
+license: MIT
+# release | build-from-source | template. A GitHub template repository with tagged template
+# releases (v0.9.0), checked 2026-11-10.
+status: template
+repo: https://github.com/hivevm/nuc
 ---
 
 Coding agents write code fast. What they lose just as fast is the *why*: a structural decision made

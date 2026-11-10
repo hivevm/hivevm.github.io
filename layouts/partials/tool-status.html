@@ -1,0 +1,5 @@
+{{- /* Status badge of a tool page: "status" is release, build-from-source or template. */ -}}
+{{- $labels := dict "release" "Release" "build-from-source" "Build from source" "template" "Template" -}}
+{{- with .Params.status -}}
+<span class="status-badge status-{{ . }}">{{ index $labels . | default . }}</span>
+{{- end -}}

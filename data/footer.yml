@@ -1,14 +1,5 @@
+# The footer lists the tools by role from their tool pages (ADR-0008); these columns follow them.
 columns:
-  - title: Tools
-    links:
-      - label: Parser Generator (Waggle)
-        href: https://github.com/hivevm/waggle
-      - label: Documentation Generator (Nectar)
-        href: https://github.com/hivevm/nectar
-      - label: Agent Template (NUC)
-        href: https://github.com/hivevm/nuc
-      - label: Git Client (Ocelli)
-        href: https://github.com/hivevm/ocelli
   - title: Resources
     links:
       - label: Projects

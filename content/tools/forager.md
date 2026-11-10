@@ -1,12 +1,20 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/introducing-forager/"]
 title: "Forager"
 kind: "Map renderer"
-weight: 60
+role: derive
+weight: 30
 tagline: "map once, render anywhere"
 description: >-
-  A MapServer-compatible render core in Rust that brings existing mapfiles to the browser without a map server and keeps the server path on the same code.
+  A MapServer-compatible render core in Rust that renders existing mapfiles in the browser as WebAssembly and on the server as a library.
+lang: Rust
+lang_color: "#dea584"
+license: MIT OR Apache-2.0
+# release | build-from-source | template. No GitHub release, checked 2026-11-10.
+status: build-from-source
+repo: https://github.com/hivevm/forager
 ---
 
 Teams that maintain their cartography as UMN MapServer mapfiles can render it only on a server.

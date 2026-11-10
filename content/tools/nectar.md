@@ -1,12 +1,20 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/introducing-nectar/"]
 title: "Nectar"
 kind: "Documentation generator"
+role: derive
 weight: 20
 tagline: "one Markdown source, a website and a PDF"
 description: >-
-  One Rust engine that turns the same Markdown into a website and a PDF, replacing two documentation tool chains that drifted apart.
+  A documentation generator in Rust that publishes one Markdown source as a website and a PDF from the same engine.
+lang: Rust
+lang_color: "#dea584"
+license: BSD-3-Clause
+# release | build-from-source | template. GitHub release nectar-v0.1.1, checked 2026-11-10.
+status: release
+repo: https://github.com/hivevm/nectar
 ---
 
 Projects like to keep their documentation as Markdown in the repository, next to the code. Readers

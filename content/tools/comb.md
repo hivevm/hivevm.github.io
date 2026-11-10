@@ -1,12 +1,20 @@
 ---
-# Where the blog post or index used to be; old links redirect here.
+# The facts about a tool live here only (ADR-0008); the home page, /tools/ and the footer read them.
+# Where the blog post used to be; old links redirect here.
 aliases: ["/blog/introducing-comb/"]
 title: "Comb"
 kind: "Node editor"
-weight: 50
+role: build-on
+weight: 60
 tagline: "a node editor built for tens of thousands of nodes"
 description: >-
-  A node-editor framework for the browser that draws on a WebGL2 canvas, computes its geometry in Rust and leaves every form to the application around it.
+  A node-editor framework for the browser, built to stay responsive with tens of thousands of nodes: it draws on a WebGL2 canvas and computes its geometry in Rust.
+lang: Rust
+lang_color: "#dea584"
+license: MIT
+# release | build-from-source | template. No GitHub release, checked 2026-11-10.
+status: build-from-source
+repo: https://github.com/hivevm/comb
 ---
 
 Dataflow pipelines, visual programs and dependency graphs all need the same thing in the browser: an

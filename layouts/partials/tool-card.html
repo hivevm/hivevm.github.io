@@ -1,0 +1,16 @@
+{{- /* One tool on the home page, from its tool page's front matter (ADR-0008). */ -}}
+<article class="card" data-reveal>
+  <h4>{{ .Params.kind }} ({{ .Title }})</h4>
+  <p>{{ .Description }}</p>
+  <div class="meta-row">
+    <span class="lang"><span class="ld" style="background:{{ .Params.lang_color }}"></span>{{ .Params.lang }}</span>
+    <span class="lic">{{ .Params.license }}</span>
+    {{ partial "tool-status.html" . }}
+  </div>
+  <div class="card-links">
+    <a href="{{ .RelPermalink }}" class="gh">Read more <span aria-hidden="true">→</span></a>
+    {{- with .Params.repo }}
+    <a href="{{ . }}" class="gh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
+    {{- end }}
+  </div>
+</article>

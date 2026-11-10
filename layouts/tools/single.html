@@ -7,14 +7,14 @@
       {{- with .Description }}
       <p class="page-lead">{{ . }}</p>
       {{- end }}
-      {{- /* Language, licence and link come from the tool's entry in data/repos.yml, matched by the
-             file name, so they are kept in one place. */}}
-      {{- range first 1 (where hugo.Data.repos "name" .File.ContentBaseName) }}
+      {{- /* Language, licence, status and link come from this page's front matter (ADR-0008). */}}
       <div class="tool-meta">
-        <a href="{{ .url }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        <span>{{ .lang }} · {{ .license }}</span>
+        {{- with .Params.repo }}
+        <a href="{{ . }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        {{- end }}
+        <span>{{ .Params.lang }} · {{ .Params.license }}</span>
+        {{ partial "tool-status.html" . }}
       </div>
-      {{- end }}
     </header>
 
     {{- /* "screenshots" in front matter: files under static/, served from this site (ADR-0007). */}}
