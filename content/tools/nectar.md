@@ -15,6 +15,25 @@ license: BSD-3-Clause
 # release | build-from-source | template. GitHub release nectar-v0.1.1, checked 2026-11-10.
 status: release
 repo: https://github.com/hivevm/nectar
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+example:
+  model:
+    file: manual.md
+    lang: markdown
+    code: |
+      # User Manual
+
+      Published as a **website** and a **PDF**.
+
+      [Getting started](./start.md)
+      [Configuration](./config.md)
+      [Grammar reference](./grammar.md)
+  result:
+    file: terminal
+    lang: console
+    code: |
+      $ nectar build
+      # writes the site, the print view and the PDF to public/
 ---
 
 Projects like to keep their documentation as Markdown in the repository, next to the code. Readers

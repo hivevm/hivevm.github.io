@@ -15,6 +15,25 @@ license: MIT
 # release | build-from-source | template. No GitHub release, checked 2026-11-10.
 status: build-from-source
 repo: https://github.com/hivevm/ocelli
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+# Ocelli reads a repository rather than a model file.
+example:
+  model:
+    file: terminal
+    lang: console
+    code: |
+      $ ocelli-cli
+      # opens the repository in the current directory
+  result:
+    file: commit graph
+    lang: text
+    code: |
+       ● abc1234   main   Fix login bug                    Alice      2024-01-12 14:30
+       ●─┐ def567         Merge feature/oauth into main    Bob        2024-01-11 09:15
+       │ ● ghi890  feat   Add OAuth2 support               Carol      2024-01-10 17:42
+       │ ● jkl012         Refactor auth module             Carol      2024-01-09 11:20
+       ●─┘ mno345         Update dependencies              Alice      2024-01-08 16:05
+       ● pqr678           Initial commit                   Dave       2024-01-01 10:00
 screenshots:
   - src: /assets/tools/ocelli/desktop.png
     width: 2880

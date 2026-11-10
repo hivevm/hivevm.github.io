@@ -15,6 +15,40 @@ license: MIT OR Apache-2.0
 # release | build-from-source | template. No GitHub release, checked 2026-11-10.
 status: build-from-source
 repo: https://github.com/hivevm/forager
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+# The mapfile is crates/cli/tests/fixtures/world.map in the repository.
+example:
+  model:
+    file: world.map
+    lang: text
+    code: |
+      MAP
+        NAME "world"
+        EXTENT -180 -90 180 90
+        SIZE 400 200
+        IMAGECOLOR "#ffffff"
+        PROJECTION
+          "proj=longlat"
+          "datum=WGS84"
+        END
+        WEB
+          METADATA
+            "wms_title" "World"
+          END
+        END
+        INCLUDE "layers/countries.inc"
+      END
+  result:
+    file: terminal
+    lang: console
+    code: |
+      $ forager read world.map --format yaml
+      world.map:11:3: warning [discarded-keyword]: WEB is out of Forager's scope and is discarded
+      layers/countries.inc:6:3: warning [unsupported-keyword]: LABELITEM is not yet supported and is ignored
+      version: "1.0"
+      map:
+        name: world
+        …
 ---
 
 Teams that maintain their cartography as UMN MapServer mapfiles can render it only on a server.

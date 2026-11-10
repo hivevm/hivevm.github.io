@@ -1,0 +1,8 @@
+# The paths under "Get started" on the home page, in order. `tool` is the tool page's file name;
+# the card's text and link come from that page (ADR-0008).
+- label: I work with coding agents
+  tool: nuc
+- label: I need a parser
+  tool: waggle
+- label: I want docs from Markdown
+  tool: nectar

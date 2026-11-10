@@ -46,9 +46,11 @@ page, `/tools/`, the footer and the page's own meta description — will read it
 | `status` | `release`, `build-from-source` or `template`, set from the repository on GitHub |
 | `repo` | Repository URL |
 | `weight` | Order within the site |
+| `example` | The model file and what follows from it, shown under *In action* on the home page |
 
 The roles — label, one-line intro and order — are not facts about one tool and stay in a new data file,
-`data/roles.yml`. `data/features.yml` and `data/repos.yml` and the tool column of `data/footer.yml`
+`data/roles.yml`; so do the paths under *Get started* (`data/start.yml`), which name a tool and take
+everything else from its page. `data/features.yml` and `data/repos.yml` and the tool column of `data/footer.yml`
 are removed. Adding a tool remains a single Markdown file.
 
 ## Alternatives considered

@@ -1,0 +1,27 @@
+<section class="section" id="get-started">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Get started</p>
+      <h2>Model your next <span class="text-gradient">solution</span></h2>
+      <p>Start from a project specification, a grammar or Markdown documentation.</p>
+    </div>
+
+    {{- /* The paths come from data/start.yml; what each card says about the tool comes from its
+           tool page (ADR-0008), and the link leads to that page's "Getting started" section. */}}
+    <div class="paths">
+      {{- range hugo.Data.start }}
+      {{- $label := .label }}
+      {{- with site.GetPage (printf "/tools/%s" .tool) }}
+      <article class="card" data-reveal>
+        <p class="eyebrow">{{ .Params.kind }} ({{ .Title }})</p>
+        <h3>{{ $label }}</h3>
+        <p>{{ .Description }}</p>
+        <div class="card-links">
+          <a href="{{ .RelPermalink }}#getting-started" class="gh">Get started with {{ .Title }} <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</section>

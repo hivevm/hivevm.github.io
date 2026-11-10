@@ -15,6 +15,26 @@ license: MIT
 # release | build-from-source | template. No GitHub release, checked 2026-11-10.
 status: build-from-source
 repo: https://github.com/hivevm/comb
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+example:
+  model:
+    file: graph.ts
+    lang: ts
+    code: |
+      comb.load({
+        nodes: [
+          { id: "a", x: 0, y: 0, width: 220, content: [[{ kind: "text", role: "title", text: "Premium trial users" }]] },
+          { id: "b", x: 320, y: 0, width: 220, content: [[{ kind: "text", role: "title", text: "Time spent listening" }]] },
+        ],
+        edges: [
+          { id: "a-b", source: "a", target: "b", color: 0x22a55b, label: { text: "0.998", t: 0.5, offset: 0 } },
+        ],
+      });
+  result:
+    file: canvas
+    lang: text
+    code: |
+      [TODO: an image of this graph as Comb draws it]
 ---
 
 Dataflow pipelines, visual programs and dependency graphs all need the same thing in the browser: an

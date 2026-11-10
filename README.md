@@ -76,6 +76,7 @@ Most content is **data-driven** — edit YAML and Markdown rather than HTML:
 
 - **Tools:** the front matter of each tool page in [`content/tools/`](content/tools/) (see below); the
   roles they are grouped by are in [`data/roles.yml`](data/roles.yml)
+- **Get started paths:** [`data/start.yml`](data/start.yml), each naming a tool page
 - **Agentic development steps:** [`data/loop.yml`](data/loop.yml)
 - **Prompt, specification and model comparison:** [`data/compare.yml`](data/compare.yml)
 - **Navigation & footer:** [`data/nav.yml`](data/nav.yml), [`data/footer.yml`](data/footer.yml)
@@ -107,6 +108,9 @@ lang_color: "#dea584"
 license: MIT
 status: build-from-source        # release | build-from-source | template, as on GitHub
 repo: https://github.com/hivevm/mytool
+example:                         # optional: shown under "In action" on the home page
+  model:  { file: mytool.conf, lang: text, code: "..." }
+  result: { file: terminal, lang: console, code: "$ mytool build" }
 ---
 
 Your CommonMark content here.

@@ -83,7 +83,7 @@ documentation, and ADRs.
 - **Partial** — a reusable HTML template in [`layouts/partials/`](../layouts/partials/) (e.g. `nav`,
   `footer`, `logo`, and the `home/*` sections) composed into a page.
 - **Data file** — a YAML file in [`data/`](../data/) holding the *content* a section renders
-  (loop, compare, roles, nav, footer); editing it changes the page without touching markup. The
+  (loop, compare, roles, start, nav, footer); editing it changes the page without touching markup. The
   facts about a tool are not data files: they live in its tool page (see
   [ADR-0008](adr/0008-tool-front-matter-single-source.md)).
 - **Tool page** — the description of one tool in [`content/tools/`](../content/tools/), authored in

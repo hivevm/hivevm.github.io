@@ -1,0 +1,45 @@
+<section class="section" id="in-action">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">In action</p>
+      <h2>Definitions that read like the thing they describe</h2>
+      <p>
+        Grammars, documents and specifications are plain declarative files. Each tab shows one on
+        the left and what follows from it on the right.
+      </p>
+    </div>
+
+    {{- /* One tab per tool, from "example" in the tool page's front matter (ADR-0008). Without
+           JavaScript every panel shows, each under its own heading; site.js turns them into tabs. */}}
+    {{- $tools := where (partial "tools.html" .) "Params.example" "!=" nil }}
+    <div class="tabs examples" data-tabs data-reveal>
+      <div class="tabbar">
+        <div class="tablist" role="tablist" aria-label="Examples">
+          {{- range $i, $t := $tools }}
+          <button type="button" id="tab-{{ .File.ContentBaseName }}" role="tab" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+            aria-controls="panel-{{ .File.ContentBaseName }}"{{ if gt $i 0 }} tabindex="-1"{{ end }} class="tab">{{ .Title }}</button>
+          {{- end }}
+        </div>
+      </div>
+
+      {{- range $tools }}
+      {{- $ex := .Params.example }}
+      <div id="panel-{{ .File.ContentBaseName }}" role="tabpanel" aria-labelledby="tab-{{ .File.ContentBaseName }}" class="tabpanel">
+        <h3 class="tab-fallback">{{ .Params.kind }} ({{ .Title }})</h3>
+        <div class="example">
+          {{- range slice $ex.model $ex.result }}
+          <div class="pane">
+            <div class="pane-head"><span class="file">{{ .file }}</span></div>
+            {{ transform.Highlight (strings.TrimSuffix "\n" .code) .lang }}
+          </div>
+          {{- end }}
+        </div>
+        <div class="example-foot">
+          {{- with $ex.note }}<p class="panel-note">{{ . }}</p>{{ end }}
+          <a href="{{ .RelPermalink }}" class="gh">Read more about {{ .Title }} <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>

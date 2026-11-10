@@ -16,6 +16,33 @@ license: MIT
 # releases (v0.9.0), checked 2026-11-10.
 status: template
 repo: https://github.com/hivevm/nuc
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+example:
+  model:
+    file: AGENTS.md
+    lang: markdown
+    code: |
+      # Agent Guide
+
+      Single source of truth for all coding agents.
+
+      ## Start here
+      1. docs/SPECIFICATION.md — the specification
+      2. docs/adr/ — accepted ADRs are binding
+
+      ## ADR rules
+      - Create an ADR before any architecture-relevant change
+      - Set status proposed, then stop and ask for review
+  result:
+    file: docs/adr/0008-tool-front-matter-single-source.md
+    lang: markdown
+    code: |
+      # ADR-0008: Each tool's data lives in the front matter of its tool page
+
+      - **Status:** 🟡 proposed
+      - **Date:** 2026-11-10
+      - **Deciders:** Maintainer
+  note: An ADR an agent proposed for this website. Only humans accept.
 ---
 
 Coding agents write code fast. What they lose just as fast is the *why*: a structural decision made

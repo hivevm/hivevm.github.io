@@ -690,20 +690,7 @@ h1.hero-title em {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.hero-cmd {
-  margin-top: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--fg-2);
-  overflow-wrap: anywhere;
-}
-
-.hero-cmd .pr {
-  user-select: none;
-  color: var(--fg-3);
+  gap: 0.75rem 1.5rem;
 }
 
 /* Hero code panel */
@@ -730,12 +717,6 @@ h1.hero-title em {
   font-family: var(--font-data);
   font-size: var(--fs-small);
   color: var(--fg-3);
-}
-
-.pipe-card .panel-note {
-  margin: 0;
-  padding: 0.75rem 1rem;
-  border-top: 1px solid var(--line-2);
 }
 
 .pane {
@@ -857,25 +838,6 @@ main > section + section {
 .section-head p:not(.eyebrow) {
   margin-top: 1rem;
   max-width: var(--measure);
-  color: var(--fg-2);
-}
-
-/* ── Stack ──────────────────────────────────────────────────── */
-.stack-inner {
-  padding-block: 3rem;
-}
-
-.stack ul {
-  margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2.5rem;
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1.2;
   color: var(--fg-2);
 }
 
@@ -1011,35 +973,6 @@ main > section + section {
   gap: 0.25rem;
 }
 
-/* ── Showcases: text in five columns, its visual in seven ───── */
-.showcase-grid {
-  display: grid;
-  gap: 3rem var(--gap);
-  align-items: start;
-  grid-template-columns: minmax(0, 1fr);
-}
-
-@media (min-width: 1024px) {
-  .showcase-grid {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    column-gap: 3rem;
-  }
-}
-
-ul.points {
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--line-2);
-}
-
-ul.points li {
-  border-top: 1px solid var(--line-2);
-  padding-block: 0.75rem;
-  font-size: 1rem;
-  color: var(--fg-2);
-}
-
 .tabs {
   overflow: hidden;
   border: 1px solid var(--line-2);
@@ -1093,16 +1026,6 @@ ul.points li {
   color: var(--fg);
 }
 
-.tablang {
-  margin-left: 1rem;
-  font-family: var(--font-data);
-  font-size: var(--fs-label);
-  font-weight: 600;
-  letter-spacing: var(--track-label);
-  text-transform: uppercase;
-  color: var(--fg-3);
-}
-
 .tabpanel {
   padding: 1rem;
 }
@@ -1111,95 +1034,89 @@ ul.points li {
   display: none;
 }
 
-/* ── Pipeline / workflow ────────────────────────────────────── */
-.pipe-card {
+/* ── In action: one tab per tool, the model beside its result ──── */
+.examples {
+  margin-top: 3rem;
+}
+
+/* Without JavaScript every panel shows under its own heading and the tab bar is hidden. */
+.tabs:not(.is-ready) .tabbar,
+.tabs.is-ready .tab-fallback {
+  display: none;
+}
+
+.tab-fallback {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.tabs:not(.is-ready) .tabpanel + .tabpanel {
+  border-top: 1px solid var(--line-2);
+}
+
+.example {
+  display: grid;
+  overflow: hidden;
   border: 1px solid var(--line-2);
   border-radius: var(--radius);
-  background: var(--panel);
-  overflow: hidden;
+  background: var(--ink);
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.pipe-head {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: 1px solid var(--line-2);
-  padding: 0.75rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--fg-3);
+@media (min-width: 768px) {
+  .example {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .example .pane + .pane {
+    border-left: 1px solid var(--line-2);
+  }
 }
 
-.pipe-head .status {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--accent-text);
+@media (max-width: 767px) {
+  .example .pane + .pane {
+    border-top: 1px solid var(--line-2);
+  }
 }
 
-.waterfall {
-  padding: 1.25rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.wrow {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr auto;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-.wrow .stg {
-  color: var(--fg-2);
-}
-
-.wrow .track {
-  position: relative;
-  height: 0.5rem;
-  border-radius: 2px;
-  background: var(--track);
-  overflow: hidden;
-}
-
-.wrow .bar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, var(--brand-bright), var(--accent));
-}
-
-.wrow .dur {
-  color: var(--fg-3);
-}
-
-.wrow .tool {
-  color: var(--fg-3);
-  font-size: 0.6875rem;
-  white-space: nowrap;
-}
-
-.logstream {
-  border-top: 1px solid var(--line-2);
+.example .highlight pre {
+  margin: 0;
   padding: 1rem;
   overflow-x: auto;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  line-height: 1.8;
-  white-space: nowrap;
-  color: var(--fg-3);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  background: transparent;
+  color: var(--c-text);
 }
 
-.logstream .lv {
-  color: var(--accent-text);
+.example-foot {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
 }
 
-.logstream .lw {
-  color: var(--brand-bright-text);
+.example-foot .panel-note {
+  margin: 0;
+}
+
+/* ── Get started: three paths ─────────────────────────────── */
+.paths {
+  margin-top: 3rem;
+  display: grid;
+  gap: 3rem var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.paths h3 {
+  margin-top: 0.5rem;
+}
+
+.paths .card > p:not(.eyebrow) {
+  margin-top: 0.75rem;
+  color: var(--fg-2);
 }
 
 /* ── Why a model: comparison table ──────────────────────────── */
@@ -1325,36 +1242,22 @@ ul.points li {
   color: var(--fg);
 }
 
-/* ── CTA ────────────────────────────────────────────────────── */
-.cta {
-  position: relative;
-  overflow: hidden;
+.name-tools {
+  margin-top: 2rem;
+  color: var(--fg-2);
 }
 
-.cta-inner {
-  padding-block: 6rem;
-}
-
-@media (min-width: 768px) {
-  .cta-inner {
-    padding-block: 8rem;
-  }
-}
-
-.cta h2 {
-  max-width: 52rem;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  line-height: 0.95;
-  text-wrap: balance;
-}
-
-.cta p {
-  max-width: 42rem;
-  margin-top: 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.name-tools a,
+.today a {
   color: var(--fg);
-  text-wrap: pretty;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-text);
+  text-underline-offset: 0.2em;
+}
+
+.name-tools a:hover,
+.today a:hover {
+  color: var(--brand-text);
 }
 
 /* ── Footer ─────────────────────────────────────────────────── */
@@ -1905,14 +1808,6 @@ figure.highlight {
     linear-gradient(to bottom, transparent 32%, var(--ink) 80%);
 }
 
-.cta .honeycomb {
-  opacity: 0.42;
-}
-
-.cta .hc-veil {
-  background: linear-gradient(to right, color-mix(in srgb, var(--ink) 92%, transparent) 45%, transparent 85%);
-}
-
 /* On narrow screens the text fills the width, so the veil has to as well. */
 @media (max-width: 767px) {
   .hero .hc-veil {
@@ -1921,37 +1816,11 @@ figure.highlight {
       linear-gradient(to bottom, transparent 32%, var(--ink) 80%);
   }
 
-  .cta .hc-veil {
-    background: color-mix(in srgb, var(--ink) 65%, transparent);
-  }
+  
 }
 
-.hero-inner,
-.cta-inner {
+.hero-inner {
   position: relative;
   z-index: 2;
 }
 
-
-/* ── Single bee accent overlapping the CTA secondary button ── */
-.bee-btn {
-  position: relative;
-  display: inline-flex;
-}
-
-.cta-bee {
-  position: absolute;
-  left: 50%;
-  bottom: 100%;
-  transform: translate(-20%, 70%);  /* ~70% over the button, 30% above the edge; nudged right */
-  width: 58px;
-  height: auto;
-  pointer-events: none;
-  user-select: none;
-  z-index: 3;
-  filter: drop-shadow(0 5px 14px var(--shadow));
-}
-
-@media (max-width: 639px) {
-  .cta-bee { width: 45px; }
-}

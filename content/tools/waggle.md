@@ -16,6 +16,33 @@ license: BSD-3-Clause
 # Plugin Portal (org.hivevm.waggle), checked 2026-11-10.
 status: release
 repo: https://github.com/hivevm/waggle
+# Shown under "In action" on the home page: the model on the left, what follows from it on the right.
+example:
+  model:
+    file: Calc.waggle
+    lang: text
+    code: |
+      grammar Calc;
+
+      Input  = Expr() <EOF> ;
+      Expr   = Term() ( ( <PLUS> | <MINUS> ) Term() )* ;
+      Term   = Factor() ( ( <TIMES> | <DIVIDE> ) Factor() )* ;
+      Factor = <NUMBER> | <LPAREN> Expr() <RPAREN> ;
+
+      SKIP  = " " | "\t" | "\n" | "\r" ;
+      TOKEN =
+        < PLUS: "+" > | < MINUS: "-" >
+      | < TIMES: "*" > | < DIVIDE: "/" >
+      | < LPAREN: "(" > | < RPAREN: ")" >
+      | < NUMBER: (["0"-"9"])+ > ;
+  result:
+    file: terminal
+    lang: console
+    code: |
+      $ ./gradlew generateParser
+      target java → src/main/generated
+      Parser, Lexer, ParserConstants
+  note: A simplified view of a run, not literal output.
 ---
 
 A parser generator reads a grammar and turns it into a program that recognizes it. Waggle generates
@@ -74,7 +101,7 @@ There is no backtracking and no guessing. Because the lookahead is bounded, ever
 constant time, and the parser's worst case is its average case. That predictability makes generated
 parsers pleasant to embed in editors and build tools.
 
-## Using it
+## Getting started
 
 Waggle runs as a Gradle plugin rather than a command line tool. Each `task` in a `parserProject`
 block produces one parser from one grammar, and `./gradlew generateParser` runs them:

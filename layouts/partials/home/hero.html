@@ -21,11 +21,9 @@
 
       <div class="hero-actions">
         <a href="{{ .Params.hero_cta1_href | default "#toolkit" | relURL }}" class="btn btn-primary btn-lg">{{ .Params.hero_cta1 | default "Explore the tools" }}</a>
-        <a href="{{ .Params.hero_cta2_href | default "https://github.com/hivevm" }}" class="btn btn-secondary btn-lg"
-          target="_blank" rel="noopener noreferrer">{{ .Params.hero_cta2 | default "View on GitHub" }}</a>
+        <a href="{{ .Params.hero_cta2_href | default "https://github.com/hivevm" }}" class="gh"
+          target="_blank" rel="noopener noreferrer">{{ .Params.hero_cta2 | default "View on GitHub" }} <span aria-hidden="true">→</span></a>
       </div>
-
-      <p class="hero-cmd"><span class="pr">$</span> {{ .Params.hero_cmd | default "git clone https://github.com/hivevm/waggle" }}</p>
     </div>
 
     <!-- Code + terminal panel (bespoke visual — lives in the template) -->

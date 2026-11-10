@@ -21,5 +21,4 @@ hero_cta1: "Explore the tools"
 hero_cta1_href: "#toolkit"
 hero_cta2: "View on GitHub"
 hero_cta2_href: "https://github.com/hivevm"
-hero_cmd: "git clone https://github.com/hivevm/waggle"
 ---

@@ -15,7 +15,12 @@
         <p class="eyebrow">{{ .num }} · {{ .who }}</p>
         <h3>{{ .title }}</h3>
         <p>{{ .body }}</p>
-        <p class="today"><strong>Today:</strong> {{ .today }}</p>
+        {{- /* Each tool named in "today" links to its tool page. */}}
+        {{- $today := .today }}
+        {{- range partial "tools.html" $ }}
+        {{- $today = replaceRE (printf `\b%s\b` .Title) (printf `<a href="%s">%s</a>` .RelPermalink .Title) $today }}
+        {{- end }}
+        <p class="today"><strong>Today:</strong> {{ $today | safeHTML }}</p>
       </li>
       {{- end -}}
     </ol>

@@ -118,7 +118,10 @@ check_relative_links() {
       if [[ ! -e "$dir/$path_part" ]]; then
         add_error "$rel: broken relative link -> '$target'"
       fi
-    done < <(grep -oE '\[[^]]*\]\([^)]+\)' "$md")
+    # A leading YAML front matter block is data, not Markdown: links inside it (a code example on a
+    # tool page, for instance) are not checked.
+    done < <(awk 'NR == 1 && /^---$/ { fm = 1; next } fm && /^---$/ { fm = 0; next } !fm' "$md" |
+      grep -oE '\[[^]]*\]\([^)]+\)')
   done < <(find "$ROOT" -type f -name '*.md' -not -path '*/.git/*' | sort)
 }
 

@@ -30,5 +30,15 @@
         </p>
       </article>
     </div>
+
+    {{- /* The codenames come from the tool pages (ADR-0008). */}}
+    {{- $names := slice }}
+    {{- range partial "tools.html" . }}
+    {{- $names = $names | append (printf `<a href="%s">%s</a>` .RelPermalink .Title) }}
+    {{- end }}
+    <p class="name-tools" data-reveal>
+      Every tool is named after a part of the hive:
+      {{ delimit $names ", " " and " | safeHTML }}.
+    </p>
   </div>
 </section>

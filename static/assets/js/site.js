@@ -48,6 +48,9 @@
         });
         if (focus) tabs[i].focus();
       };
+      // The server renders every panel, so the examples read without JavaScript; show one at a time.
+      select(Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true')), false);
+      root.classList.add('is-ready');
       tabs.forEach((tab, i) => {
         tab.addEventListener('click', () => select(i, false));
         tab.addEventListener('keydown', (e) => {
