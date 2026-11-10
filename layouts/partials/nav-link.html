@@ -1,0 +1,2 @@
+{{- /* One entry of data/nav.yml; a link to another host opens in a new tab. */ -}}
+<a href="{{ .href | relURL }}"{{ if strings.Contains .href "://" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>

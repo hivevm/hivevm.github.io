@@ -1,8 +1,12 @@
-- label: Home
-  href: /#welcome
+# Main navigation, in order. Anchors on the home page are named like their labels.
+# A link to another host opens in a new tab.
 - label: Vision
-  href: /#direction
+  href: /#vision
 - label: Toolkit
-  href: /#features
+  href: /#toolkit
+- label: Get started
+  href: /#get-started
 - label: Projects
   href: /tools/
+- label: GitHub
+  href: https://github.com/hivevm

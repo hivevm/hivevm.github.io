@@ -501,27 +501,6 @@ header.site {
   gap: 0.625rem;
 }
 
-.nav-right .btn-sm {
-  height: 1.75rem;
-  padding-inline: 0.625rem;
-}
-
-.icon-link {
-  display: none;
-  color: var(--fg-2);
-  transition: color 0.2s var(--ease);
-}
-
-.icon-link svg {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-}
-
-.icon-link:hover {
-  color: var(--fg);
-}
-
 .menu-btn {
   display: inline-flex;
   height: 2.5rem;
@@ -581,18 +560,6 @@ header.site {
   display: flex;
   min-height: 2.75rem;
   align-items: center;
-}
-
-.mobile-menu .divider {
-  margin-top: 0.5rem;
-  border-top: 1px solid var(--line);
-  padding-top: 0.5rem;
-}
-
-@media (min-width: 640px) {
-  .icon-link {
-    display: block;
-  }
 }
 
 @media (min-width: 960px) {

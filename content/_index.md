@@ -18,7 +18,7 @@ hero_sub: >-
   model, generators derive what follows, and you decide what ships. The platform
   may change; the model stays.
 hero_cta1: "Explore the tools"
-hero_cta1_href: "#features"
+hero_cta1_href: "#toolkit"
 hero_cta2: "View on GitHub"
 hero_cta2_href: "https://github.com/hivevm"
 hero_cmd: "git clone https://github.com/hivevm/waggle"
