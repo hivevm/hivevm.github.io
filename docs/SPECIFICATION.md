@@ -71,8 +71,8 @@ documentation, and ADRs.
     a ready-to-use Dev Container, driven by a written specification and ADRs. Named after the beekeeping
     *nucleus colony*, the small starter colony a full hive grows from.
   - **Git Client — Ocelli** (`ocelli`) — views and edits Git repositories through a readable commit
-    graph, on the desktop and in the terminal. Named after the three simple eyes on top of a bee's head,
-    with which it reads light and the horizon at a glance.
+    graph, on the desktop, in the browser and in the terminal. Named after the three simple eyes on top
+    of a bee's head, with which it reads light and the horizon at a glance.
   - **Node Editor — Comb** (`comb`) — a node-editor framework for the browser, built to stay responsive
     with tens of thousands of nodes.
   - **Map Renderer — Forager** (`forager`) — renders UMN MapServer mapfiles with MapServer's styling

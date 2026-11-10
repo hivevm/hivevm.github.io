@@ -137,5 +137,12 @@ Then open <http://127.0.0.1:8000/>.
 ## In HiveVM
 
 *Map once, render anywhere* is HiveVM's idea applied to cartography: the mapfile is the model, and the
-same model renders in the browser and on the server. Forager is built with coding agents on the method
-of NUC, from a written specification and ADRs.
+same model renders in the browser and on the server. It is built from a written specification and
+ADRs, on the method of NUC.
+
+## Why "Forager"?
+
+Foragers are the bees that fly out to find food and bring back where it lies, as a direction and a
+distance the other bees can read. Forager does the same for maps: it takes the cartography a team
+keeps in mapfiles and renders it wherever it is needed, in the browser and on the server.
+*[TODO: draft, awaiting approval]*

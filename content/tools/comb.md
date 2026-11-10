@@ -43,23 +43,6 @@ well until the graph gets large. Then graphs get split up, simplified or shown a
 Comb is an open-source node-editor framework built to stay responsive with tens of thousands of nodes,
 so that large graphs can be edited directly.
 
-## How it stays fast
-
-Comb spends work only on what is visible:
-
-- **Draw only what lies on screen**, and draw like elements together.
-- **Use the GPU.** Nodes, edges, connectors and edge labels are drawn on a WebGL2 canvas with PixiJS.
-- **Move the heavy work out of JavaScript.** Geometry runs in a Rust engine compiled to WebAssembly.
-
-Performance claims have to be earned by measurement. A benchmark drives a graph of 50,000 nodes and
-50,000 edges in a real browser, and it decides whether an optimisation lands. The targets, on a
-mid-range laptop with an integrated GPU:
-
-- **Interaction.** Dragging, panning, zooming and editing draw a frame each refresh of a 60 Hz
-  display, with a p95 frame interval of at most 16.8 ms.
-- **Load.** At most one second until the first frame of that graph is drawn.
-- **Size.** Under 300 kB gzipped for its JavaScript and WebAssembly, without PixiJS.
-
 ## The canvas edits, your application decides
 
 Comb keeps to direct manipulation on the canvas. Every form for a node's attributes stays in your
@@ -91,10 +74,22 @@ comb.onSelectionChange((selection) => console.log(selection)); // fill the sideb
 `onChange` reports every change to the graph, typed by its kind and by who made it, the user or the
 host. Your application always knows what happened.
 
-The boundaries are deliberate. Comb does not run the graph or store it: what a graph means and where
-it lives belong to your application. It also ships no bindings for React, Vue or Svelte. It depends on
-no UI framework, and its public interface is fully typed in TypeScript, so others can build such
-bindings on top.
+## How it stays fast
+
+Comb spends work only on what is visible:
+
+- **Draw only what lies on screen**, and draw like elements together.
+- **Use the GPU.** Nodes, edges, connectors and edge labels are drawn on a WebGL2 canvas with PixiJS.
+- **Move the heavy work out of JavaScript.** Geometry runs in a Rust engine compiled to WebAssembly.
+
+Performance claims have to be earned by measurement. A benchmark drives a graph of 50,000 nodes and
+50,000 edges in a real browser, and it decides whether an optimisation lands. The targets, on a
+mid-range laptop with an integrated GPU:
+
+- **Interaction.** Dragging, panning, zooming and editing draw a frame each refresh of a 60 Hz
+  display, with a p95 frame interval of at most 16.8 ms.
+- **Load.** At most one second until the first frame of that graph is drawn.
+- **Size.** Under 300 kB gzipped for its JavaScript and WebAssembly, without PixiJS.
 
 ## Graph data is untrusted input
 
@@ -107,6 +102,13 @@ A framework that sits inside someone else's application has to behave well there
 - **Typed refusals.** Malformed data, such as a non-finite coordinate or an edge to a missing node, is
   rejected with a typed error that says what was refused, and the graph stays as it was.
 
+## What it leaves out
+
+The boundaries are deliberate. Comb does not run the graph or store it: what a graph means and where
+it lives belong to your application. It also ships no bindings for React, Vue or Svelte. It depends on
+no UI framework, and its public interface is fully typed in TypeScript, so others can build such
+bindings on top.
+
 ## Getting started
 
 Comb has no tagged release yet. To try it, clone the [repository](https://github.com/hivevm/comb), open
@@ -118,3 +120,9 @@ with 50,010 nodes.
 Comb is a library to build on. It follows the same principle as the rest of the family: the graph is
 plain data, and everything on the canvas follows from it. It is built from a written specification
 and ADRs, on the method of NUC.
+
+## Why "Comb"?
+
+The comb is the wall of hexagonal cells that bees build inside the hive, where everything is kept
+and raised. Comb gives a graph the same kind of structure: many small cells, nodes and edges, that
+holds tens of thousands of them and stays easy to work on. *[TODO: draft, awaiting approval]*

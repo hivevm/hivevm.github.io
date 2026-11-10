@@ -101,6 +101,19 @@ There is no backtracking and no guessing. Because the lookahead is bounded, ever
 constant time, and the parser's worst case is its average case. That predictability makes generated
 parsers pleasant to embed in editors and build tools.
 
+## Where it comes from
+
+Waggle started as a fork of JavaCC 7.0.13 and keeps its proven model: `LL(k)` recursive descent, a
+token manager with lexical states, and syntactic and semantic lookahead. What changed is the surface:
+
+- **A simplified, EBNF-like syntax.** Productions read `name = expansion ;`, and a `grammar Name;`
+  line with an `options { … }` block opens the file.
+- **One grammar, one step.** `#Node` annotations replace the separate JJTree pass.
+- **Multiple targets.** The same grammar can be emitted as Java, C++ or Rust.
+
+Because the syntax was redesigned, JavaCC grammars have to be migrated; compatibility is at the level
+of concepts and features, not source.
+
 ## Getting started
 
 Waggle runs as a Gradle plugin rather than a command line tool. Each `task` in a `parserProject`
@@ -108,7 +121,7 @@ block produces one parser from one grammar, and `./gradlew generateParser` runs 
 
 ```groovy
 plugins {
-  id "org.hivevm.waggle" version "1.0.0"
+  id "org.hivevm.waggle" version "1.0.14"
 }
 
 parserProject {
@@ -125,19 +138,6 @@ parserProject {
 Edit the grammar, regenerate, and the parser follows; there is no boilerplate to keep in sync by
 hand. The repository's [tutorials](https://github.com/hivevm/waggle/tree/main/docs/tutorials) build a
 grammar from scratch and cover lookahead, the token manager and error handling.
-
-## Where it comes from
-
-Waggle started as a fork of JavaCC 7.0.13 and keeps its proven model: `LL(k)` recursive descent, a
-token manager with lexical states, and syntactic and semantic lookahead. What changed is the surface:
-
-- **A simplified, EBNF-like syntax.** Productions read `name = expansion ;`, and a `grammar Name;`
-  line with an `options { … }` block opens the file.
-- **One grammar, one step.** `#Node` annotations replace the separate JJTree pass.
-- **Multiple targets.** The same grammar can be emitted as Java, C++ or Rust.
-
-Because the syntax was redesigned, JavaCC grammars have to be migrated; compatibility is at the level
-of concepts and features, not source.
 
 ## In HiveVM
 

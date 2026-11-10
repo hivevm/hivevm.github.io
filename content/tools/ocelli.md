@@ -97,8 +97,7 @@ graph in all three:
 
 Daily Git work should need no shell. From the graph you stage and commit, create and switch branches,
 fetch, pull and push, and merge, rebase, cherry-pick, revert and reset, with their conflicts resolved
-in both front ends. Pull requests, issues and code review stay out of scope, because Ocelli works on
-the repository only.
+in both front ends.
 
 ## Careful by design
 
@@ -117,6 +116,10 @@ The performance targets are just as concrete: on a repository of one million com
 screen should appear within 2 seconds, and scrolling should never wait more than 100 ms for the next
 one.
 
+## What it leaves out
+
+Pull requests, issues and code review stay out of scope, because Ocelli works on the repository only.
+
 ## Getting started
 
 Ocelli has no tagged release yet, so you build it from source; the
@@ -125,7 +128,7 @@ Ocelli has no tagged release yet, so you build it from source; the
 ## In HiveVM
 
 Ocelli is where humans review what agents and generators produced: one view of how the history fits
-together. It is built from a written specification and ADRs, like NUC recommends, and every feature is
+together. It is built from a written specification and ADRs, on the method of NUC. Every feature is
 meant to reach all three front ends.
 
 ## Why "Ocelli"?

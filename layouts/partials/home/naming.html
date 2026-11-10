@@ -34,7 +34,7 @@
     {{- /* The codenames come from the tool pages (ADR-0008). */}}
     {{- $names := slice }}
     {{- range partial "tools.html" . }}
-    {{- $names = $names | append (printf `<a href="%s">%s</a>` .RelPermalink .Title) }}
+    {{- $names = $names | append (printf `<a href="%s#why-%s">%s</a>` .RelPermalink (.Title | anchorize) .Title) }}
     {{- end }}
     <p class="name-tools" data-reveal>
       Every tool is named after a part of the hive:

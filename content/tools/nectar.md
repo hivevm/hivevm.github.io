@@ -83,6 +83,13 @@ manual can stay a folder of small files and still read as one document.
   contents with page numbers, running headers and footnotes.
 - **An EPUB** on request.
 
+## Runs where the documentation is
+
+Nectar ships as a command line for Linux, macOS and Windows; each release attaches builds for all
+three. The core and the renderers keep everything that depends on the host, such as files, threads
+and web requests, behind ports. That keeps them free of the technology behind those effects and lets
+them link for WebAssembly, the basis for previewing and rendering documentation where it is edited.
+
 ## Built to be trusted with your sources
 
 - **Nothing disappears silently.** When the PDF cannot show an element, such as raw HTML, Nectar
@@ -93,12 +100,7 @@ manual can stay a folder of small files and still read as one document.
 - **Nectar stays inside the project.** A link, include or image that points outside the project root
   is not followed; it is reported with file and line.
 
-## Runs where the documentation is
-
-Nectar ships as a command line for Linux, macOS and Windows; each release attaches builds for all
-three. The core and the renderers keep everything that depends on the host, such as files, threads
-and web requests, behind ports. That keeps them free of the technology behind those effects and lets
-them link for WebAssembly, the basis for previewing and rendering documentation where it is edited.
+## What it leaves out
 
 Nectar is deliberately not a general static site generator. It has no blog, no taxonomies and no
 arbitrary content types, and it reads Markdown in its own dialect only.
@@ -112,4 +114,11 @@ project is a complete one to start from.
 ## In HiveVM
 
 For documentation, the Markdown is the model, and the website and the PDF are what follows from it.
-Change the source once and both outputs follow.
+Change the source once and both outputs follow. It is built from a written specification and ADRs, on
+the method of NUC.
+
+## Why "Nectar"?
+
+Bees gather nectar and turn it into honey. Nectar takes the raw material of documentation, plain
+Markdown, and turns it into something finished to read: a website and a PDF from the same source.
+*[TODO: draft, awaiting approval]*
